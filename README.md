@@ -122,18 +122,30 @@ contract MyTest is PRBTest {
 DSTest is incomplete. Some commonly needed assertions, like equality assertions for arrays, `assertEq(bool,bool)` and
 `assertNotEq`, are missing from DSTest. PRBTest fills these gaps, and then some.
 
+<<<<<<< HEAD
 Also, the DSTest testing assertions are not themselves tested. But the PRBTest testing assertions are tested, and in
 fact they are quite thoroughly tested. All other things being equal, this should give you more confidence that your
 tests do what you intend them to do with PRBTest.
+=======
+Additionally, the DSTest testing assertions are not themselves tested. Whereas the PRBTest testing assertions are tested,
+and in fact they are quite thoroughly tested. All other things being equal, this should give you more confidence that your tests do what you intend them to do with PRBTest.
+>>>>>>> 22d435a (feat: initial commit)
 
 ### 2. No Release Versioning
 
 DSTest doesn't version its releases, which makes it difficult to future-proof consumer repos. It's quite easy to
+<<<<<<< HEAD
 to accidentally update your git submodules and thus break your test suites. For some users, this is a [real pain](https://github.com/dapphub/ds-test/issues/32).
 
 PRBTest is versioned via tags and branches and all changes are tracked in a [CHANGELOG](./CHANGELOG.md) file. I maintain redundant branches for each release because git submodules [don't support tags](https://stackoverflow.com/q/1777854/3873510).
 
 I strive to follow the [semver](https://semver.org/) versioning scheme, though I won't do this before the v1.0 release, and it might not always be feasible.
+=======
+to accidentally update your git submodules and thus break your test suites. For some users, this has been a [real pain](https://github.com/dapphub/ds-test/issues/32).
+
+PRBTest is versioned and all changes are tracked in a [CHANGELOG](./CHANGELOG.md) file. In addition, I strive to follow the [semver](https://semver.org/) versioning
+scheme, though this might not always be feasible.
+>>>>>>> 22d435a (feat: initial commit)
 
 ### 3. Path Dependence
 
@@ -206,4 +218,8 @@ These contracts were inspired by or directly modified from the following sources
 [ds-test]: https://github.com/dapphub/ds-test
 [ds-test-plus]: https://github.com/Rari-Capital/solmate/blob/03e425421b24c4f75e4a3209b019b367847b7708/src/test/utils/DSTestPlus.sol
 [forge-std]: https://github.com/foundry-rs/forge-std
+<<<<<<< HEAD
 [forge-std-test]: https://github.com/foundry-rs/forge-std/blob/c19dfd2f2a88a461216b0dd1f4961e1a85dcad46/src/Test.sol
+=======
+[forge-std-test]: https://github.com/foundry-rs/forge-std/blob/efbd3b0fd57edefce908219eac4a051bf928e531/src/Test.sol
+>>>>>>> 22d435a (feat: initial commit)
