@@ -1,7 +1,13 @@
 // SPDX-License-Identifier: MIT
+<<<<<<< HEAD
 pragma solidity >=0.8.0 <0.9.0;
 
 import { Vm } from "./Vm.sol";
+=======
+pragma solidity >=0.8.0;
+
+import { Script } from "forge-std/Script.sol";
+>>>>>>> ef75f3e (feat: initial commit)
 
 import { abs, contains, delta, eq } from "./Helpers.sol";
 

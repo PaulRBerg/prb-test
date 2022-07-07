@@ -204,7 +204,12 @@ Now you can start making changes.
 
 ## Acknowledgements
 
+<<<<<<< HEAD
 These contracts were inspired by or directly modified from the following sources:
+
+=======
+
+> > > > > > > ef75f3e (feat: initial commit)
 
 - [dapphub/ds-test](https://github.com/dapphub/ds-test/)
 - [foundry-rs/forge-std](https://github.com/foundry-rs/forge-std/)
