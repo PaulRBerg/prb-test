@@ -1,0 +1,13 @@
+# Full reference https://github.com/foundry-rs/foundry/tree/master/config
+
+[default]
+auto_detect_solc = false
+fuzz_runs = 256
+libs = ["lib"]
+gas_reports = ["*"]
+optimizer = false
+out = "out"
+solc = "0.8.15"
+src = "src"
+test = "test"
+verbosity = 2
