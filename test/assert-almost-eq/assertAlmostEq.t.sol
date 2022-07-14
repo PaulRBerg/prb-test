@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity >=0.8.0;
+pragma solidity >=0.6.0 <0.9.0;
 
-import { delta } from "../../src/Helpers.sol";
+import { PRBTestHelpers } from "../../src/PRBTestHelpers.sol";
 import { PRBTestTest } from "../PRBTestTest.t.sol";
 
 contract PRBTestTest__AssertAlmostEq is PRBTestTest {
@@ -10,7 +10,7 @@ contract PRBTestTest__AssertAlmostEq is PRBTestTest {
         int256 b,
         uint256 maxDelta
     ) external {
-        vm.assume(delta(a, b) > maxDelta);
+        vm.assume(PRBTestHelpers.delta(a, b) > maxDelta);
 
         vm.expectEmit(false, false, false, true);
         emit Log("Error: a ~= b not satisfied [int256]");
@@ -22,7 +22,7 @@ contract PRBTestTest__AssertAlmostEq is PRBTestTest {
         int256 b,
         uint256 maxDelta
     ) external {
-        vm.assume(delta(a, b) > maxDelta);
+        vm.assume(PRBTestHelpers.delta(a, b) > maxDelta);
 
         vm.expectEmit(false, false, false, true);
         emit LogNamedString("Error", ERR);
@@ -34,7 +34,7 @@ contract PRBTestTest__AssertAlmostEq is PRBTestTest {
         int256 b,
         uint256 maxDelta
     ) external {
-        vm.assume(delta(a, b) <= maxDelta);
+        vm.assume(PRBTestHelpers.delta(a, b) <= maxDelta);
         prbTest._assertAlmostEq(a, b, maxDelta, ERR, EXPECT_PASS);
     }
 
@@ -43,7 +43,7 @@ contract PRBTestTest__AssertAlmostEq is PRBTestTest {
         int256 b,
         uint256 maxDelta
     ) external {
-        vm.assume(delta(a, b) <= maxDelta);
+        vm.assume(PRBTestHelpers.delta(a, b) <= maxDelta);
         prbTest._assertAlmostEq(a, b, maxDelta, EXPECT_PASS);
     }
 
@@ -52,7 +52,7 @@ contract PRBTestTest__AssertAlmostEq is PRBTestTest {
         uint256 b,
         uint256 maxDelta
     ) external {
-        vm.assume(delta(a, b) > maxDelta);
+        vm.assume(PRBTestHelpers.delta(a, b) > maxDelta);
 
         vm.expectEmit(false, false, false, true);
         emit Log("Error: a ~= b not satisfied [uint256]");
@@ -64,7 +64,7 @@ contract PRBTestTest__AssertAlmostEq is PRBTestTest {
         uint256 b,
         uint256 maxDelta
     ) external {
-        vm.assume(delta(a, b) > maxDelta);
+        vm.assume(PRBTestHelpers.delta(a, b) > maxDelta);
 
         vm.expectEmit(false, false, false, true);
         emit LogNamedString("Error", ERR);
@@ -76,7 +76,7 @@ contract PRBTestTest__AssertAlmostEq is PRBTestTest {
         uint256 b,
         uint256 maxDelta
     ) external {
-        vm.assume(delta(a, b) <= maxDelta);
+        vm.assume(PRBTestHelpers.delta(a, b) <= maxDelta);
         prbTest._assertAlmostEq(a, b, maxDelta, ERR, EXPECT_PASS);
     }
 
@@ -85,7 +85,7 @@ contract PRBTestTest__AssertAlmostEq is PRBTestTest {
         uint256 b,
         uint256 maxDelta
     ) external {
-        vm.assume(delta(a, b) <= maxDelta);
+        vm.assume(PRBTestHelpers.delta(a, b) <= maxDelta);
         prbTest._assertAlmostEq(a, b, maxDelta, EXPECT_PASS);
     }
 }

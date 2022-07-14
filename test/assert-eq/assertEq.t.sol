@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity >=0.8.0;
+pragma solidity >=0.6.0 <0.9.0;
 
-import { eq } from "../../src/Helpers.sol";
-
+import { PRBTestHelpers } from "../../src/PRBTestHelpers.sol";
 import { PRBTestTest } from "../PRBTestTest.t.sol";
 
 contract PRBTestTest__AssertEq is PRBTestTest {
@@ -99,7 +98,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
     }
 
     function testAssertEq__Bytes__Fail(bytes memory a, bytes memory b) external {
-        vm.assume(!eq(a, b));
+        vm.assume(!PRBTestHelpers.eq(a, b));
 
         vm.expectEmit(false, false, false, true);
         emit Log("Error: a == b not satisfied [bytes]");
@@ -107,7 +106,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
     }
 
     function testAssertEq__Bytes__Err__Fail(bytes memory a, bytes memory b) external {
-        vm.assume(!eq(a, b));
+        vm.assume(!PRBTestHelpers.eq(a, b));
 
         vm.expectEmit(false, false, false, true);
         emit LogNamedString("Error", ERR);
@@ -115,13 +114,13 @@ contract PRBTestTest__AssertEq is PRBTestTest {
     }
 
     function testAssertEq__Bytes__Err__Pass(bytes memory a, bytes memory b) external {
-        vm.assume(eq(a, b));
+        vm.assume(PRBTestHelpers.eq(a, b));
 
         prbTest._assertEq(a, b, ERR, EXPECT_PASS);
     }
 
     function testAssertEq__Bytes__Pass(bytes memory a, bytes memory b) external {
-        vm.assume(eq(a, b));
+        vm.assume(PRBTestHelpers.eq(a, b));
 
         prbTest._assertEq(a, b, EXPECT_PASS);
     }
@@ -183,7 +182,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
     }
 
     function testAssertEq__String__Fail(string memory a, string memory b) external {
-        vm.assume(!eq(a, b));
+        vm.assume(!PRBTestHelpers.eq(a, b));
 
         vm.expectEmit(false, false, false, true);
         emit Log("Error: a == b not satisfied [string]");
@@ -191,7 +190,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
     }
 
     function testAssertEq__String__Err__Fail(string memory a, string memory b) external {
-        vm.assume(!eq(a, b));
+        vm.assume(!PRBTestHelpers.eq(a, b));
 
         vm.expectEmit(false, false, false, true);
         emit LogNamedString("Error", ERR);
@@ -199,13 +198,13 @@ contract PRBTestTest__AssertEq is PRBTestTest {
     }
 
     function testAssertEq__String__Err__Pass(string memory a, string memory b) external {
-        vm.assume(eq(a, b));
+        vm.assume(PRBTestHelpers.eq(a, b));
 
         prbTest._assertEq(a, b, ERR, EXPECT_PASS);
     }
 
     function testAssertEq__String__Pass(string memory a, string memory b) external {
-        vm.assume(eq(a, b));
+        vm.assume(PRBTestHelpers.eq(a, b));
 
         prbTest._assertEq(a, b, EXPECT_PASS);
     }
@@ -587,7 +586,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
     }
 
     function testAssertEq__StringArray__FailElements(string memory e1) external {
-        vm.assume(!eq(e1, ""));
+        vm.assume(!PRBTestHelpers.eq(e1, ""));
 
         string[] memory a = new string[](3);
         string[] memory b = new string[](3);
@@ -611,7 +610,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
     }
 
     function testAssertEq__StringArray__Err__FailElements(string memory e1) external {
-        vm.assume(!eq(e1, ""));
+        vm.assume(!PRBTestHelpers.eq(e1, ""));
 
         string[] memory a = new string[](3);
         string[] memory b = new string[](3);

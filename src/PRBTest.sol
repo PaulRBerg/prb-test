@@ -1,15 +1,8 @@
 // SPDX-License-Identifier: MIT
-<<<<<<< HEAD
 pragma solidity >=0.8.0 <0.9.0;
 
+import { abs, contains, eq, delta } from "./Helpers.sol";
 import { Vm } from "./Vm.sol";
-=======
-pragma solidity >=0.8.0;
-
-import { Script } from "forge-std/Script.sol";
->>>>>>> ef75f3e (feat: initial commit)
-
-import { abs, contains, delta, eq } from "./Helpers.sol";
 
 /*//////////////////////////////////////////////////////////////////////////
                                     PRBTEST
@@ -56,10 +49,11 @@ contract PRBTest {
     bool public constant IS_TEST = true;
 
     /// @dev The maximum value available in the int256 type.
-    int256 internal constant MAX_INT256 = type(int256).max;
+    int256 internal constant MAX_INT256 = 57896044618658097711785492504343953926634992332820282019728792003956564819967;
 
     /// @dev The maximum value available in the uint256 type.
-    uint256 internal constant MAX_UINT256 = type(uint256).max;
+    uint256 internal constant MAX_UINT256 =
+        115792089237316195423570985008687907853269984665640564039457584007913129639935;
 
     /*//////////////////////////////////////////////////////////////////////////
                                     CHEATCODES
@@ -88,7 +82,7 @@ contract PRBTest {
         }
 
         // If there is HEVM context, load the global variable "failed".
-        if (HEVM_ADDRESS.code.length > 0) {
+        if (hasHEVMContext()) {
             (, bytes memory returndata) = HEVM_ADDRESS.call(
                 abi.encodePacked(
                     bytes4(keccak256("load(address,bytes32)")),
@@ -107,7 +101,7 @@ contract PRBTest {
     /// assertions in one test function while also preserving emitted events.
     function fail() internal {
         // If there is no HEVM context, stop here.
-        if (HEVM_ADDRESS.code.length == 0) {
+        if (!hasHEVMContext()) {
             return;
         }
 
@@ -130,6 +124,15 @@ contract PRBTest {
     function fail(string memory err) internal {
         emit LogNamedString("Error", err);
         fail();
+    }
+
+    /// @dev Checks if there's any code at the HEVM address.
+    function hasHEVMContext() internal view returns (bool) {
+        uint256 hevmCodeSize = 0;
+        assembly {
+            hevmCodeSize := extcodesize(HEVM_ADDRESS)
+        }
+        return hevmCodeSize > 0;
     }
 
     /*//////////////////////////////////////////////////////////////////////////
@@ -828,7 +831,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that the absolute diference between `a and `b` is less than or equal to `delta`.
+    /// @dev Tests that the absolute diference between `a and `b` is less than or equal to `delta(`.
     /// If it is not, the test fails with the error message `err`.
     function assertAlmostEq(
         uint256 a,

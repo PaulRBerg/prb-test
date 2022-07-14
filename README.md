@@ -16,7 +16,7 @@ PRBTest is a modern collection of testing assertions and logging utilities for S
 - Versioned releases so that you don't accidentally pull the latest version and break your test suites
 - Meant to be used with Foundry, but can also be used with Hardhat
 - Complementary to Forge Std
-- Designed for Solidity >=0.8.0
+- Designed for Solidity >=0.6.0 <0.9.0;
 - Thoroughly tested
 
 ## Install
@@ -60,7 +60,7 @@ comes with a pre-instantiated [cheatcodes](https://book.getfoundry.sh/cheatcodes
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity >=0.8.0;
+pragma solidity >=0.8.15;
 
 import { PRBTest } from "@prb/test/PRBTest";
 
@@ -97,7 +97,7 @@ PRBTest can be used alongside all testing utilities from [forge-std][forge-std],
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity >=0.8.0;
+pragma solidity >=0.8.15;
 
 import { PRBTest } from "@prb/test/PRBTest.sol";
 import { stdError } from "forge-std/Test.sol";
