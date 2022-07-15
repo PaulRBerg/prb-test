@@ -2,7 +2,6 @@
 .yarn/
 **/broadcast
 **/cache
-**/lib
 **/out
 **/node_modules
 
