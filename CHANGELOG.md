@@ -16,4 +16,5 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 
 - First release (@paulrberg)
 
+[0.1.1]: https://github.com/paulrberg/prb-test/releases/tag/v0.1.1
 [0.1.0]: https://github.com/paulrberg/prb-test/releases/tag/v0.1.0
