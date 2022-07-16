@@ -54,9 +54,9 @@ npm install @prb/test
 
 ## Usage
 
-Once installed, all you need to do is import the `PRBTest` contract and inherit from it in your test contract. `PRBTest`
-comes with a pre-instantiated [cheatcodes](https://book.getfoundry.sh/cheatcodes/) environment accessible via the
-`vm` property. It also has support for logs.
+Once installed, all you need to do is import `PRBTest` and inherit from it in your test contract. `PRBTest` comes with a
+pre-instantiated [cheatcodes](https://book.getfoundry.sh/cheatcodes/) environment accessible via the `vm` property. It
+also has support for logs.
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
