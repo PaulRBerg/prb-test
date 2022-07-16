@@ -122,18 +122,18 @@ contract MyTest is PRBTest {
 DSTest is incomplete. Some commonly needed assertions, like equality assertions for arrays, `assertEq(bool,bool)` and
 `assertNotEq`, are missing from DSTest. PRBTest fills these gaps, and then some.
 
-Also, the DSTest testing assertions are not themselves tested. But the PRBTest testing assertions are tested, and in
+Also, the DSTest testing assertions are not themselves tested. Whereas the PRBTest testing assertions are tested, and in
 fact they are quite thoroughly tested. All other things being equal, this should give you more confidence that your
-tests do what you intend them to do with PRBTest.
+tests do what you intend them to do.
 
 ### 2. No Release Versioning
 
 DSTest doesn't version its releases, which makes it difficult to future-proof consumer repos. It's quite easy to
-to accidentally update your git submodules and thus break your test suites. For some users, this is a [real pain](https://github.com/dapphub/ds-test/issues/32).
+to accidentally update your git submodules and thus break your test suites. For [some users](https://github.com/dapphub/ds-test/issues/32), this is a real pain.
 
 PRBTest is versioned via tags and branches and all changes are tracked in a [CHANGELOG](./CHANGELOG.md) file. I maintain redundant branches for each release because git submodules [don't support tags](https://stackoverflow.com/q/1777854/3873510).
 
-I strive to follow the [semver](https://semver.org/) versioning scheme, though I won't do this before the v1.0 release, and it might not always be feasible.
+I will strive to follow the [semver](https://semver.org/) versioning scheme, though I won't do this before the v1.0 release, and it might not always be feasible.
 
 ### 3. Path Dependence
 
@@ -145,13 +145,13 @@ As one of the maintainers of DSTest said [here](https://github.com/dapphub/ds-te
 So any significant change in DSTest might wreak havoc downstream.
 
 This issue has led to a "balkanization" of DSTest forks and extensions. See, for instance, Solmate's [DSTestPlus][ds-test-plus] and Forge Std's
-[Test][forge-std-test] contracts. Also, as a case in point, see the discussions in this [PR](https://github.com/foundry-rs/forge-std/pull/38), in which the PR
+[Test][forge-std-test]. Also see the discussions in this [PR](https://github.com/foundry-rs/forge-std/pull/38), in which the PR
 author ended up making the PR against `forge-std` rather than `ds-test` because he feared that his PR won't be merged in
 the latter.
 
 ### 4. Lack of Backward Compatibility with Node.js
 
-It's my firm conviction that Foundry is the future of Ethereum smart contract development. Solidity code is best tested in Solidity itself.
+It i my firm conviction that Foundry is the future of Ethereum smart contract development. Solidity code is best tested in Solidity itself.
 
 But, due to various historical reasons, the Ethereum ecosystem has for a long time relied upon JavaScript for testing smart contracts.
 Refactoring a code base from Hardhat or Truffle to Foundry takes time, and it may not always be possible to do it in one
