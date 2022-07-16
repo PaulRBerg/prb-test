@@ -1,6 +1,6 @@
 # Full reference https://github.com/foundry-rs/foundry/tree/master/config
 
-[default]
+[profile.default]
 auto_detect_solc = false
 fuzz_runs = 256
 libs = ["lib"]
