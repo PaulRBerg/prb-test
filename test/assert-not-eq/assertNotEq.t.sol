@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.0;
 
-import { eq } from "../../src/Helpers.sol";
+import "../../src/Helpers.sol";
 import { PRBTestTest } from "../PRBTestTest.t.sol";
 
 contract PRBTestTest__AssertNotEq is PRBTestTest {
