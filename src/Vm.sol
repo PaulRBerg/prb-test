@@ -1,4 +1,4 @@
-/// @dev SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <0.9.0;
 
 /// @dev An EVM interpreter written with testing and debugging in mind. This is usually either HEVM or REVM.
