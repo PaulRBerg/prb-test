@@ -11,3 +11,6 @@ solc = "0.8.15"
 src = "src"
 test = "test"
 verbosity = 2
+
+[profile.ci]
+verbosity = 4
