@@ -52,6 +52,11 @@ yarn add @prb/test
 npm install @prb/test
 ```
 
+### Template
+
+If you're starting a project from scratch, the easiest way to install PRBTest is to use my [Foundry
+template][my-foundry-template], since it comes pre-configured with PRBTest.
+
 ## Usage
 
 Once installed, all you need to do is import `PRBTest` and inherit from it in your test contract. `PRBTest` comes with a
@@ -207,3 +212,4 @@ These contracts were inspired by or directly modified from the following sources
 [ds-test-plus]: https://github.com/Rari-Capital/solmate/blob/03e425421b24c4f75e4a3209b019b367847b7708/src/test/utils/DSTestPlus.sol
 [forge-std]: https://github.com/foundry-rs/forge-std
 [forge-std-test]: https://github.com/foundry-rs/forge-std/blob/c19dfd2f2a88a461216b0dd1f4961e1a85dcad46/src/Test.sol
+[my-foundry-template]: https://github.com/paulrberg/foundry-template
