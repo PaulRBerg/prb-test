@@ -13,4 +13,5 @@ test = "test"
 verbosity = 2
 
 [profile.ci]
+fuzz_runs = 1_000
 verbosity = 4
