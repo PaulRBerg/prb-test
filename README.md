@@ -67,7 +67,7 @@ also has support for logs.
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.0;
 
-import { PRBTest } from "@prb/test/PRBTest";
+import { PRBTest } from "@prb/test/PRBTest.sol";
 
 contract MyTest is PRBTest {
   function testExample() external {
