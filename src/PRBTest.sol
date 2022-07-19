@@ -59,7 +59,7 @@ contract PRBTest {
     //////////////////////////////////////////////////////////////////////////*/
 
     /// @dev The address of the HEVM contract.
-    address internal constant HEVM_ADDRESS = address(bytes20(uint160(uint256(keccak256("hevm cheat code")))));
+    address internal constant HEVM_ADDRESS = address(uint160(uint256(keccak256("hevm cheat code"))));
 
     /// @dev An instance of the HEVM.
     Vm internal constant vm = Vm(HEVM_ADDRESS);
