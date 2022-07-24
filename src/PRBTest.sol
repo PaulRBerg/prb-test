@@ -46,7 +46,9 @@ contract PRBTest {
     //////////////////////////////////////////////////////////////////////////*/
 
     /// @dev A flag to indicate that this is a test contract.
-    bool public constant IS_TEST = true;
+    function IS_TEST() external pure virtual returns (bool) {
+        return true;
+    }
 
     /// @dev The maximum value available in the int256 type.
     int256 internal constant MAX_INT256 = type(int256).max;
