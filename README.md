@@ -9,7 +9,8 @@
 [license]: https://opensource.org/licenses/MIT
 [license-badge]: https://img.shields.io/badge/License-MIT-blue.svg
 
-PRBTest is a modern collection of testing assertions and logging utilities for Solidity, and is meant to be a drop-in replacement for DSTest.
+PRBTest is a modern collection of testing assertions and logging utilities for Solidity, and is meant to be a drop-in
+replacement for DSTest.
 
 - Feature-packed: assertions for equalities, inequalities, approximate equalities, numerical comparisons, and more
 - Type-rich: every assertion has overloads for `address`, `bytes`, `bytes32`, `int256`, `string` and `uint256`
@@ -98,7 +99,8 @@ All assertions have overloads with an additional `err` argument, so that you can
 
 ### Forge Std
 
-PRBTest can be used alongside all testing utilities from [forge-std][forge-std], except for their [Test][forge-std-test] contract.
+PRBTest can be used alongside all testing utilities from [forge-std][forge-std], except for their [Test][forge-std-test]
+contract.
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -120,7 +122,8 @@ contract MyTest is PRBTest {
 
 ## Why Choose PRBTest Over DSTest?
 
-[DSTest][ds-test] is great. I have myself used it for a while, and I like it a lot. But, with time, I slowly came to realize that there's a lot of room for improvement.
+[DSTest][ds-test] is great. I have myself used it for a while, and I like it a lot. But, with time, I slowly came to
+realize that there's a lot of room for improvement.
 
 ### 1. Missing Features and Tests
 
@@ -133,40 +136,48 @@ tests do what you intend them to do.
 
 ### 2. No Release Versioning
 
-DSTest doesn't version its releases, which makes it difficult to future-proof consumer repos. It's quite easy to
-to accidentally update your git submodules and thus break your test suites. For [some users](https://github.com/dapphub/ds-test/issues/32), this is a real pain.
+DSTest doesn't version its releases, which makes it difficult to future-proof consumer repos. It's quite easy to to
+accidentally update your git submodules and thus break your test suites. For
+[some users](https://github.com/dapphub/ds-test/issues/32), this is a real pain.
 
-PRBTest is versioned via tags and branches and all changes are tracked in a [CHANGELOG](./CHANGELOG.md) file. I maintain redundant branches for each release because git submodules [don't support tags](https://stackoverflow.com/q/1777854/3873510).
+PRBTest is versioned via tags and branches and all changes are tracked in a [CHANGELOG](./CHANGELOG.md) file. I maintain
+redundant branches for each release because git submodules
+[don't support tags](https://stackoverflow.com/q/1777854/3873510).
 
-I will strive to follow the [semver](https://semver.org/) versioning scheme, though I won't do this before the v1.0 release, and it might not always be feasible.
+I will strive to follow the [semver](https://semver.org/) versioning scheme, though I won't do this before the v1.0
+release, and it might not always be feasible.
 
 ### 3. Path Dependence
 
-As one of the maintainers of DSTest said [here](https://github.com/dapphub/ds-test/pull/21#issuecomment-903668033), updating DSTest is painful to orchestrate. The reasons for this are twofold:
+As one of the maintainers of DSTest said [here](https://github.com/dapphub/ds-test/pull/21#issuecomment-903668033),
+updating DSTest is painful to orchestrate. The reasons for this are twofold:
 
 1. Every DappTools project uses it as a git submodule.
 2. DSTest releases have not been versioned.
 
 So any significant change in DSTest might wreak havoc downstream.
 
-This issue has led to a "balkanization" of DSTest forks and extensions. See, for instance, Solmate's [DSTestPlus][ds-test-plus] and Forge Std's
-[Test][forge-std-test]. Also see the discussions in this [PR](https://github.com/foundry-rs/forge-std/pull/38), in which the PR
-author ended up making the PR against `forge-std` rather than `ds-test` because he feared that his PR won't be merged in
-the latter.
+This issue has led to a "balkanization" of DSTest forks and extensions. See, for instance, Solmate's
+[DSTestPlus][ds-test-plus] and Forge Std's [Test][forge-std-test]. Also see the discussions in this
+[PR](https://github.com/foundry-rs/forge-std/pull/38), in which the PR author ended up making the PR against `forge-std`
+rather than `ds-test` because he feared that his PR won't be merged in the latter.
 
 ### 4. Lack of Backward Compatibility with Node.js
 
-It is my firm conviction that Foundry is the future of Ethereum smart contract development. Solidity code is best tested in Solidity itself.
+It is my firm conviction that Foundry is the future of Ethereum smart contract development. Solidity code is best tested
+in Solidity itself.
 
-But, due to various historical reasons, the Ethereum ecosystem has for a long time relied upon JavaScript for testing smart contracts.
-Refactoring a code base from Hardhat or Truffle to Foundry takes time, and it may not always be possible to do it in one
-fell swoop. Thus, to ensure backwards compatibility, PRBTest is available as a [Node.js package](#node-js) in the npm package registry.
+But, due to various historical reasons, the Ethereum ecosystem has for a long time relied upon JavaScript for testing
+smart contracts. Refactoring a code base from Hardhat or Truffle to Foundry takes time, and it may not always be
+possible to do it in one fell swoop. Thus, to ensure backwards compatibility, PRBTest is available as a
+[Node.js package](#node-js) in the npm package registry.
 
 For more details about this, see this discussion [here](https://github.com/dapphub/ds-test/issues/35).
 
 ## Contributing
 
-Feel free to dive in! [Open](https://github.com/paulrberb/prb-test/issues/new) an issue, [start](https://github.com/paulrberb/prb-test/discussions/new) a discussion or submit a PR.
+Feel free to dive in! [Open](https://github.com/paulrberb/prb-test/issues/new) an issue,
+[start](https://github.com/paulrberb/prb-test/discussions/new) a discussion or submit a PR.
 
 ### Pre Requisites
 
@@ -209,7 +220,8 @@ These contracts were inspired by or directly modified from the following sources
 <!-- Links -->
 
 [ds-test]: https://github.com/dapphub/ds-test
-[ds-test-plus]: https://github.com/Rari-Capital/solmate/blob/03e425421b24c4f75e4a3209b019b367847b7708/src/test/utils/DSTestPlus.sol
+[ds-test-plus]:
+  https://github.com/Rari-Capital/solmate/blob/03e425421b24c4f75e4a3209b019b367847b7708/src/test/utils/DSTestPlus.sol
 [forge-std]: https://github.com/foundry-rs/forge-std
 [forge-std-test]: https://github.com/foundry-rs/forge-std/blob/c19dfd2f2a88a461216b0dd1f4961e1a85dcad46/src/Test.sol
 [my-foundry-template]: https://github.com/paulrberg/foundry-template
