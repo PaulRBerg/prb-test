@@ -9,18 +9,16 @@ contract PRBTestTest__AssertNotEq is PRBTestTest {
                                     BASIC TYPES
     //////////////////////////////////////////////////////////////////////////*/
 
-    function testAssertNotEq__Address__Fail(address a, address b) external {
-        vm.assume(a == b);
+    function testAssertNotEq__Address__Fail(address a) external {
         vm.expectEmit(false, false, false, true);
         emit Log("Error: a != b not satisfied [address]");
-        prbTest._assertNotEq(a, b, EXPECT_FAIL);
+        prbTest._assertNotEq(a, a, EXPECT_FAIL);
     }
 
-    function testAssertNotEq__Address__Err__Fail(address a, address b) external {
-        vm.assume(a == b);
+    function testAssertNotEq__Address__Err__Fail(address a) external {
         vm.expectEmit(false, false, false, true);
         emit LogNamedString("Error", ERR);
-        prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
+        prbTest._assertNotEq(a, a, ERR, EXPECT_FAIL);
     }
 
     function testAssertNotEq__Address__Err__Pass(address a, address b) external {
@@ -185,20 +183,16 @@ contract PRBTestTest__AssertNotEq is PRBTestTest {
         prbTest._assertNotEq(a, b, EXPECT_PASS);
     }
 
-    function testAssertNotEq__Bytes32__Fail(bytes32 a, bytes32 b) external {
-        vm.assume(a == b);
-
+    function testAssertNotEq__Bytes32__Fail(bytes32 a) external {
         vm.expectEmit(false, false, false, true);
         emit Log("Error: a != b not satisfied [bytes32]");
-        prbTest._assertNotEq(a, b, EXPECT_FAIL);
+        prbTest._assertNotEq(a, a, EXPECT_FAIL);
     }
 
-    function testAssertNotEq__Bytes32__Err__Fail(bytes32 a, bytes32 b) external {
-        vm.assume(a == b);
-
+    function testAssertNotEq__Bytes32__Err__Fail(bytes32 a) external {
         vm.expectEmit(false, false, false, true);
         emit LogNamedString("Error", ERR);
-        prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
+        prbTest._assertNotEq(a, a, ERR, EXPECT_FAIL);
     }
 
     function testAssertNotEq__Bytes32__Err__Pass(bytes32 a, bytes32 b) external {
@@ -213,18 +207,16 @@ contract PRBTestTest__AssertNotEq is PRBTestTest {
         prbTest._assertNotEq(a, b, EXPECT_PASS);
     }
 
-    function testAssertNotEq__Int256__Fail(int256 a, int256 b) external {
-        vm.assume(a == b);
+    function testAssertNotEq__Int256__Fail(int256 a) external {
         vm.expectEmit(false, false, false, true);
         emit Log("Error: a != b not satisfied [int256]");
-        prbTest._assertNotEq(a, b, EXPECT_FAIL);
+        prbTest._assertNotEq(a, a, EXPECT_FAIL);
     }
 
-    function testAssertNotEq__Int256__Err__Fail(int256 a, int256 b) external {
-        vm.assume(a == b);
+    function testAssertNotEq__Int256__Err__Fail(int256 a) external {
         vm.expectEmit(false, false, false, true);
         emit LogNamedString("Error", ERR);
-        prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
+        prbTest._assertNotEq(a, a, ERR, EXPECT_FAIL);
     }
 
     function testAssertNotEq__Int256__Err__Pass(int256 a, int256 b) external {
@@ -237,18 +229,16 @@ contract PRBTestTest__AssertNotEq is PRBTestTest {
         prbTest._assertNotEq(a, b, EXPECT_PASS);
     }
 
-    function testAssertNotEq__Uint256__Fail(uint256 a, uint256 b) external {
-        vm.assume(a == b);
+    function testAssertNotEq__Uint256__Fail(uint256 a) external {
         vm.expectEmit(false, false, false, true);
         emit Log("Error: a != b not satisfied [uint256]");
-        prbTest._assertNotEq(a, b, EXPECT_FAIL);
+        prbTest._assertNotEq(a, a, EXPECT_FAIL);
     }
 
-    function testAssertNotEq__Uint256__Err__Fail(uint256 a, uint256 b) external {
-        vm.assume(a == b);
+    function testAssertNotEq__Uint256__Err__Fail(uint256 a) external {
         vm.expectEmit(false, false, false, true);
         emit LogNamedString("Error", ERR);
-        prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
+        prbTest._assertNotEq(a, a, ERR, EXPECT_FAIL);
     }
 
     function testAssertNotEq__Uint256__Err__Pass(uint256 a, uint256 b) external {

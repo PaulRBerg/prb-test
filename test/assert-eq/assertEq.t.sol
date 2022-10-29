@@ -26,16 +26,12 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function testAssertEq__Address__Err__Pass(address a, address b) external {
-        vm.assume(a == b);
-
-        prbTest._assertEq(a, b, ERR, EXPECT_PASS);
+    function testAssertEq__Address__Err__Pass(address a) external {
+        prbTest._assertEq(a, a, ERR, EXPECT_PASS);
     }
 
-    function testAssertEq__Address__Pass(address a, address b) external {
-        vm.assume(a == b);
-
-        prbTest._assertEq(a, b, EXPECT_PASS);
+    function testAssertEq__Address__Pass(address a) external {
+        prbTest._assertEq(a, a, EXPECT_PASS);
     }
 
     function testAssertEq__Bool__Fail() external {
@@ -114,16 +110,12 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function testAssertEq__Bytes__Err__Pass(bytes memory a, bytes memory b) external {
-        vm.assume(eq(a, b));
-
-        prbTest._assertEq(a, b, ERR, EXPECT_PASS);
+    function testAssertEq__Bytes__Err__Pass(bytes memory a) external {
+        prbTest._assertEq(a, a, ERR, EXPECT_PASS);
     }
 
-    function testAssertEq__Bytes__Pass(bytes memory a, bytes memory b) external {
-        vm.assume(eq(a, b));
-
-        prbTest._assertEq(a, b, EXPECT_PASS);
+    function testAssertEq__Bytes__Pass(bytes memory a) external {
+        prbTest._assertEq(a, a, EXPECT_PASS);
     }
 
     function testAssertEq__Bytes32__Fail(bytes32 a, bytes32 b) external {
@@ -142,16 +134,12 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function testAssertEq__Bytes32__Err__Pass(bytes32 a, bytes32 b) external {
-        vm.assume(a == b);
-
-        prbTest._assertEq(a, b, ERR, EXPECT_PASS);
+    function testAssertEq__Bytes32__Err__Pass(bytes32 a) external {
+        prbTest._assertEq(a, a, ERR, EXPECT_PASS);
     }
 
-    function testAssertEq__Bytes32__Pass(bytes32 a, bytes32 b) external {
-        vm.assume(a == b);
-
-        prbTest._assertEq(a, b, EXPECT_PASS);
+    function testAssertEq__Bytes32__Pass(bytes32 a) external {
+        prbTest._assertEq(a, a, EXPECT_PASS);
     }
 
     function testAssertEq__Int256__Fail(int256 a, int256 b) external {
@@ -170,16 +158,12 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function testAssertEq__Int256__Err__Pass(int256 a, int256 b) external {
-        vm.assume(a == b);
-
-        prbTest._assertEq(a, b, ERR, EXPECT_PASS);
+    function testAssertEq__Int256__Err__Pass(int256 a) external {
+        prbTest._assertEq(a, a, ERR, EXPECT_PASS);
     }
 
-    function testAssertEq__Int256__Pass(int256 a, int256 b) external {
-        vm.assume(a == b);
-
-        prbTest._assertEq(a, b, EXPECT_PASS);
+    function testAssertEq__Int256__Pass(int256 a) external {
+        prbTest._assertEq(a, a, EXPECT_PASS);
     }
 
     function testAssertEq__String__Fail(string memory a, string memory b) external {
@@ -198,16 +182,12 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function testAssertEq__String__Err__Pass(string memory a, string memory b) external {
-        vm.assume(eq(a, b));
-
-        prbTest._assertEq(a, b, ERR, EXPECT_PASS);
+    function testAssertEq__String__Err__Pass(string memory a) external {
+        prbTest._assertEq(a, a, ERR, EXPECT_PASS);
     }
 
-    function testAssertEq__String__Pass(string memory a, string memory b) external {
-        vm.assume(eq(a, b));
-
-        prbTest._assertEq(a, b, EXPECT_PASS);
+    function testAssertEq__String__Pass(string memory a) external {
+        prbTest._assertEq(a, a, EXPECT_PASS);
     }
 
     function testAssertEq__Uint256__Fail(uint256 a, uint256 b) external {
@@ -226,16 +206,12 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function testAssertEq__Uint256__Err__Pass(uint256 a, uint256 b) external {
-        vm.assume(a == b);
-
-        prbTest._assertEq(a, b, ERR, EXPECT_PASS);
+    function testAssertEq__Uint256__Err__Pass(uint256 a) external {
+        prbTest._assertEq(a, a, ERR, EXPECT_PASS);
     }
 
-    function testAssertEq__Uint256__Pass(uint256 a, uint256 b) external {
-        vm.assume(a == b);
-
-        prbTest._assertEq(a, b, EXPECT_PASS);
+    function testAssertEq__Uint256__Pass(uint256 a) external {
+        prbTest._assertEq(a, a, EXPECT_PASS);
     }
 
     /*//////////////////////////////////////////////////////////////////////////
