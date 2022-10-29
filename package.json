@@ -10,9 +10,9 @@
     "url": "https://github.com/paulrberg/prb-test/issues"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.0.3",
-    "@commitlint/config-conventional": "^17.0.3",
-    "commitizen": "^4.2.4",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "commitizen": "^4.2.5",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
