@@ -2,7 +2,7 @@
 
 [profile.default]
 auto_detect_solc = false
-fuzz_runs = 256
+fuzz = { runs = 256 }
 libs = ["lib"]
 gas_reports = ["*"]
 optimizer = false
@@ -13,5 +13,5 @@ test = "test"
 verbosity = 2
 
 [profile.ci]
-fuzz_runs = 1_000
+fuzz = { runs = 1_000 }
 verbosity = 4
