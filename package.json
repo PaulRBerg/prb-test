@@ -19,6 +19,7 @@
     "pinst": "^3.0.0",
     "prettier": "^2.7.1",
     "prettier-plugin-solidity": "^1.0.0-dev.22",
+    "rimraf": "^3.0.2",
     "solhint": "^3.3.7",
     "solhint-plugin-prettier": "^0.0.5"
   },
@@ -46,6 +47,7 @@
     "url": "https://github.com/paulrberg/prb-test"
   },
   "scripts": {
+    "clean": "rimraf cache out",
     "lint": "solhint \"{src,test}/**/*.sol\"",
     "postinstall": "husky install",
     "postpublish": "pinst --enable",
