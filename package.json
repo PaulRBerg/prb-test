@@ -48,7 +48,8 @@
   },
   "scripts": {
     "clean": "rimraf cache out",
-    "lint": "solhint \"{src,test}/**/*.sol\"",
+    "lint": "yarn lint:sol && yarn prettier:check",
+    "lint:sol": "solhint \"{src,test}/**/*.sol\"",
     "postinstall": "husky install",
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable",
