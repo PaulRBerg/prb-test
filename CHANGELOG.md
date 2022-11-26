@@ -11,10 +11,6 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 
 ## [0.1.3] - 2022-10-29
 
-### Added
-
-- Add more information in README (@paulrberg)
-
 ### Changed
 
 - Fix typos in README (@jordaniza, @paulrberg)
@@ -22,6 +18,10 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 - Make `IS_TEST` virtual (@paulrberg)
 - Remove superfluous `bytes20` cast (@paulrberg)
 - Update fuzzing configuration in `foundry.toml` (@paulrberg)
+
+### Added
+
+- Add more information in README (@paulrberg)
 
 ## [0.1.2] - 2022-07-17
 
