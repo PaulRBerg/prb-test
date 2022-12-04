@@ -169,8 +169,8 @@ in Solidity itself.
 
 But, due to various historical reasons, the Ethereum ecosystem has for a long time relied upon JavaScript for testing
 smart contracts. Refactoring a code base from Hardhat or Truffle to Foundry takes time, and it may not always be
-possible to do it in one fell swoop. Thus, to ensure backwards compatibility, PRBTest is available as a
-[Node.js package](#node-js) in the npm package registry.
+possible to do it in one fell swoop. Thus, to ensure backwards compatibility, PRBTest is available as a Node.js package
+in the npm package registry.
 
 For more details about this, see this discussion [here](https://github.com/dapphub/ds-test/issues/35).
 
