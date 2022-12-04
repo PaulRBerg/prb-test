@@ -268,11 +268,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function testAssertEq__AddressArray__Err__Pass(
-        address e0,
-        address e1,
-        address e2
-    ) external {
+    function testAssertEq__AddressArray__Err__Pass(address e0, address e1, address e2) external {
         address[] memory a = new address[](3);
         a[0] = e0;
         a[1] = e1;
@@ -286,11 +282,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_PASS);
     }
 
-    function testAssertEq__AddressArray__Pass(
-        address e0,
-        address e1,
-        address e2
-    ) external {
+    function testAssertEq__AddressArray__Pass(address e0, address e1, address e2) external {
         address[] memory a = new address[](3);
         a[0] = e0;
         a[1] = e1;
@@ -440,11 +432,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function testAssertEq__Bytes32Array__Err__Pass(
-        bytes32 e0,
-        bytes32 e1,
-        bytes32 e2
-    ) external {
+    function testAssertEq__Bytes32Array__Err__Pass(bytes32 e0, bytes32 e1, bytes32 e2) external {
         bytes32[] memory a = new bytes32[](3);
         a[0] = e0;
         a[1] = e1;
@@ -458,11 +446,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_PASS);
     }
 
-    function testAssertEq__Bytes32Array__Pass(
-        bytes32 e0,
-        bytes32 e1,
-        bytes32 e2
-    ) external {
+    function testAssertEq__Bytes32Array__Pass(bytes32 e0, bytes32 e1, bytes32 e2) external {
         bytes32[] memory a = new bytes32[](3);
         a[0] = e0;
         a[1] = e1;
@@ -526,11 +510,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function testAssertEq__Int256Array__Err__Pass(
-        int256 e0,
-        int256 e1,
-        int256 e2
-    ) external {
+    function testAssertEq__Int256Array__Err__Pass(int256 e0, int256 e1, int256 e2) external {
         int256[] memory a = new int256[](3);
         a[0] = e0;
         a[1] = e1;
@@ -544,11 +524,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_PASS);
     }
 
-    function testAssertEq__Int256Array__Pass(
-        int256 e0,
-        int256 e1,
-        int256 e2
-    ) external {
+    function testAssertEq__Int256Array__Pass(int256 e0, int256 e1, int256 e2) external {
         int256[] memory a = new int256[](3);
         a[0] = e0;
         a[1] = e1;
@@ -610,11 +586,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function testAssertEq__StringArray__Err__Pass(
-        string memory e0,
-        string memory e1,
-        string memory e2
-    ) external {
+    function testAssertEq__StringArray__Err__Pass(string memory e0, string memory e1, string memory e2) external {
         string[] memory a = new string[](3);
         a[0] = e0;
         a[1] = e1;
@@ -628,11 +600,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_PASS);
     }
 
-    function testAssertEq__StringArray__Pass(
-        string memory e0,
-        string memory e1,
-        string memory e2
-    ) external {
+    function testAssertEq__StringArray__Pass(string memory e0, string memory e1, string memory e2) external {
         string[] memory a = new string[](3);
         a[0] = e0;
         a[1] = e1;
@@ -695,11 +663,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function testAssertEq__Uint256Array__Err__Pass(
-        uint256 e0,
-        uint256 e1,
-        uint256 e2
-    ) external {
+    function testAssertEq__Uint256Array__Err__Pass(uint256 e0, uint256 e1, uint256 e2) external {
         uint256[] memory a = new uint256[](3);
         a[0] = e0;
         a[1] = e1;
@@ -713,11 +677,7 @@ contract PRBTestTest__AssertEq is PRBTestTest {
         prbTest._assertEq(a, b, ERR, EXPECT_PASS);
     }
 
-    function testAssertEq__Uint256Array__Pass(
-        uint256 e0,
-        uint256 e1,
-        uint256 e2
-    ) external {
+    function testAssertEq__Uint256Array__Pass(uint256 e0, uint256 e1, uint256 e2) external {
         uint256[] memory a = new uint256[](3);
         a[0] = e0;
         a[1] = e1;

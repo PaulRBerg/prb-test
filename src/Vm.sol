@@ -260,14 +260,7 @@ interface VmSafe {
     function setEnv(string calldata name, string calldata value) external;
 
     /// @dev Signs data.
-    function sign(uint256 privateKey, bytes32 digest)
-        external
-        pure
-        returns (
-            uint8 v,
-            bytes32 r,
-            bytes32 s
-        );
+    function sign(uint256 privateKey, bytes32 digest) external pure returns (uint8 v, bytes32 r, bytes32 s);
 
     /// @dev Using the address that calls the test contract, has all subsequent calls (at this call depth only)
     /// create transactions that can later be signed and sent onchain.
@@ -312,11 +305,7 @@ interface VmSafe {
 
     /// @dev Write a serialized JSON object to an **existing** JSON file, replacing a value with key = <value_key>
     /// This is useful to replace a specific value of a JSON file, without having to parse the entire thing
-    function writeJson(
-        string calldata json,
-        string calldata path,
-        string calldata valueKey
-    ) external;
+    function writeJson(string calldata json, string calldata path, string calldata valueKey) external;
 }
 
 /// @notice An EVM interpreter written with testing and debugging in mind. This is usually either HEVM or REVM.
@@ -369,29 +358,14 @@ interface Vm is VmSafe {
     function expectCall(address callee, bytes calldata data) external;
 
     /// @dev Expects a call to an address with the specified msg.value and calldata.
-    function expectCall(
-        address callee,
-        uint256 msgValue,
-        bytes calldata data
-    ) external;
+    function expectCall(address callee, uint256 msgValue, bytes calldata data) external;
 
     /// @dev Prepare an expected log with (bool checkTopic1, bool checkTopic2, bool checkTopic3, bool checkData).
     /// Call this function, then emit an event, then call a function. Internally after the call, we check if logs
     /// were emitted in the expected order with the expected topics and data (as specified by the booleans).
-    function expectEmit(
-        bool checkTopic1,
-        bool checkTopic2,
-        bool checkTopic3,
-        bool checkData
-    ) external;
+    function expectEmit(bool checkTopic1, bool checkTopic2, bool checkTopic3, bool checkData) external;
 
-    function expectEmit(
-        bool checkTopic1,
-        bool checkTopic2,
-        bool checkTopic3,
-        bool checkData,
-        address emitter
-    ) external;
+    function expectEmit(bool checkTopic1, bool checkTopic2, bool checkTopic3, bool checkData, address emitter) external;
 
     /// @dev Expects an error on next call.
     function expectRevert(bytes calldata revertData) external;
@@ -412,31 +386,18 @@ interface Vm is VmSafe {
 
     function makePersistent(address account0, address account1) external;
 
-    function makePersistent(
-        address account0,
-        address account1,
-        address account2
-    ) external;
+    function makePersistent(address account0, address account1, address account2) external;
 
     function makePersistent(address[] calldata accounts) external;
 
     /// @dev Mocks a call to an address, returning specified data.
     /// Calldata can either be strict or a partial match, e.g. if you only pass a Solidity selector to the expected
     /// calldata, then the entire Solidity function will be mocked.
-    function mockCall(
-        address callee,
-        bytes calldata data,
-        bytes calldata returnData
-    ) external;
+    function mockCall(address callee, bytes calldata data, bytes calldata returnData) external;
 
     /// @dev Mocks a call to an address with a specific msg.value, returning specified data.
     /// Calldata match takes precedence over msg.value in case of ambiguity.
-    function mockCall(
-        address callee,
-        uint256 msgValue,
-        bytes calldata data,
-        bytes calldata returnData
-    ) external;
+    function mockCall(address callee, uint256 msgValue, bytes calldata data, bytes calldata returnData) external;
 
     /// @dev Sets the *next* call's msg.sender to be the input address.
     function prank(address msgSender) external;
@@ -502,11 +463,7 @@ interface Vm is VmSafe {
     function stopPrank() external;
 
     /// @dev Stores a value to an address' storage slot, (who, slot, value).
-    function store(
-        address who,
-        bytes32 slot,
-        bytes32 value
-    ) external;
+    function store(address who, bytes32 slot, bytes32 value) external;
 
     /// @dev Fetches the given transaction from the active fork and executes it on the current state
     function transact(bytes32 txHash) external;

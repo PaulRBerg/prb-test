@@ -255,11 +255,7 @@ contract PRBTestTest__AssertNotEq is PRBTestTest {
                                         ARRAYS
     //////////////////////////////////////////////////////////////////////////*/
 
-    function testAssertNotEq__AddressArray__FailElements(
-        address e0,
-        address e1,
-        address e2
-    ) external {
+    function testAssertNotEq__AddressArray__FailElements(address e0, address e1, address e2) external {
         address[] memory a = new address[](3);
         a[0] = e0;
         a[1] = e1;
@@ -286,11 +282,7 @@ contract PRBTestTest__AssertNotEq is PRBTestTest {
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
 
-    function testAssertNotEq__AddressArray__Err__FailElements(
-        address e0,
-        address e1,
-        address e2
-    ) external {
+    function testAssertNotEq__AddressArray__Err__FailElements(address e0, address e1, address e2) external {
         address[] memory a = new address[](3);
         a[0] = e0;
         a[1] = e1;
@@ -333,11 +325,7 @@ contract PRBTestTest__AssertNotEq is PRBTestTest {
         prbTest._assertNotEq(a, b, EXPECT_PASS);
     }
 
-    function testAssertNotEq__Bytes32Array__FailElements(
-        bytes32 e0,
-        bytes32 e1,
-        bytes32 e2
-    ) external {
+    function testAssertNotEq__Bytes32Array__FailElements(bytes32 e0, bytes32 e1, bytes32 e2) external {
         bytes32[] memory a = new bytes32[](3);
         a[0] = e0;
         a[1] = e1;
@@ -364,11 +352,7 @@ contract PRBTestTest__AssertNotEq is PRBTestTest {
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
 
-    function testAssertNotEq__Bytes32Array__Err__FailElements(
-        bytes32 e0,
-        bytes32 e1,
-        bytes32 e2
-    ) external {
+    function testAssertNotEq__Bytes32Array__Err__FailElements(bytes32 e0, bytes32 e1, bytes32 e2) external {
         bytes32[] memory a = new bytes32[](3);
         a[0] = e0;
         a[1] = e1;
@@ -413,11 +397,7 @@ contract PRBTestTest__AssertNotEq is PRBTestTest {
         prbTest._assertNotEq(a, b, EXPECT_PASS);
     }
 
-    function testAssertNotEq__Int256Array__FailElements(
-        int256 e0,
-        int256 e1,
-        int256 e2
-    ) external {
+    function testAssertNotEq__Int256Array__FailElements(int256 e0, int256 e1, int256 e2) external {
         int256[] memory a = new int256[](3);
         a[0] = e0;
         a[1] = e1;
@@ -444,11 +424,7 @@ contract PRBTestTest__AssertNotEq is PRBTestTest {
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
 
-    function testAssertNotEq__Int256Array__Err__FailElements(
-        int256 e0,
-        int256 e1,
-        int256 e2
-    ) external {
+    function testAssertNotEq__Int256Array__Err__FailElements(int256 e0, int256 e1, int256 e2) external {
         int256[] memory a = new int256[](3);
         a[0] = e0;
         a[1] = e1;
@@ -491,11 +467,7 @@ contract PRBTestTest__AssertNotEq is PRBTestTest {
         prbTest._assertNotEq(a, b, EXPECT_PASS);
     }
 
-    function testAssertNotEq__Uint256Array__FailElements(
-        uint256 e0,
-        uint256 e1,
-        uint256 e2
-    ) external {
+    function testAssertNotEq__Uint256Array__FailElements(uint256 e0, uint256 e1, uint256 e2) external {
         uint256[] memory a = new uint256[](3);
         a[0] = e0;
         a[1] = e1;
@@ -522,11 +494,7 @@ contract PRBTestTest__AssertNotEq is PRBTestTest {
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
 
-    function testAssertNotEq__Uint256Array__Err__FailElements(
-        uint256 e0,
-        uint256 e1,
-        uint256 e2
-    ) external {
+    function testAssertNotEq__Uint256Array__Err__FailElements(uint256 e0, uint256 e1, uint256 e2) external {
         uint256[] memory a = new uint256[](3);
         a[0] = e0;
         a[1] = e1;

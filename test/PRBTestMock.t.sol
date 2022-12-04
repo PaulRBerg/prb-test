@@ -55,11 +55,7 @@ contract PRBTestMock is PRBTest {
         assertFalse(condition);
     }
 
-    function _assertFalse(
-        bool condition,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertFalse(bool condition, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertFalse(condition, err);
     }
 
@@ -67,11 +63,7 @@ contract PRBTestMock is PRBTest {
         assertTrue(condition);
     }
 
-    function _assertTrue(
-        bool condition,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertTrue(bool condition, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertTrue(condition, err);
     }
 
@@ -79,28 +71,15 @@ contract PRBTestMock is PRBTest {
                                 EQUALITY ASSERTIONS
     //////////////////////////////////////////////////////////////////////////*/
 
-    function _assertEq(
-        address a,
-        address b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(address a, address b, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b);
     }
 
-    function _assertEq(
-        address a,
-        address b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(address a, address b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b, err);
     }
 
-    function _assertEq(
-        address[] memory a,
-        address[] memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(address[] memory a, address[] memory b, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b);
     }
 
@@ -113,28 +92,15 @@ contract PRBTestMock is PRBTest {
         assertEq(a, b, err);
     }
 
-    function _assertEq(
-        bool a,
-        bool b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(bool a, bool b, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b);
     }
 
-    function _assertEq(
-        bool a,
-        bool b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(bool a, bool b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b, err);
     }
 
-    function _assertEq(
-        bool[] memory a,
-        bool[] memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(bool[] memory a, bool[] memory b, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b);
     }
 
@@ -147,11 +113,7 @@ contract PRBTestMock is PRBTest {
         assertEq(a, b, err);
     }
 
-    function _assertEq(
-        bytes memory a,
-        bytes memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(bytes memory a, bytes memory b, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b);
     }
 
@@ -164,28 +126,15 @@ contract PRBTestMock is PRBTest {
         assertEq(a, b, err);
     }
 
-    function _assertEq(
-        bytes32 a,
-        bytes32 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(bytes32 a, bytes32 b, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b);
     }
 
-    function _assertEq(
-        bytes32 a,
-        bytes32 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(bytes32 a, bytes32 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b, err);
     }
 
-    function _assertEq(
-        bytes32[] memory a,
-        bytes32[] memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(bytes32[] memory a, bytes32[] memory b, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b);
     }
 
@@ -198,28 +147,15 @@ contract PRBTestMock is PRBTest {
         assertEq(a, b, err);
     }
 
-    function _assertEq(
-        int256 a,
-        int256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(int256 a, int256 b, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b);
     }
 
-    function _assertEq(
-        int256 a,
-        int256 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(int256 a, int256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b, err);
     }
 
-    function _assertEq(
-        int256[] memory a,
-        int256[] memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(int256[] memory a, int256[] memory b, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b);
     }
 
@@ -232,11 +168,7 @@ contract PRBTestMock is PRBTest {
         assertEq(a, b, err);
     }
 
-    function _assertEq(
-        string memory a,
-        string memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(string memory a, string memory b, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b);
     }
 
@@ -249,11 +181,7 @@ contract PRBTestMock is PRBTest {
         assertEq(a, b, err);
     }
 
-    function _assertEq(
-        string[] memory a,
-        string[] memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(string[] memory a, string[] memory b, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b);
     }
 
@@ -266,28 +194,15 @@ contract PRBTestMock is PRBTest {
         assertEq(a, b, err);
     }
 
-    function _assertEq(
-        uint256 a,
-        uint256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(uint256 a, uint256 b, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b);
     }
 
-    function _assertEq(
-        uint256 a,
-        uint256 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(uint256 a, uint256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b, err);
     }
 
-    function _assertEq(
-        uint256[] memory a,
-        uint256[] memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertEq(uint256[] memory a, uint256[] memory b, bool expectFail) external expectFailure(expectFail) {
         assertEq(a, b);
     }
 
@@ -304,28 +219,15 @@ contract PRBTestMock is PRBTest {
                                 INEQUALITY ASSERTIONS
     //////////////////////////////////////////////////////////////////////////*/
 
-    function _assertNotEq(
-        address a,
-        address b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(address a, address b, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b);
     }
 
-    function _assertNotEq(
-        address a,
-        address b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(address a, address b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b, err);
     }
 
-    function _assertNotEq(
-        address[] memory a,
-        address[] memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(address[] memory a, address[] memory b, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b);
     }
 
@@ -338,28 +240,15 @@ contract PRBTestMock is PRBTest {
         assertNotEq(a, b, err);
     }
 
-    function _assertNotEq(
-        bool a,
-        bool b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(bool a, bool b, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b);
     }
 
-    function _assertNotEq(
-        bool a,
-        bool b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(bool a, bool b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b, err);
     }
 
-    function _assertNotEq(
-        bool[] memory a,
-        bool[] memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(bool[] memory a, bool[] memory b, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b);
     }
 
@@ -372,11 +261,7 @@ contract PRBTestMock is PRBTest {
         assertNotEq(a, b, err);
     }
 
-    function _assertNotEq(
-        bytes memory a,
-        bytes memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(bytes memory a, bytes memory b, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b);
     }
 
@@ -389,28 +274,15 @@ contract PRBTestMock is PRBTest {
         assertNotEq(a, b, err);
     }
 
-    function _assertNotEq(
-        bytes32 a,
-        bytes32 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(bytes32 a, bytes32 b, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b);
     }
 
-    function _assertNotEq(
-        bytes32 a,
-        bytes32 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(bytes32 a, bytes32 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b, err);
     }
 
-    function _assertNotEq(
-        bytes32[] memory a,
-        bytes32[] memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(bytes32[] memory a, bytes32[] memory b, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b);
     }
 
@@ -423,28 +295,15 @@ contract PRBTestMock is PRBTest {
         assertNotEq(a, b, err);
     }
 
-    function _assertNotEq(
-        int256 a,
-        int256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(int256 a, int256 b, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b);
     }
 
-    function _assertNotEq(
-        int256 a,
-        int256 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(int256 a, int256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b, err);
     }
 
-    function _assertNotEq(
-        int256[] memory a,
-        int256[] memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(int256[] memory a, int256[] memory b, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b);
     }
 
@@ -457,11 +316,7 @@ contract PRBTestMock is PRBTest {
         assertNotEq(a, b, err);
     }
 
-    function _assertNotEq(
-        string memory a,
-        string memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(string memory a, string memory b, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b);
     }
 
@@ -474,11 +329,7 @@ contract PRBTestMock is PRBTest {
         assertNotEq(a, b, err);
     }
 
-    function _assertNotEq(
-        string[] memory a,
-        string[] memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(string[] memory a, string[] memory b, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b);
     }
 
@@ -491,28 +342,15 @@ contract PRBTestMock is PRBTest {
         assertNotEq(a, b, err);
     }
 
-    function _assertNotEq(
-        uint256 a,
-        uint256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(uint256 a, uint256 b, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b);
     }
 
-    function _assertNotEq(
-        uint256 a,
-        uint256 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(uint256 a, uint256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b, err);
     }
 
-    function _assertNotEq(
-        uint256[] memory a,
-        uint256[] memory b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertNotEq(uint256[] memory a, uint256[] memory b, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b);
     }
 
@@ -529,12 +367,7 @@ contract PRBTestMock is PRBTest {
                                 APPROXIMATE ASSERTIONS
     //////////////////////////////////////////////////////////////////////////*/
 
-    function _assertAlmostEq(
-        int256 a,
-        int256 b,
-        uint256 maxDelta,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertAlmostEq(int256 a, int256 b, uint256 maxDelta, bool expectFail) external expectFailure(expectFail) {
         assertAlmostEq(a, b, maxDelta);
     }
 
@@ -571,139 +404,67 @@ contract PRBTestMock is PRBTest {
                             NUMERICAL COMPARISON ASSERTIONS
     //////////////////////////////////////////////////////////////////////////*/
 
-    function _assertGt(
-        int256 a,
-        int256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertGt(int256 a, int256 b, bool expectFail) external expectFailure(expectFail) {
         assertGt(a, b);
     }
 
-    function _assertGt(
-        int256 a,
-        int256 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertGt(int256 a, int256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertGt(a, b, err);
     }
 
-    function _assertGt(
-        uint256 a,
-        uint256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertGt(uint256 a, uint256 b, bool expectFail) external expectFailure(expectFail) {
         assertGt(a, b);
     }
 
-    function _assertGt(
-        uint256 a,
-        uint256 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertGt(uint256 a, uint256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertGt(a, b, err);
     }
 
-    function _assertGte(
-        int256 a,
-        int256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertGte(int256 a, int256 b, bool expectFail) external expectFailure(expectFail) {
         assertGte(a, b);
     }
 
-    function _assertGte(
-        int256 a,
-        int256 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertGte(int256 a, int256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertGte(a, b, err);
     }
 
-    function _assertGte(
-        uint256 a,
-        uint256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertGte(uint256 a, uint256 b, bool expectFail) external expectFailure(expectFail) {
         assertGte(a, b);
     }
 
-    function _assertGte(
-        uint256 a,
-        uint256 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertGte(uint256 a, uint256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertGte(a, b, err);
     }
 
-    function _assertLt(
-        int256 a,
-        int256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertLt(int256 a, int256 b, bool expectFail) external expectFailure(expectFail) {
         assertLt(a, b);
     }
 
-    function _assertLt(
-        int256 a,
-        int256 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertLt(int256 a, int256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertLt(a, b, err);
     }
 
-    function _assertLt(
-        uint256 a,
-        uint256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertLt(uint256 a, uint256 b, bool expectFail) external expectFailure(expectFail) {
         assertLt(a, b);
     }
 
-    function _assertLt(
-        uint256 a,
-        uint256 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertLt(uint256 a, uint256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertLt(a, b, err);
     }
 
-    function _assertLte(
-        int256 a,
-        int256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertLte(int256 a, int256 b, bool expectFail) external expectFailure(expectFail) {
         assertLte(a, b);
     }
 
-    function _assertLte(
-        int256 a,
-        int256 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertLte(int256 a, int256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertLte(a, b, err);
     }
 
-    function _assertLte(
-        uint256 a,
-        uint256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertLte(uint256 a, uint256 b, bool expectFail) external expectFailure(expectFail) {
         assertLte(a, b);
     }
 
-    function _assertLte(
-        uint256 a,
-        uint256 b,
-        string memory err,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertLte(uint256 a, uint256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertLte(a, b, err);
     }
 
@@ -711,11 +472,7 @@ contract PRBTestMock is PRBTest {
                                 CONTAINMENT ASSERTIONS
     //////////////////////////////////////////////////////////////////////////*/
 
-    function _assertContains(
-        address[] memory a,
-        address b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertContains(address[] memory a, address b, bool expectFail) external expectFailure(expectFail) {
         assertContains(a, b);
     }
 
@@ -728,11 +485,7 @@ contract PRBTestMock is PRBTest {
         assertContains(a, b, err);
     }
 
-    function _assertContains(
-        bytes32[] memory a,
-        bytes32 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertContains(bytes32[] memory a, bytes32 b, bool expectFail) external expectFailure(expectFail) {
         assertContains(a, b);
     }
 
@@ -745,11 +498,7 @@ contract PRBTestMock is PRBTest {
         assertContains(a, b, err);
     }
 
-    function _assertContains(
-        int256[] memory a,
-        int256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertContains(int256[] memory a, int256 b, bool expectFail) external expectFailure(expectFail) {
         assertContains(a, b);
     }
 
@@ -762,11 +511,7 @@ contract PRBTestMock is PRBTest {
         assertContains(a, b, err);
     }
 
-    function _assertContains(
-        uint256[] memory a,
-        uint256 b,
-        bool expectFail
-    ) external expectFailure(expectFail) {
+    function _assertContains(uint256[] memory a, uint256 b, bool expectFail) external expectFailure(expectFail) {
         assertContains(a, b);
     }
 
