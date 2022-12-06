@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Common Changelog](https://common-changelog.org/).
 
+[0.3.0]: https://github.com/paulrberg/prb-math/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/paulrberg/prb-math/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/paulrberg/prb-math/compare/v0.1.3...v0.2.0
 [0.1.3]: https://github.com/paulrberg/prb-math/compare/v0.1.2...v0.1.3
@@ -11,35 +12,47 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [0.1.1]: https://github.com/paulrberg/prb-math/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/paulrberg/prb-test/releases/tag/v0.1.0
 
+## [0.3.0] - 2022-12-06
+
+### Added
+
+- Add `envOr` cheatcodes (@paulrberg)
+- Add `fsMetadata` cheatcode (@paulrberg)
+
+### Fixed
+
+- Make `accesses` non-view (@paulrberg)
+- Make `getRecordedLogs` non-view (@paulrberg)
+
 ## [0.2.1] - 2022-12-04
 
 ### Changed
 
-- Fix Prettier formatting issues
+- Fix Prettier formatting issues (@paulrberg)
 
 ## [0.2.0] - 2022-12-04
 
 ### Changed
 
-- Improve wording in CHANGELOG
-- Name arguments in `Vm` interface functions
-- Sync `Vm` with forge-std
-- Set cheatcode mutability/ visibility
-- Split `Vm` in `Vm` and `VmSafe` interfaces
+- Improve wording in CHANGELOG (@paulrberg)
+- Name arguments in `Vm` interface functions (@paulrberg)
+- Sync `Vm` with forge-std (@paulrberg)
+- Set cheatcode mutability/ visibility (@paulrberg)
+- Split `Vm` in `Vm` and `VmSafe` interfaces (@paulrberg)
 
 ### Added
 
-- Add `allowCheatcodes` cheatcode
-- Add `broadcast` and `startBroadcast` private key overloads
-- Add `deriveKey` and `rememberKey` cheatcodes feat:
-- Add `difficulty` cheatcode
-- Add fork-related cheatcodes
-- Add `getDeployedCode`
-- Add parsing cheatcodes
-- Add `parseJson` helper functions in `Vm`
-- Add `projectRoot` cheatcode
-- Add `transact` cheatcode
-- Add emitter in `Log` struct
+- Add `allowCheatcodes` cheatcode (@paulrberg)
+- Add `broadcast` and `startBroadcast` private key overloads (@paulrberg)
+- Add `deriveKey` and `rememberKey` cheatcodes (@paulrberg)
+- Add `difficulty` cheatcode (@paulrberg)
+- Add fork-related cheatcodes (@paulrberg)
+- Add `getDeployedCode` (@paulrberg)
+- Add parsing cheatcodes (@paulrberg)
+- Add `parseJson` helper functions in `Vm` (@paulrberg)
+- Add `projectRoot` cheatcode (@paulrberg)
+- Add `transact` cheatcode (@paulrberg)
+- Add emitter in `Log` struct (@paulrberg)
 
 ## [0.1.3] - 2022-10-29
 
