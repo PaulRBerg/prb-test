@@ -13,11 +13,22 @@ pragma solidity >=0.8.0 <0.9.0;
 /// @dev This interface can be safely used in scripts running on a live network, so for example you don't accidentally
 /// change the block timestamp and use a fake timestamp as a value somewhere.
 interface VmSafe {
+    struct FsMetadata {
+        bool isDir;
+        bool isSymlink;
+        uint256 length;
+        bool readOnly;
+        uint256 modified;
+        uint256 accessed;
+        uint256 created;
+    }
+
     struct Log {
         bytes32[] topics;
         bytes data;
         address emitter;
     }
+
     struct Rpc {
         string key;
         string url;
@@ -88,8 +99,69 @@ interface VmSafe {
 
     function envUint(string calldata name, string calldata delim) external view returns (uint256[] memory values);
 
+    /// @dev Reads environment variables with a default value.
+    function envOr(string calldata name, bool defaultValue) external returns (bool value);
+
+    function envOr(string calldata name, uint256 defaultValue) external returns (uint256 value);
+
+    function envOr(string calldata name, int256 defaultValue) external returns (int256 value);
+
+    function envOr(string calldata name, address defaultValue) external returns (address value);
+
+    function envOr(string calldata name, bytes32 defaultValue) external returns (bytes32 value);
+
+    function envOr(string calldata name, string calldata defaultValue) external returns (string memory value);
+
+    function envOr(string calldata name, bytes calldata defaultValue) external returns (bytes memory value);
+
+    /// @dev Reads environment variables as arrays with default value.
+    function envOr(
+        string calldata name,
+        string calldata,
+        bool[] calldata defaultValue
+    ) external returns (bool[] memory value);
+
+    function envOr(
+        string calldata name,
+        string calldata,
+        uint256[] calldata defaultValue
+    ) external returns (uint256[] memory value);
+
+    function envOr(
+        string calldata name,
+        string calldata,
+        int256[] calldata defaultValue
+    ) external returns (int256[] memory value);
+
+    function envOr(
+        string calldata name,
+        string calldata,
+        address[] calldata defaultValue
+    ) external returns (address[] memory value);
+
+    function envOr(
+        string calldata name,
+        string calldata,
+        bytes32[] calldata defaultValue
+    ) external returns (bytes32[] memory value);
+
+    function envOr(
+        string calldata name,
+        string calldata,
+        string[] calldata defaultValue
+    ) external returns (string[] memory value);
+
+    function envOr(
+        string calldata name,
+        string calldata,
+        bytes[] calldata defaultValue
+    ) external returns (bytes[] memory value);
+
     /// @dev Performs a foreign function call via the terminal.
     function ffi(string[] calldata stringInputs) external returns (bytes memory result);
+
+    /// @dev Get the metadata for a file/directory.
+    function fsMetadata(string calldata fileOrDir) external returns (FsMetadata memory metadata);
 
     /// @dev Gets the code from an artifact file. Takes in the relative path to the json file.
     function getCode(string calldata artifactPath) external view returns (bytes memory bytecode);
