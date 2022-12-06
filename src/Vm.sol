@@ -24,7 +24,7 @@ interface VmSafe {
     }
 
     /// @dev Gets all accessed reads and write slot from a recording session, for a given address.
-    function accesses(address) external view returns (bytes32[] memory reads, bytes32[] memory writes);
+    function accesses(address) external returns (bytes32[] memory reads, bytes32[] memory writes);
 
     /// @dev Gets the address for a given private key.
     function addr(uint256 privateKey) external pure returns (address);
@@ -101,7 +101,7 @@ interface VmSafe {
     function getNonce(address account) external view returns (uint64 nonce);
 
     /// @dev Gets all the recorded logs.
-    function getRecordedLogs() external view returns (Log[] memory logs);
+    function getRecordedLogs() external returns (Log[] memory logs);
 
     /// @dev Labels an address in call traces.
     function label(address addr, string calldata newLabel) external;
