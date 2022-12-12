@@ -27,14 +27,14 @@ replacement for DSTest.
 First, run the install step:
 
 ```sh
-forge install --no-commit paulrberg/prb-test@0.3.0
+forge install --no-commit paulrberg/prb-test@0.3.1
 ```
 
 Your `.gitmodules` file should now contain the following entry:
 
 ```toml
 [submodule "lib/prb-test"]
-  branch = "0.3.0"
+  branch = "0.3.1"
   path = "lib/prb-test"
   url = "https://github.com/paulrberg/prb-test"
 ```
