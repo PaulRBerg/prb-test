@@ -35,7 +35,7 @@ interface VmSafe {
     }
 
     /// @dev Gets all accessed reads and write slot from a recording session, for a given address.
-    function accesses(address) external returns (bytes32[] memory reads, bytes32[] memory writes);
+    function accesses(address target) external returns (bytes32[] memory readSlots, bytes32[] memory writeSlots);
 
     /// @dev Gets the address for a given private key.
     function addr(uint256 privateKey) external pure returns (address);
@@ -49,7 +49,7 @@ interface VmSafe {
 
     /// @dev Has the next call (at this call depth only) create a transaction with the address provided as
     /// the sender that can later be signed and sent onchain.
-    function broadcast(address broadcaster) external;
+    function broadcast(address signer) external;
 
     /// @dev Has the next call (at this call depth only) create a transaction with the private key provided as
     /// the sender that can later be signed and sent onchain
@@ -158,16 +158,16 @@ interface VmSafe {
     ) external returns (bytes[] memory value);
 
     /// @dev Performs a foreign function call via the terminal.
-    function ffi(string[] calldata stringInputs) external returns (bytes memory result);
+    function ffi(string[] calldata commandInput) external returns (bytes memory result);
 
     /// @dev Get the metadata for a file/directory.
     function fsMetadata(string calldata fileOrDir) external returns (FsMetadata memory metadata);
 
     /// @dev Gets the code from an artifact file. Takes in the relative path to the json file.
-    function getCode(string calldata artifactPath) external view returns (bytes memory bytecode);
+    function getCode(string calldata artifactPath) external view returns (bytes memory creationBytecode);
 
     /// @dev Gets the _deployed_ bytecode from an artifact file. Takes in the relative path to the json file.
-    function getDeployedCode(string calldata artifactPath) external view returns (bytes memory bytecode);
+    function getDeployedCode(string calldata artifactPath) external view returns (bytes memory runtimeBytecode);
 
     /// @dev Gets the nonce of an account.
     function getNonce(address account) external view returns (uint64 nonce);
@@ -176,21 +176,21 @@ interface VmSafe {
     function getRecordedLogs() external returns (Log[] memory logs);
 
     /// @dev Labels an address in call traces.
-    function label(address addr, string calldata newLabel) external;
+    function label(address account, string calldata newLabel) external;
 
     /// @dev Loads a storage slot from an address.
-    function load(address who, bytes32 slot) external view returns (bytes32 data);
+    function load(address target, bytes32 slot) external view returns (bytes32 data);
 
     /// @dev Convert values from a string
-    function parseBytes(string calldata value) external pure returns (bytes memory parsedValue);
+    function parseBytes(string calldata stringifiedValue) external pure returns (bytes memory parsedValue);
 
-    function parseAddress(string calldata value) external pure returns (address parsedValue);
+    function parseAddress(string calldata stringifiedValue) external pure returns (address parsedValue);
 
-    function parseBool(string calldata value) external pure returns (bool parsedValue);
+    function parseBool(string calldata stringifiedValue) external pure returns (bool parsedValue);
 
-    function parseBytes32(string calldata value) external pure returns (bytes32 parsedValue);
+    function parseBytes32(string calldata stringifiedValue) external pure returns (bytes32 parsedValue);
 
-    function parseInt(string calldata value) external pure returns (int256 parsedValue);
+    function parseInt(string calldata stringifiedValue) external pure returns (int256 parsedValue);
 
     /// @dev In case the returned value is a JSON object, it's encoded as a ABI-encoded tuple. As JSON objects
     /// don't have the notion of ordered, but tuples do, they JSON object is encoded with it's fields ordered in
@@ -213,7 +213,7 @@ interface VmSafe {
     function parseUint(string calldata value) external pure returns (uint256 parsedValue);
 
     /// @dev Get the path of the current project root
-    function projectRoot() external view returns (string memory rootPath);
+    function projectRoot() external view returns (string memory path);
 
     /// @dev Reads the entire content of file to string.
     function readFile(string calldata path) external view returns (string memory data);
@@ -350,17 +350,17 @@ interface VmSafe {
     function stopBroadcast() external;
 
     /// @dev Convert values to a string.
-    function toString(address value) external pure returns (string memory stringValue);
+    function toString(address value) external pure returns (string memory stringifiedValue);
 
-    function toString(bool value) external pure returns (string memory stringValue);
+    function toString(bool value) external pure returns (string memory stringifiedValue);
 
-    function toString(bytes calldata value) external pure returns (string memory stringValue);
+    function toString(bytes calldata value) external pure returns (string memory stringifiedValue);
 
-    function toString(bytes32 value) external pure returns (string memory stringValue);
+    function toString(bytes32 value) external pure returns (string memory stringifiedValue);
 
-    function toString(int256 value) external pure returns (string memory stringValue);
+    function toString(int256 value) external pure returns (string memory stringifiedValue);
 
-    function toString(uint256 value) external pure returns (string memory stringValue);
+    function toString(uint256 value) external pure returns (string memory stringifiedValue);
 
     /// @dev Writes data to file, creating a file if it does not exist, and entirely replacing its contents if it does.
     function writeFile(string calldata path, string calldata data) external;
@@ -399,31 +399,31 @@ interface Vm is VmSafe {
     function coinbase(address newCoinbase) external;
 
     /// @dev Creates a new fork with the given endpoint and block number and returns the identifier of the fork.
-    function createFork(string calldata endpoint, uint256 blockNumber) external returns (uint256);
+    function createFork(string calldata urlOrAlias, uint256 blockNumber) external returns (uint256);
 
     /// @dev Creates a new fork with the given endpoint and the _latest_ block and returns the identifier of the fork.
-    function createFork(string calldata endpoint) external returns (uint256);
+    function createFork(string calldata urlOrAlias) external returns (uint256);
 
     /// @dev Creates _and_ also selects a new fork with the given endpoint and the latest block and returns the
     /// identifier of the fork.
-    function createSelectFork(string calldata endpoint) external returns (uint256);
+    function createSelectFork(string calldata urlOrAlias) external returns (uint256);
 
     /// @dev Creates _and_ also selects a new fork with the given endpoint and block number and returns the identifier
     /// of the fork.
-    function createSelectFork(string calldata endpoint, uint256 blockNumber) external returns (uint256);
+    function createSelectFork(string calldata urlOrAlias, uint256 blockNumber) external returns (uint256);
 
     /// @dev Creates _and_ also selects new fork with the given endpoint and at the block the given transaction was
     /// mined in, replays all transaction mined in the block before the transaction, returns the identifier of the fork
-    function createSelectFork(string calldata endpoint, bytes32 txHash) external returns (uint256 forkId);
+    function createSelectFork(string calldata urlOrAlias, bytes32 txHash) external returns (uint256 forkId);
 
-    /// @dev Sets an address' balance.
-    function deal(address who, uint256 newBalance) external;
+    /// @dev Sets an account's balance.
+    function deal(address account, uint256 newBalance) external;
 
     /// @dev Sets block.difficulty
     function difficulty(uint256 newDifficulty) external;
 
     /// @dev Sets an address' code.
-    function etch(address who, bytes calldata newCode) external;
+    function etch(address target, bytes calldata newRuntimeBytecode) external;
 
     /// @dev Expects a call to an address with the specified calldata.
     /// Calldata can be either a strict or a partial match.
@@ -534,8 +534,8 @@ interface Vm is VmSafe {
     /// @dev Resets subsequent calls' msg.sender to be `address(this)`.
     function stopPrank() external;
 
-    /// @dev Stores a value to an address' storage slot, (who, slot, value).
-    function store(address who, bytes32 slot, bytes32 value) external;
+    /// @dev Stores a value to an address' storage slot.
+    function store(address target, bytes32 slot, bytes32 value) external;
 
     /// @dev Fetches the given transaction from the active fork and executes it on the current state
     function transact(bytes32 txHash) external;
