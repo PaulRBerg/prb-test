@@ -38,7 +38,7 @@ interface VmSafe {
     function accesses(address target) external returns (bytes32[] memory readSlots, bytes32[] memory writeSlots);
 
     /// @dev Gets the address for a given private key.
-    function addr(uint256 privateKey) external pure returns (address);
+    function addr(uint256 privateKey) external pure returns (address keyAddr);
 
     /// @dev If the condition is false, discard this run's fuzz inputs and generate new ones.
     function assume(bool condition) external pure;
@@ -231,7 +231,7 @@ interface VmSafe {
     function recordLogs() external;
 
     /// @dev Adds a private key to the local Forge wallet and returns the address.
-    function rememberKey(uint256 privateKey) external returns (address addr);
+    function rememberKey(uint256 privateKey) external returns (address keyAddr);
 
     //// @dev Returns the RPC url for the given alias.
     function rpcUrl(string calldata rpcAlias) external view returns (string memory json);
