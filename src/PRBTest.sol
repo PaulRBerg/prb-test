@@ -669,7 +669,7 @@ contract PRBTest {
                                 APPROXIMATE ASSERTIONS
     //////////////////////////////////////////////////////////////////////////*/
 
-    /// @dev Tests that the absolute diference between `a and `b` is less than or equal to `maxDelta`.
+    /// @dev Tests that the absolute difference between `a and `b` is less than or equal to `maxDelta`.
     /// If it is not, the test fails.
     function assertAlmostEq(int256 a, int256 b, uint256 maxDelta) internal virtual {
         uint256 actualDelta = delta(a, b);
@@ -683,7 +683,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that the absolute diference between `a and `b` is less than or equal to `maxDelta`.
+    /// @dev Tests that the absolute difference between `a and `b` is less than or equal to `maxDelta`.
     /// If it is not, the test fails with the error message `err`.
     function assertAlmostEq(int256 a, int256 b, uint256 maxDelta, string memory err) internal virtual {
         if (delta(a, b) > maxDelta) {
@@ -692,7 +692,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that the absolute diference between `a and `b` is less than or equal to `maxDelta`.
+    /// @dev Tests that the absolute difference between `a and `b` is less than or equal to `maxDelta`.
     /// If it is not, the test fails.
     function assertAlmostEq(uint256 a, uint256 b, uint256 maxDelta) internal virtual {
         uint256 actualDelta = delta(a, b);
@@ -706,7 +706,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that the absolute diference between `a and `b` is less than or equal to `delta`.
+    /// @dev Tests that the absolute difference between `a and `b` is less than or equal to `delta`.
     /// If it is not, the test fails with the error message `err`.
     function assertAlmostEq(uint256 a, uint256 b, uint256 maxDelta, string memory err) internal virtual {
         if (delta(a, b) > maxDelta) {
