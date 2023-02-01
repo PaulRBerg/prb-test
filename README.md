@@ -1,7 +1,7 @@
 # PRBTest [![Github Actions][gha-badge]][gha] [![Foundry][foundry-badge]][foundry] [![Styled with Prettier][prettier-badge]][prettier] [![License: MIT][license-badge]][license]
 
-[gha]: https://github.com/paulrberg/prb-test/actions
-[gha-badge]: https://github.com/paulrberg/prb-test/actions/workflows/ci.yml/badge.svg
+[gha]: https://github.com/PaulRBerg/prb-test/actions
+[gha-badge]: https://github.com/PaulRBerg/prb-test/actions/workflows/ci.yml/badge.svg
 [foundry]: https://getfoundry.sh/
 [foundry-badge]: https://img.shields.io/badge/Built%20with-Foundry-FFDB1C.svg
 [prettier]: https://prettier.io
@@ -27,7 +27,7 @@ replacement for DSTest.
 First, run the install step:
 
 ```sh
-forge install --no-commit paulrberg/prb-test@0.3.1
+forge install --no-commit PaulRBerg/prb-test@0.3.1
 ```
 
 Your `.gitmodules` file should now contain the following entry:
@@ -36,7 +36,7 @@ Your `.gitmodules` file should now contain the following entry:
 [submodule "lib/prb-test"]
   branch = "0.3.1"
   path = "lib/prb-test"
-  url = "https://github.com/paulrberg/prb-test"
+  url = "https://github.com/PaulRBerg/prb-test"
 ```
 
 Finally, add this to your `remappings.txt` file:
@@ -195,7 +195,7 @@ In addition, familiarity with [Solidity](https://soliditylang.org/) is requisite
 Clone this repository including submodules:
 
 ```sh
-$ git clone --recurse-submodules -j8 git@github.com:paulrberg/prb-test.git
+$ git clone --recurse-submodules -j8 git@github.com:PaulRBerg/prb-test.git
 ```
 
 Then, inside the project's directory, run this to install the Node.js dependencies:

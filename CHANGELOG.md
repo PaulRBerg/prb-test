@@ -11,7 +11,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [0.1.3]: https://github.com/paulrberg/prb-math/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/paulrberg/prb-math/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/paulrberg/prb-math/compare/v0.1.0...v0.1.1
-[0.1.0]: https://github.com/paulrberg/prb-test/releases/tag/v0.1.0
+[0.1.0]: https://github.com/PaulRBerg/prb-test/releases/tag/v0.1.0
 
 ## [0.3.1] - 2022-12-12
 
@@ -80,7 +80,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 ### Fixed
 
 - Switch to global import to fix the overload type checker bug in Solidity v0.8.12
-  ([#5](https://github.com/paulrberg/prb-test/issues/5)) (@jordaniza, @paulrberg)
+  ([#5](https://github.com/PaulRBerg/prb-test/issues/5)) (@jordaniza, @paulrberg)
 
 ## [0.1.1] - 2022-07-15
 

@@ -7,7 +7,7 @@
     "url": "https://github.com/paulrberg"
   },
   "bugs": {
-    "url": "https://github.com/paulrberg/prb-test/issues"
+    "url": "https://github.com/PaulRBerg/prb-test/issues"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
@@ -27,7 +27,7 @@
     "/src",
     "CHANGELOG.md"
   ],
-  "homepage": "https://github.com/paulrberg/prb-test#readme",
+  "homepage": "https://github.com/PaulRBerg/prb-test#readme",
   "keywords": [
     "assertions",
     "blockchain",
@@ -44,7 +44,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/paulrberg/prb-test"
+    "url": "https://github.com/PaulRBerg/prb-test"
   },
   "resolutions": {
     "solhint/@solidity-parser/parser": "^0.14.5"
