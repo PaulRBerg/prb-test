@@ -2,57 +2,57 @@
 pragma solidity >=0.8.0;
 
 import "../../src/Helpers.sol";
-import { PRBTestTest } from "../PRBTestTest.t.sol";
+import { PRBTest_Test } from "../PRBTest.t.sol";
 
-contract PRBTestTest__AssertAlmostEq is PRBTestTest {
-    function testAssertAlmostEq__Int256__Fail(int256 a, int256 b, uint256 maxDelta) external {
+contract PRBTestTest_AssertAlmostEq is PRBTest_Test {
+    function test_AssertAlmostEq_Int256_Fail(int256 a, int256 b, uint256 maxDelta) external {
         vm.assume(delta(a, b) > maxDelta);
 
-        vm.expectEmit(false, false, false, true);
+        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
         emit Log("Error: a ~= b not satisfied [int256]");
         prbTest._assertAlmostEq(a, b, maxDelta, EXPECT_FAIL);
     }
 
-    function testAssertAlmostEq__Int256__Err__Fail(int256 a, int256 b, uint256 maxDelta) external {
+    function test_AssertAlmostEq_Int256_Err_Fail(int256 a, int256 b, uint256 maxDelta) external {
         vm.assume(delta(a, b) > maxDelta);
 
-        vm.expectEmit(false, false, false, true);
+        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
         emit LogNamedString("Error", ERR);
         prbTest._assertAlmostEq(a, b, maxDelta, ERR, EXPECT_FAIL);
     }
 
-    function testAssertAlmostEq__Int256__Err__Pass(int256 a, int256 b, uint256 maxDelta) external {
+    function test_AssertAlmostEq_Int256_Err_Pass(int256 a, int256 b, uint256 maxDelta) external {
         vm.assume(delta(a, b) <= maxDelta);
         prbTest._assertAlmostEq(a, b, maxDelta, ERR, EXPECT_PASS);
     }
 
-    function testAssertAlmostEq__Int256__Pass(int256 a, int256 b, uint256 maxDelta) external {
+    function test_AssertAlmostEq_Int256_Pass(int256 a, int256 b, uint256 maxDelta) external {
         vm.assume(delta(a, b) <= maxDelta);
         prbTest._assertAlmostEq(a, b, maxDelta, EXPECT_PASS);
     }
 
-    function testAssertAlmostEq__Uint256__Fail(uint256 a, uint256 b, uint256 maxDelta) external {
+    function test_AssertAlmostEq_Uint256_Fail(uint256 a, uint256 b, uint256 maxDelta) external {
         vm.assume(delta(a, b) > maxDelta);
 
-        vm.expectEmit(false, false, false, true);
+        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
         emit Log("Error: a ~= b not satisfied [uint256]");
         prbTest._assertAlmostEq(a, b, maxDelta, EXPECT_FAIL);
     }
 
-    function testAssertAlmostEq__Uint256__Err__Fail(uint256 a, uint256 b, uint256 maxDelta) external {
+    function test_AssertAlmostEq_Uint256_Err_Fail(uint256 a, uint256 b, uint256 maxDelta) external {
         vm.assume(delta(a, b) > maxDelta);
 
-        vm.expectEmit(false, false, false, true);
+        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
         emit LogNamedString("Error", ERR);
         prbTest._assertAlmostEq(a, b, maxDelta, ERR, EXPECT_FAIL);
     }
 
-    function testAssertAlmostEq__Uint256__Err__Pass(uint256 a, uint256 b, uint256 maxDelta) external {
+    function test_AssertAlmostEq_Uint256_Err_Pass(uint256 a, uint256 b, uint256 maxDelta) external {
         vm.assume(delta(a, b) <= maxDelta);
         prbTest._assertAlmostEq(a, b, maxDelta, ERR, EXPECT_PASS);
     }
 
-    function testAssertAlmostEq__Uint256__Pass(uint256 a, uint256 b, uint256 maxDelta) external {
+    function test_AssertAlmostEq_Uint256_Pass(uint256 a, uint256 b, uint256 maxDelta) external {
         vm.assume(delta(a, b) <= maxDelta);
         prbTest._assertAlmostEq(a, b, maxDelta, EXPECT_PASS);
     }

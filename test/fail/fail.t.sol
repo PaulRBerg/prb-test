@@ -1,17 +1,15 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.0;
 
-import { PRBTestTest } from "../PRBTestTest.t.sol";
+import { PRBTest_Test } from "../PRBTest.t.sol";
 
-/// @dev We need to use the function "Function" prefix before "Fail" because Forge expects functions that
-/// start with "testFail" to revert.
-contract PRBTestTest__Fail is PRBTestTest {
-    function testFunctionFail__Pass() external {
+contract PRBTestTest_Fail is PRBTest_Test {
+    function test_Fail_Pass() external {
         prbTest._fail();
     }
 
-    function testFunctionFail__Err__Pass() external {
-        vm.expectEmit(false, false, false, true);
+    function test_Fail_Err_Pass() external {
+        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
         emit LogNamedString("Error", ERR);
         prbTest._fail(ERR);
     }

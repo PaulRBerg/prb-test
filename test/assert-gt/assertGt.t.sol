@@ -1,60 +1,60 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.0;
 
-import { PRBTestTest } from "../PRBTestTest.t.sol";
+import { PRBTest_Test } from "../PRBTest.t.sol";
 
-contract PRBTestTest__AssertGt is PRBTestTest {
-    function testAssertGt__Fail(int256 a, int256 b) external {
+contract PRBTestTest_AssertGt is PRBTest_Test {
+    function test_AssertGt_Fail(int256 a, int256 b) external {
         vm.assume(a <= b);
 
-        vm.expectEmit(false, false, false, true);
+        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
         emit Log("Error: a > b not satisfied [int256]");
         prbTest._assertGt(a, b, EXPECT_FAIL);
     }
 
-    function testAssertGt__Err__Fail(int256 a, int256 b) external {
+    function test_AssertGt_Err_Fail(int256 a, int256 b) external {
         vm.assume(a <= b);
 
-        vm.expectEmit(false, false, false, true);
+        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
         emit LogNamedString("Error", ERR);
         prbTest._assertGt(a, b, ERR, EXPECT_FAIL);
     }
 
-    function testAssertGt__Err__Pass(int256 a, int256 b) external {
+    function test_AssertGt_Err_Pass(int256 a, int256 b) external {
         vm.assume(a > b);
 
         prbTest._assertGt(a, b, ERR, EXPECT_PASS);
     }
 
-    function testAssertGt__Pass(int256 a, int256 b) external {
+    function test_AssertGt_Pass(int256 a, int256 b) external {
         vm.assume(a > b);
 
         prbTest._assertGt(a, b, EXPECT_PASS);
     }
 
-    function testAssertGt__Fail(uint256 a, uint256 b) external {
+    function test_AssertGt_Fail(uint256 a, uint256 b) external {
         vm.assume(a <= b);
 
-        vm.expectEmit(false, false, false, true);
+        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
         emit Log("Error: a > b not satisfied [uint256]");
         prbTest._assertGt(a, b, EXPECT_FAIL);
     }
 
-    function testAssertGt__Err__Fail(uint256 a, uint256 b) external {
+    function test_AssertGt_Err_Fail(uint256 a, uint256 b) external {
         vm.assume(a <= b);
 
-        vm.expectEmit(false, false, false, true);
+        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
         emit LogNamedString("Error", ERR);
         prbTest._assertGt(a, b, ERR, EXPECT_FAIL);
     }
 
-    function testAssertGt__Err__Pass(uint256 a, uint256 b) external {
+    function test_AssertGt_Err_Pass(uint256 a, uint256 b) external {
         vm.assume(a > b);
 
         prbTest._assertGt(a, b, ERR, EXPECT_PASS);
     }
 
-    function testAssertGt__Pass(uint256 a, uint256 b) external {
+    function test_AssertGt_Pass(uint256 a, uint256 b) external {
         vm.assume(a > b);
 
         prbTest._assertGt(a, b, EXPECT_PASS);

@@ -4,7 +4,7 @@ pragma solidity >=0.8.0;
 import { PRBTest } from "../src/PRBTest.sol";
 import { PRBTestMock } from "./PRBTestMock.t.sol";
 
-contract PRBTestTest is PRBTest {
+contract PRBTest_Test is PRBTest {
     /*//////////////////////////////////////////////////////////////////////////
                                     CONSTANTS
     //////////////////////////////////////////////////////////////////////////*/

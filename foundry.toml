@@ -2,8 +2,6 @@
 
 [profile.default]
   auto_detect_solc = false
-  bytecode_hash = "none"
-  cbor_metadata = false
   libs = ["lib"]
   gas_reports = ["*"]
   optimizer = false
@@ -15,7 +13,7 @@
 
 [profile.default.fuzz]
   max_test_rejects = 100_000
-  runs = 1_000
+  runs = 256
 
 [profile.ci]
   fuzz = { runs = 1_000 }

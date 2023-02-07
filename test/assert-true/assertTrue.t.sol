@@ -1,28 +1,28 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.0;
 
-import { PRBTestTest } from "../PRBTestTest.t.sol";
+import { PRBTest_Test } from "../PRBTest.t.sol";
 
-contract PRBTestTest__AssertTrue is PRBTestTest {
-    function testAssertTrue__Pass() external {
+contract PRBTestTest_AssertTrue is PRBTest_Test {
+    function test_AssertTrue_Pass() external {
         bool condition = true;
         prbTest._assertTrue(condition, EXPECT_PASS);
     }
 
-    function testAssertTrue__Fail() external {
-        vm.expectEmit(false, false, false, true);
+    function test_AssertTrue_Fail() external {
+        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
         emit Log("Error: Assertion Failed");
         bool condition = false;
         prbTest._assertTrue(condition, EXPECT_FAIL);
     }
 
-    function testAssertTrue__Err__Pass() external {
+    function test_AssertTrue_Err_Pass() external {
         bool condition = true;
         prbTest._assertTrue(condition, ERR, EXPECT_PASS);
     }
 
-    function testAssertTrue__Err__Fail() external {
-        vm.expectEmit(false, false, false, true);
+    function test_AssertTrue_Err_Fail() external {
+        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
         emit LogNamedString("Error", ERR);
         bool condition = false;
         prbTest._assertTrue(condition, ERR, EXPECT_FAIL);
