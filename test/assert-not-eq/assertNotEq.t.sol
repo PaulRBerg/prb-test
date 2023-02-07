@@ -4,7 +4,7 @@ pragma solidity >=0.8.0;
 import "../../src/Helpers.sol";
 import { PRBTest_Test } from "../PRBTest.t.sol";
 
-contract PRBTestTest_AssertNotEq is PRBTest_Test {
+contract AssertNotEq_Test is PRBTest_Test {
     /*//////////////////////////////////////////////////////////////////////////
                                     BASIC TYPES
     //////////////////////////////////////////////////////////////////////////*/

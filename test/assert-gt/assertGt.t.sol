@@ -3,7 +3,7 @@ pragma solidity >=0.8.0;
 
 import { PRBTest_Test } from "../PRBTest.t.sol";
 
-contract PRBTestTest_AssertGt is PRBTest_Test {
+contract AssertGt_Test is PRBTest_Test {
     function test_AssertGt_Fail(int256 a, int256 b) external {
         vm.assume(a <= b);
 

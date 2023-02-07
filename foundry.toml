@@ -15,6 +15,9 @@
   max_test_rejects = 100_000
   runs = 256
 
+[profile.lite.fuzz]
+  runs = 50
+
 [profile.ci]
   fuzz = { runs = 1_000 }
   verbosity = 4

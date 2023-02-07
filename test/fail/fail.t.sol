@@ -3,7 +3,7 @@ pragma solidity >=0.8.0;
 
 import { PRBTest_Test } from "../PRBTest.t.sol";
 
-contract PRBTestTest_Fail is PRBTest_Test {
+contract Fail_Test is PRBTest_Test {
     function test_Fail_Pass() external {
         prbTest._fail();
     }

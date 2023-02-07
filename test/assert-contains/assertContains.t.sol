@@ -3,7 +3,7 @@ pragma solidity >=0.8.0;
 
 import { PRBTest_Test } from "../PRBTest.t.sol";
 
-contract PRBTestTest_AssertContains is PRBTest_Test {
+contract AssertContains_Test is PRBTest_Test {
     function test_AssertContains_Address_Fail(address e0, address e1) external {
         vm.assume(e0 != e1);
 

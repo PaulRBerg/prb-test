@@ -5,7 +5,7 @@ import "../../src/Helpers.sol";
 
 import { PRBTest_Test } from "../PRBTest.t.sol";
 
-contract PRBTestTest_AssertEq is PRBTest_Test {
+contract AssertEq_Test is PRBTest_Test {
     /*//////////////////////////////////////////////////////////////////////////
                                     BASIC TYPES
     //////////////////////////////////////////////////////////////////////////*/

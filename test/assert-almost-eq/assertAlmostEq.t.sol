@@ -4,7 +4,7 @@ pragma solidity >=0.8.0;
 import "../../src/Helpers.sol";
 import { PRBTest_Test } from "../PRBTest.t.sol";
 
-contract PRBTestTest_AssertAlmostEq is PRBTest_Test {
+contract AssertAlmostEq_Test is PRBTest_Test {
     function test_AssertAlmostEq_Int256_Fail(int256 a, int256 b, uint256 maxDelta) external {
         vm.assume(delta(a, b) > maxDelta);
 
