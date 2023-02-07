@@ -1,17 +1,22 @@
 # Full reference https://github.com/foundry-rs/foundry/tree/master/config
 
 [profile.default]
-auto_detect_solc = false
-fuzz = { runs = 256 }
-libs = ["lib"]
-gas_reports = ["*"]
-optimizer = false
-out = "out"
-solc = "0.8.17"
-src = "src"
-test = "test"
-verbosity = 2
+  auto_detect_solc = false
+  bytecode_hash = "none"
+  cbor_metadata = false
+  libs = ["lib"]
+  gas_reports = ["*"]
+  optimizer = false
+  out = "out"
+  solc = "0.8.18"
+  src = "src"
+  test = "test"
+  verbosity = 2
+
+[profile.default.fuzz]
+  max_test_rejects = 100_000
+  runs = 1_000
 
 [profile.ci]
-fuzz = { runs = 1_000 }
-verbosity = 4
+  fuzz = { runs = 1_000 }
+  verbosity = 4
