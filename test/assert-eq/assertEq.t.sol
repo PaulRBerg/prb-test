@@ -35,63 +35,33 @@ contract AssertEq_Test is PRBTest_Test {
     }
 
     function test_AssertEq_Bool_Fail() external {
-        bool a;
-        bool b;
+        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        emit Log("Error: a == b not satisfied [bool]");
+        prbTest._assertEq({ a: false, b: true, expectFail: EXPECT_FAIL });
 
         vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
         emit Log("Error: a == b not satisfied [bool]");
-        a = false;
-        b = true;
-        prbTest._assertEq(a, b, EXPECT_FAIL);
-
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
-        emit Log("Error: a == b not satisfied [bool]");
-        a = true;
-        b = false;
-        prbTest._assertEq(a, b, EXPECT_FAIL);
+        prbTest._assertEq({ a: true, b: false, expectFail: EXPECT_FAIL });
     }
 
     function test_AssertEq_Bool_Err_Fail() external {
-        bool a;
-        bool b;
+        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        emit LogNamedString("Error", ERR);
+        prbTest._assertEq({ a: false, b: true, err: ERR, expectFail: EXPECT_FAIL });
 
         vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
         emit LogNamedString("Error", ERR);
-        a = false;
-        b = true;
-        prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
-
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
-        emit LogNamedString("Error", ERR);
-        a = true;
-        b = false;
-        prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
+        prbTest._assertEq({ a: true, b: false, err: ERR, expectFail: EXPECT_FAIL });
     }
 
     function test_AssertEq_Bool_Err_Pass() external {
-        bool a;
-        bool b;
-
-        a = false;
-        b = false;
-        prbTest._assertEq(a, b, ERR, EXPECT_PASS);
-
-        a = true;
-        b = true;
-        prbTest._assertEq(a, b, ERR, EXPECT_PASS);
+        prbTest._assertEq({ a: false, b: false, err: ERR, expectFail: EXPECT_PASS });
+        prbTest._assertEq({ a: true, b: true, err: ERR, expectFail: EXPECT_PASS });
     }
 
     function test_AssertEq_Bool_Pass() external {
-        bool a;
-        bool b;
-
-        a = false;
-        b = false;
-        prbTest._assertEq(a, b, EXPECT_PASS);
-
-        a = true;
-        b = true;
-        prbTest._assertEq(a, b, EXPECT_PASS);
+        prbTest._assertEq({ a: false, b: false, expectFail: EXPECT_PASS });
+        prbTest._assertEq({ a: true, b: true, expectFail: EXPECT_PASS });
     }
 
     function test_AssertEq_Bytes_Fail(bytes memory a, bytes memory b) external {
