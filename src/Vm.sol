@@ -192,7 +192,7 @@ interface VmSafe {
 
     function parseInt(string calldata stringifiedValue) external pure returns (int256 parsedValue);
 
-    /// @dev In case the returned value is a JSON object, it's encoded as a ABI-encoded tuple. As JSON objects
+    /// In case the returned value is a JSON object, it's encoded as a ABI-encoded tuple. As JSON objects
     /// don't have the notion of ordered, but tuples do, they JSON object is encoded with it's fields ordered in
     /// ALPHABETICAL order. That means that in order to successfully decode the tuple, we need to define a tuple that
     /// encodes the fields in the same order, which is alphabetical. In the case of Solidity structs, they are encoded
@@ -209,6 +209,39 @@ interface VmSafe {
     function parseJson(string calldata json) external pure returns (bytes memory abiEncodedData);
 
     function parseJson(string calldata json, string calldata key) external pure returns (bytes memory abiEncodedData);
+
+    /// The following parseJson cheatcodes will do type coercion, for the type that they indicate.
+    /// For example, parseJsonUint will coerce all values to a uint256. That includes stringified numbers "12"
+    /// and hex numbers "0xEF".
+    /// Type coercion works ONLY for discrete values or arrays. That means that the key must return a value or array,
+    /// not a JSON object.
+    function parseJsonAddress(string calldata, string calldata) external returns (address);
+
+    function parseJsonAddressArray(string calldata, string calldata) external returns (address[] memory);
+
+    function parseJsonBytes(string calldata, string calldata) external returns (bytes memory);
+
+    function parseJsonBytesArray(string calldata, string calldata) external returns (bytes[] memory);
+
+    function parseJsonBytes32(string calldata, string calldata) external returns (bytes32);
+
+    function parseJsonBytes32Array(string calldata, string calldata) external returns (bytes32[] memory);
+
+    function parseJsonInt(string calldata, string calldata) external returns (int256);
+
+    function parseJsonIntArray(string calldata, string calldata) external returns (int256[] memory);
+
+    function parseJsonBool(string calldata, string calldata) external returns (bool);
+
+    function parseJsonBoolArray(string calldata, string calldata) external returns (bool[] memory);
+
+    function parseJsonString(string calldata, string calldata) external returns (string memory);
+
+    function parseJsonStringArray(string calldata, string calldata) external returns (string[] memory);
+
+    function parseJsonUint(string calldata, string calldata) external returns (uint256);
+
+    function parseJsonUintArray(string calldata, string calldata) external returns (uint256[] memory);
 
     function parseUint(string calldata value) external pure returns (uint256 parsedValue);
 
@@ -349,7 +382,7 @@ interface VmSafe {
     /// @dev Stops collecting onchain transactions.
     function stopBroadcast() external;
 
-    /// @dev Convert values to a string.
+    /// Convert values to a string.
     function toString(address value) external pure returns (string memory stringifiedValue);
 
     function toString(bool value) external pure returns (string memory stringifiedValue);
