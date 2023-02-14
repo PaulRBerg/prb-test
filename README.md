@@ -77,7 +77,6 @@ contract MyTest is PRBTest {
     assertTrue(true);
   }
 }
-
 ```
 
 ### Assertions
@@ -117,7 +116,6 @@ contract MyTest is PRBTest {
     a + b;
   }
 }
-
 ```
 
 ## Why Choose PRBTest Over DSTest?
