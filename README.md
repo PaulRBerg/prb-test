@@ -99,18 +99,21 @@ All assertions have overloads with an additional `err` argument, so that you can
 PRBTest can be used alongside all testing utilities from [forge-std][forge-std], except for their [Test][forge-std-test]
 contract.
 
+Here's an example for how to use PRBTest with `StdCheats` and `stdError`:
+
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.0;
 
 import { PRBTest } from "@prb/test/PRBTest.sol";
+import { StdCheats } from "forge-std/StdCheats.sol";
 import { stdError } from "forge-std/Test.sol";
 
-contract MyTest is PRBTest {
-  function testArithmeticOverflow() external pure {
-    uint256 a = type(uin256).max;
+contract MyTest is PRBTest, StdCheats {
+  function testArithmeticOverflow() external {
+    uint256 a = type(uint256).max;
     uint256 b = 1;
-    vm.expect(stdError.arithmeticError);
+    vm.expectRevert(stdError.arithmeticError);
     a + b;
   }
 }
@@ -118,8 +121,8 @@ contract MyTest is PRBTest {
 
 ## Why Choose PRBTest Over DSTest?
 
-[DSTest][ds-test] is great. I have myself used it for a while, and I like it a lot. But, with time, I slowly came to
-realize that there's a lot of room for improvement.
+[DSTest][ds-test] is great. I have used it for a while, and I like it a lot. But, with time, I slowly came to realize
+that there's a lot of room for improvement.
 
 ### 1. Missing Features and Tests
 
@@ -132,7 +135,7 @@ tests do what you intend them to do.
 
 ### 2. No Release Versioning
 
-DSTest doesn't version its releases, which makes it difficult to future-proof consumer repos. It's quite easy to to
+DSTest doesn't version its releases, which makes it difficult to future-proof consumer repos. It's quite easy to
 accidentally update your git submodules and thus break your test suites. For
 [some users](https://github.com/dapphub/ds-test/issues/32), this is a real pain.
 
@@ -156,7 +159,7 @@ So any significant change in DSTest might wreak havoc downstream.
 This issue has led to a "balkanization" of DSTest forks and extensions. See, for instance, Solmate's
 [DSTestPlus][ds-test-plus] and Forge Std's [Test][forge-std-test]. Also see the discussions in this
 [PR](https://github.com/foundry-rs/forge-std/pull/38), in which the PR author ended up making the PR against `forge-std`
-rather than `ds-test` because he feared that his PR won't be merged in the latter.
+rather than `ds-test` because he feared that his PR won't be merged.
 
 ### 4. Lack of Backward Compatibility with Node.js
 
@@ -165,7 +168,7 @@ in Solidity itself.
 
 But, due to various historical reasons, the Ethereum ecosystem has for a long time relied upon JavaScript for testing
 smart contracts. Refactoring a code base from Hardhat or Truffle to Foundry takes time, and it may not always be
-possible to do it in one fell swoop. Thus, to ensure backwards compatibility, PRBTest is available as a Node.js package
+possible to do it in one fell swoop. Thus, to ensure backward compatibility, PRBTest is available as a Node.js package
 in the npm package registry.
 
 For more details about this, see this discussion [here](https://github.com/dapphub/ds-test/issues/35).
