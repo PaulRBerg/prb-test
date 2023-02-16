@@ -19,7 +19,7 @@ function contains(address[] memory a, address b) pure returns (bool result) {
     address item;
     uint256 length = a.length;
 
-    for (uint256 i = 0; i < length; ) {
+    for (uint256 i = 0; i < length;) {
         item = a[i];
         if (item == b) {
             return true;
@@ -42,7 +42,7 @@ function contains(bytes32[] memory a, bytes32 b) pure returns (bool result) {
     bytes32 item;
     uint256 length = a.length;
 
-    for (uint256 i = 0; i < length; ) {
+    for (uint256 i = 0; i < length;) {
         item = a[i];
         if (item == b) {
             return true;
@@ -66,7 +66,7 @@ function contains(string[] memory a, string memory b) pure returns (bool result)
     string memory item;
     uint256 length = a.length;
 
-    for (uint256 i = 0; i < length; ) {
+    for (uint256 i = 0; i < length;) {
         item = a[i];
         if (keccak256(abi.encode(item)) == bHash) {
             return true;
@@ -89,7 +89,7 @@ function contains(int256[] memory a, int256 b) pure returns (bool result) {
     int256 item;
     uint256 length = a.length;
 
-    for (uint256 i = 0; i < length; ) {
+    for (uint256 i = 0; i < length;) {
         item = a[i];
         if (item == b) {
             return true;
@@ -112,7 +112,7 @@ function contains(uint256[] memory a, uint256 b) pure returns (bool result) {
     uint256 item;
     uint256 length = a.length;
 
-    for (uint256 i = 0; i < length; ) {
+    for (uint256 i = 0; i < length;) {
         item = a[i];
         if (item == b) {
             return true;

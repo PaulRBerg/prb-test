@@ -18,10 +18,8 @@
     "lint-staged": "^13.1.2",
     "pinst": "^3.0.0",
     "prettier": "^2.8.4",
-    "prettier-plugin-solidity": "^1.1.2",
     "rimraf": "^4.1.2",
-    "solhint": "^3.3.8",
-    "solhint-plugin-prettier": "^0.0.5"
+    "solhint": "^3.3.8"
   },
   "files": [
     "/src",
@@ -49,11 +47,11 @@
   "scripts": {
     "clean": "rimraf cache out",
     "lint": "yarn lint:sol && yarn prettier:check",
-    "lint:sol": "solhint \"{src,test}/**/*.sol\"",
+    "lint:sol": "forge fmt --check && yarn solhint \"{script,src,test}/**/*.sol\"",
     "postinstall": "husky install",
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable",
-    "prettier:check": "prettier --check \"**/*.{json,md,sol,yml}\"",
-    "prettier:write": "prettier --write \"**/*.{json,md,sol,yml}\""
+    "prettier:check": "prettier --check \"**/*.{json,md,yml}\"",
+    "prettier:write": "prettier --write \"**/*.{json,md,yml}\""
   }
 }

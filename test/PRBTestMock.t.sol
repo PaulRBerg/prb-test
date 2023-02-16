@@ -20,7 +20,7 @@ contract PRBTestMock is PRBTest {
         // The body of the function using this modifier is inserted here.
         _;
 
-        // If the state of the DSTest contract was failed even before runnning this test, stop here.
+        // If the state of the DSTest contract was failed even before running this test, stop here.
         if (preFailed) {
             return;
         }
@@ -88,7 +88,10 @@ contract PRBTestMock is PRBTest {
         address[] memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertEq(a, b, err);
     }
 
@@ -109,7 +112,10 @@ contract PRBTestMock is PRBTest {
         bool[] memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertEq(a, b, err);
     }
 
@@ -122,7 +128,10 @@ contract PRBTestMock is PRBTest {
         bytes memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertEq(a, b, err);
     }
 
@@ -143,7 +152,10 @@ contract PRBTestMock is PRBTest {
         bytes32[] memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertEq(a, b, err);
     }
 
@@ -164,7 +176,10 @@ contract PRBTestMock is PRBTest {
         int256[] memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertEq(a, b, err);
     }
 
@@ -177,7 +192,10 @@ contract PRBTestMock is PRBTest {
         string memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertEq(a, b, err);
     }
 
@@ -190,7 +208,10 @@ contract PRBTestMock is PRBTest {
         string[] memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertEq(a, b, err);
     }
 
@@ -211,7 +232,10 @@ contract PRBTestMock is PRBTest {
         uint256[] memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertEq(a, b, err);
     }
 
@@ -223,7 +247,15 @@ contract PRBTestMock is PRBTest {
         assertNotEq(a, b);
     }
 
-    function _assertNotEq(address a, address b, string memory err, bool expectFail) external expectFailure(expectFail) {
+    function _assertNotEq(
+        address a,
+        address b,
+        string memory err,
+        bool expectFail
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertNotEq(a, b, err);
     }
 
@@ -236,7 +268,10 @@ contract PRBTestMock is PRBTest {
         address[] memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertNotEq(a, b, err);
     }
 
@@ -257,7 +292,10 @@ contract PRBTestMock is PRBTest {
         bool[] memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertNotEq(a, b, err);
     }
 
@@ -270,7 +308,10 @@ contract PRBTestMock is PRBTest {
         bytes memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertNotEq(a, b, err);
     }
 
@@ -278,7 +319,15 @@ contract PRBTestMock is PRBTest {
         assertNotEq(a, b);
     }
 
-    function _assertNotEq(bytes32 a, bytes32 b, string memory err, bool expectFail) external expectFailure(expectFail) {
+    function _assertNotEq(
+        bytes32 a,
+        bytes32 b,
+        string memory err,
+        bool expectFail
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertNotEq(a, b, err);
     }
 
@@ -291,7 +340,10 @@ contract PRBTestMock is PRBTest {
         bytes32[] memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertNotEq(a, b, err);
     }
 
@@ -312,7 +364,10 @@ contract PRBTestMock is PRBTest {
         int256[] memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertNotEq(a, b, err);
     }
 
@@ -325,7 +380,10 @@ contract PRBTestMock is PRBTest {
         string memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertNotEq(a, b, err);
     }
 
@@ -338,7 +396,10 @@ contract PRBTestMock is PRBTest {
         string[] memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertNotEq(a, b, err);
     }
 
@@ -346,7 +407,15 @@ contract PRBTestMock is PRBTest {
         assertNotEq(a, b);
     }
 
-    function _assertNotEq(uint256 a, uint256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
+    function _assertNotEq(
+        uint256 a,
+        uint256 b,
+        string memory err,
+        bool expectFail
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertNotEq(a, b, err);
     }
 
@@ -359,7 +428,10 @@ contract PRBTestMock is PRBTest {
         uint256[] memory b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertNotEq(a, b, err);
     }
 
@@ -367,7 +439,15 @@ contract PRBTestMock is PRBTest {
                                 APPROXIMATE ASSERTIONS
     //////////////////////////////////////////////////////////////////////////*/
 
-    function _assertAlmostEq(int256 a, int256 b, uint256 maxDelta, bool expectFail) external expectFailure(expectFail) {
+    function _assertAlmostEq(
+        int256 a,
+        int256 b,
+        uint256 maxDelta,
+        bool expectFail
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertAlmostEq(a, b, maxDelta);
     }
 
@@ -377,7 +457,10 @@ contract PRBTestMock is PRBTest {
         uint256 maxDelta,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertAlmostEq(a, b, maxDelta, err);
     }
 
@@ -386,7 +469,10 @@ contract PRBTestMock is PRBTest {
         uint256 b,
         uint256 maxDelta,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertAlmostEq(a, b, maxDelta);
     }
 
@@ -396,7 +482,10 @@ contract PRBTestMock is PRBTest {
         uint256 maxDelta,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertAlmostEq(a, b, maxDelta, err);
     }
 
@@ -481,7 +570,10 @@ contract PRBTestMock is PRBTest {
         address b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertContains(a, b, err);
     }
 
@@ -494,7 +586,10 @@ contract PRBTestMock is PRBTest {
         bytes32 b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertContains(a, b, err);
     }
 
@@ -507,7 +602,10 @@ contract PRBTestMock is PRBTest {
         int256 b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertContains(a, b, err);
     }
 
@@ -520,7 +618,10 @@ contract PRBTestMock is PRBTest {
         uint256 b,
         string memory err,
         bool expectFail
-    ) external expectFailure(expectFail) {
+    )
+        external
+        expectFailure(expectFail)
+    {
         assertContains(a, b, err);
     }
 }

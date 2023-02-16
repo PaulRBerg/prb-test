@@ -86,8 +86,7 @@ contract PRBTest {
         if (HEVM_ADDRESS.code.length > 0) {
             (, bytes memory returndata) = HEVM_ADDRESS.call(
                 abi.encodePacked(
-                    bytes4(keccak256("load(address,bytes32)")),
-                    abi.encode(HEVM_ADDRESS, bytes32("failed"))
+                    bytes4(keccak256("load(address,bytes32)")), abi.encode(HEVM_ADDRESS, bytes32("failed"))
                 )
             );
             bool globalFailed = abi.decode(returndata, (bool));
@@ -107,7 +106,7 @@ contract PRBTest {
         }
 
         // Store "0x01" at the "failed" storage slot on the HEVM contract.
-        (bool status, ) = HEVM_ADDRESS.call(
+        (bool status,) = HEVM_ADDRESS.call(
             abi.encodePacked(
                 bytes4(keccak256("store(address,bytes32,bytes32)")),
                 abi.encode(HEVM_ADDRESS, bytes32("failed"), bytes32(uint256(0x01)))

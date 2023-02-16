@@ -67,7 +67,10 @@ interface VmSafe {
         string calldata mnemonic,
         string calldata derivationPath,
         uint32 index
-    ) external pure returns (uint256 privateKey);
+    )
+        external
+        pure
+        returns (uint256 privateKey);
 
     /// @dev Reads environment variables
     function envAddress(string calldata name) external view returns (address value);
@@ -119,43 +122,57 @@ interface VmSafe {
         string calldata name,
         string calldata,
         bool[] calldata defaultValue
-    ) external returns (bool[] memory value);
+    )
+        external
+        returns (bool[] memory value);
 
     function envOr(
         string calldata name,
         string calldata,
         uint256[] calldata defaultValue
-    ) external returns (uint256[] memory value);
+    )
+        external
+        returns (uint256[] memory value);
 
     function envOr(
         string calldata name,
         string calldata,
         int256[] calldata defaultValue
-    ) external returns (int256[] memory value);
+    )
+        external
+        returns (int256[] memory value);
 
     function envOr(
         string calldata name,
         string calldata,
         address[] calldata defaultValue
-    ) external returns (address[] memory value);
+    )
+        external
+        returns (address[] memory value);
 
     function envOr(
         string calldata name,
         string calldata,
         bytes32[] calldata defaultValue
-    ) external returns (bytes32[] memory value);
+    )
+        external
+        returns (bytes32[] memory value);
 
     function envOr(
         string calldata name,
         string calldata,
         string[] calldata defaultValue
-    ) external returns (string[] memory value);
+    )
+        external
+        returns (string[] memory value);
 
     function envOr(
         string calldata name,
         string calldata,
         bytes[] calldata defaultValue
-    ) external returns (bytes[] memory value);
+    )
+        external
+        returns (bytes[] memory value);
 
     /// @dev Performs a foreign function call via the terminal.
     function ffi(string[] calldata commandInput) external returns (bytes memory result);
@@ -281,85 +298,113 @@ interface VmSafe {
         string calldata objectKey,
         string calldata valueKey,
         bool value
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     function serializeUint(
         string calldata objectKey,
         string calldata valueKey,
         uint256 value
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     function serializeInt(
         string calldata objectKey,
         string calldata valueKey,
         int256 value
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     function serializeAddress(
         string calldata objectKey,
         string calldata valueKey,
         address value
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     function serializeBytes32(
         string calldata objectKey,
         string calldata valueKey,
         bytes32 value
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     function serializeString(
         string calldata objectKey,
         string calldata valueKey,
         string calldata value
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     function serializeBytes(
         string calldata objectKey,
         string calldata valueKey,
         bytes calldata value
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     function serializeBool(
         string calldata objectKey,
         string calldata valueKey,
         bool[] calldata values
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     function serializeUint(
         string calldata objectKey,
         string calldata valueKey,
         uint256[] calldata values
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     function serializeInt(
         string calldata objectKey,
         string calldata valueKey,
         int256[] calldata values
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     function serializeAddress(
         string calldata objectKey,
         string calldata valueKey,
         address[] calldata values
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     function serializeBytes32(
         string calldata objectKey,
         string calldata valueKey,
         bytes32[] calldata values
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     function serializeString(
         string calldata objectKey,
         string calldata valueKey,
         string[] calldata values
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     function serializeBytes(
         string calldata objectKey,
         string calldata valueKey,
         bytes[] calldata values
-    ) external returns (string memory json);
+    )
+        external
+        returns (string memory json);
 
     /// @dev Sets environment variables.
     function setEnv(string calldata name, string calldata value) external;
@@ -470,7 +515,14 @@ interface Vm is VmSafe {
     /// were emitted in the expected order with the expected topics and data (as specified by the booleans).
     function expectEmit(bool checkTopic1, bool checkTopic2, bool checkTopic3, bool checkData) external;
 
-    function expectEmit(bool checkTopic1, bool checkTopic2, bool checkTopic3, bool checkData, address emitter) external;
+    function expectEmit(
+        bool checkTopic1,
+        bool checkTopic2,
+        bool checkTopic3,
+        bool checkData,
+        address emitter
+    )
+        external;
 
     /// @dev Expects an error on next call.
     function expectRevert(bytes calldata revertData) external;
