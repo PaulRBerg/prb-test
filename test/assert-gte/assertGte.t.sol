@@ -7,7 +7,7 @@ contract AssertGte_Test is PRBTest_Test {
     function test_AssertGte_Fail(int256 a, int256 b) external {
         vm.assume(a < b);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a >= b not satisfied [int256]");
         prbTest._assertGte(a, b, EXPECT_FAIL);
     }
@@ -15,7 +15,7 @@ contract AssertGte_Test is PRBTest_Test {
     function test_AssertGte_Err_Fail(int256 a, int256 b) external {
         vm.assume(a < b);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertGte(a, b, ERR, EXPECT_FAIL);
     }
@@ -35,7 +35,7 @@ contract AssertGte_Test is PRBTest_Test {
     function test_AssertGte_Fail(uint256 a, uint256 b) external {
         vm.assume(a < b);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a >= b not satisfied [uint256]");
         prbTest._assertGte(a, b, EXPECT_FAIL);
     }
@@ -43,7 +43,7 @@ contract AssertGte_Test is PRBTest_Test {
     function test_AssertGte_Err_Fail(uint256 a, uint256 b) external {
         vm.assume(a < b);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertGte(a, b, ERR, EXPECT_FAIL);
     }

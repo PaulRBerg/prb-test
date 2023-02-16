@@ -11,7 +11,7 @@ contract AssertContains_Test is PRBTest_Test {
         a[0] = e0;
         address b = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a does not contain b [address[]]");
         prbTest._assertContains(a, b, EXPECT_FAIL);
     }
@@ -23,7 +23,7 @@ contract AssertContains_Test is PRBTest_Test {
         a[0] = e0;
         address b = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertContains(a, b, ERR, EXPECT_FAIL);
     }
@@ -55,7 +55,7 @@ contract AssertContains_Test is PRBTest_Test {
         a[0] = e0;
         bytes32 b = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a does not contain b [bytes32[]]");
         prbTest._assertContains(a, b, EXPECT_FAIL);
     }
@@ -67,7 +67,7 @@ contract AssertContains_Test is PRBTest_Test {
         a[0] = e0;
         bytes32 b = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertContains(a, b, ERR, EXPECT_FAIL);
     }
@@ -99,7 +99,7 @@ contract AssertContains_Test is PRBTest_Test {
         a[0] = e0;
         int256 b = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a does not contain b [int256[]]");
         prbTest._assertContains(a, b, EXPECT_FAIL);
     }
@@ -111,7 +111,7 @@ contract AssertContains_Test is PRBTest_Test {
         a[0] = e0;
         int256 b = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertContains(a, b, ERR, EXPECT_FAIL);
     }
@@ -143,7 +143,7 @@ contract AssertContains_Test is PRBTest_Test {
         a[0] = e0;
         uint256 b = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a does not contain b [uint256[]]");
         prbTest._assertContains(a, b, EXPECT_FAIL);
     }
@@ -155,7 +155,7 @@ contract AssertContains_Test is PRBTest_Test {
         a[0] = e0;
         uint256 b = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertContains(a, b, ERR, EXPECT_FAIL);
     }

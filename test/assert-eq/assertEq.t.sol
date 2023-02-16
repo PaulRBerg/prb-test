@@ -13,7 +13,7 @@ contract AssertEq_Test is PRBTest_Test {
     function test_AssertEq_Address_Fail(address a, address b) external {
         vm.assume(a != b);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [address]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -21,7 +21,7 @@ contract AssertEq_Test is PRBTest_Test {
     function test_AssertEq_Address_Err_Fail(address a, address b) external {
         vm.assume(a != b);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -35,21 +35,21 @@ contract AssertEq_Test is PRBTest_Test {
     }
 
     function test_AssertEq_Bool_Fail() external {
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [bool]");
         prbTest._assertEq({ a: false, b: true, expectFail: EXPECT_FAIL });
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [bool]");
         prbTest._assertEq({ a: true, b: false, expectFail: EXPECT_FAIL });
     }
 
     function test_AssertEq_Bool_Err_Fail() external {
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq({ a: false, b: true, err: ERR, expectFail: EXPECT_FAIL });
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq({ a: true, b: false, err: ERR, expectFail: EXPECT_FAIL });
     }
@@ -67,7 +67,7 @@ contract AssertEq_Test is PRBTest_Test {
     function test_AssertEq_Bytes_Fail(bytes memory a, bytes memory b) external {
         vm.assume(!eq(a, b));
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [bytes]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -75,7 +75,7 @@ contract AssertEq_Test is PRBTest_Test {
     function test_AssertEq_Bytes_Err_Fail(bytes memory a, bytes memory b) external {
         vm.assume(!eq(a, b));
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -91,7 +91,7 @@ contract AssertEq_Test is PRBTest_Test {
     function test_AssertEq_Bytes32_Fail(bytes32 a, bytes32 b) external {
         vm.assume(a != b);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [bytes32]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -99,7 +99,7 @@ contract AssertEq_Test is PRBTest_Test {
     function test_AssertEq_Bytes32_Err_Fail(bytes32 a, bytes32 b) external {
         vm.assume(a != b);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -115,7 +115,7 @@ contract AssertEq_Test is PRBTest_Test {
     function test_AssertEq_Int256_Fail(int256 a, int256 b) external {
         vm.assume(a != b);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [int256]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -123,7 +123,7 @@ contract AssertEq_Test is PRBTest_Test {
     function test_AssertEq_Int256_Err_Fail(int256 a, int256 b) external {
         vm.assume(a != b);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -139,7 +139,7 @@ contract AssertEq_Test is PRBTest_Test {
     function test_AssertEq_String_Fail(string memory a, string memory b) external {
         vm.assume(!eq(a, b));
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [string]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -147,7 +147,7 @@ contract AssertEq_Test is PRBTest_Test {
     function test_AssertEq_String_Err_Fail(string memory a, string memory b) external {
         vm.assume(!eq(a, b));
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -163,7 +163,7 @@ contract AssertEq_Test is PRBTest_Test {
     function test_AssertEq_Uint256_Fail(uint256 a, uint256 b) external {
         vm.assume(a != b);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [uint256]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -171,7 +171,7 @@ contract AssertEq_Test is PRBTest_Test {
     function test_AssertEq_Uint256_Err_Fail(uint256 a, uint256 b) external {
         vm.assume(a != b);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -195,7 +195,7 @@ contract AssertEq_Test is PRBTest_Test {
         address[] memory b = new address[](3);
         b[1] = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [address[]]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -208,7 +208,7 @@ contract AssertEq_Test is PRBTest_Test {
         address[] memory a = new address[](lenA);
         address[] memory b = new address[](lenB);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [address[]]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -220,7 +220,7 @@ contract AssertEq_Test is PRBTest_Test {
         address[] memory b = new address[](3);
         b[1] = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -233,7 +233,7 @@ contract AssertEq_Test is PRBTest_Test {
         address[] memory a = new address[](lenA);
         address[] memory b = new address[](lenB);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -270,13 +270,13 @@ contract AssertEq_Test is PRBTest_Test {
         bool[] memory a = new bool[](1);
         bool[] memory b = new bool[](1);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [bool[]]");
         a[0] = false;
         b[0] = true;
         prbTest._assertEq(a, b, EXPECT_FAIL);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [bool[]]");
         a[0] = true;
         b[0] = false;
@@ -291,7 +291,7 @@ contract AssertEq_Test is PRBTest_Test {
         bool[] memory a = new bool[](lenA);
         bool[] memory b = new bool[](lenB);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [bool[]]");
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -300,13 +300,13 @@ contract AssertEq_Test is PRBTest_Test {
         bool[] memory a = new bool[](1);
         bool[] memory b = new bool[](1);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         a[0] = false;
         b[0] = true;
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         a[0] = true;
         b[0] = false;
@@ -321,7 +321,7 @@ contract AssertEq_Test is PRBTest_Test {
         bool[] memory a = new bool[](lenA);
         bool[] memory b = new bool[](lenB);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -359,7 +359,7 @@ contract AssertEq_Test is PRBTest_Test {
         bytes32[] memory b = new bytes32[](3);
         b[1] = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [bytes32[]]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -372,7 +372,7 @@ contract AssertEq_Test is PRBTest_Test {
         bytes32[] memory a = new bytes32[](lenA);
         bytes32[] memory b = new bytes32[](lenB);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [bytes32[]]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -384,7 +384,7 @@ contract AssertEq_Test is PRBTest_Test {
         bytes32[] memory b = new bytes32[](3);
         b[1] = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -397,7 +397,7 @@ contract AssertEq_Test is PRBTest_Test {
         bytes32[] memory a = new bytes32[](lenA);
         bytes32[] memory b = new bytes32[](lenB);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -437,7 +437,7 @@ contract AssertEq_Test is PRBTest_Test {
         int256[] memory b = new int256[](3);
         b[1] = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [int256[]]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -450,7 +450,7 @@ contract AssertEq_Test is PRBTest_Test {
         int256[] memory a = new int256[](lenA);
         int256[] memory b = new int256[](lenB);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [int256[]]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -462,7 +462,7 @@ contract AssertEq_Test is PRBTest_Test {
         int256[] memory b = new int256[](3);
         b[1] = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -475,7 +475,7 @@ contract AssertEq_Test is PRBTest_Test {
         int256[] memory a = new int256[](lenA);
         int256[] memory b = new int256[](lenB);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -514,7 +514,7 @@ contract AssertEq_Test is PRBTest_Test {
         string[] memory a = new string[](3);
         string[] memory b = new string[](3);
         b[1] = e1;
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [string[]]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -527,7 +527,7 @@ contract AssertEq_Test is PRBTest_Test {
         string[] memory a = new string[](lenA);
         string[] memory b = new string[](lenB);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [string[]]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -538,7 +538,7 @@ contract AssertEq_Test is PRBTest_Test {
         string[] memory a = new string[](3);
         string[] memory b = new string[](3);
         b[1] = e1;
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -551,7 +551,7 @@ contract AssertEq_Test is PRBTest_Test {
         string[] memory a = new string[](lenA);
         string[] memory b = new string[](lenB);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -590,7 +590,7 @@ contract AssertEq_Test is PRBTest_Test {
         uint256[] memory b = new uint256[](3);
         b[1] = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [uint256[]]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -603,7 +603,7 @@ contract AssertEq_Test is PRBTest_Test {
         uint256[] memory a = new uint256[](lenA);
         uint256[] memory b = new uint256[](lenB);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: a == b not satisfied [uint256[]]");
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
@@ -615,7 +615,7 @@ contract AssertEq_Test is PRBTest_Test {
         uint256[] memory b = new uint256[](3);
         b[1] = e1;
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -628,7 +628,7 @@ contract AssertEq_Test is PRBTest_Test {
         uint256[] memory a = new uint256[](lenA);
         uint256[] memory b = new uint256[](lenB);
 
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }

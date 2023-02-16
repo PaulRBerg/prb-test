@@ -9,7 +9,7 @@ contract AssertTrue_Test is PRBTest_Test {
     }
 
     function test_AssertTrue_Fail() external {
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit Log("Error: Assertion Failed");
         prbTest._assertTrue({ condition: false, expectFail: EXPECT_FAIL });
     }
@@ -19,7 +19,7 @@ contract AssertTrue_Test is PRBTest_Test {
     }
 
     function test_AssertTrue_Err_Fail() external {
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertTrue({ condition: false, err: ERR, expectFail: EXPECT_FAIL });
     }

@@ -18,4 +18,14 @@ contract PRBTest_Test is PRBTest {
     //////////////////////////////////////////////////////////////////////////*/
 
     PRBTestMock internal prbTest = new PRBTestMock();
+
+    /*//////////////////////////////////////////////////////////////////////////
+                          INTERNAL NON-CONSTANT FUNCTIONS
+    //////////////////////////////////////////////////////////////////////////*/
+
+    /// @dev Expects an event to be emitted by checking all three topics and the data. As mentioned in the Foundry
+    /// Book, the extra `true` arguments don't hurt.
+    function expectEmit() internal {
+        vm.expectEmit({ checkTopic1: true, checkTopic2: true, checkTopic3: true, checkData: true });
+    }
 }

@@ -9,7 +9,7 @@ contract Fail_Test is PRBTest_Test {
     }
 
     function test_Fail_Err_Pass() external {
-        vm.expectEmit({ checkTopic1: false, checkTopic2: false, checkTopic3: false, checkData: true });
+        expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._fail(ERR);
     }
