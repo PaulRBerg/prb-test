@@ -13,6 +13,11 @@
     "max-line-length": ["error", 120],
     "no-inline-assembly": "off",
     "not-rely-on-time": "off",
-    "reason-string": ["warn", { "maxLength": 64 }]
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   }
 }
