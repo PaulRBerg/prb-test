@@ -4,19 +4,12 @@
   "version": "0.4.0",
   "author": {
     "name": "Paul Razvan Berg",
-    "url": "https://github.com/paulrberg"
+    "url": "https://github.com/PaulRBerg"
   },
   "bugs": {
     "url": "https://github.com/PaulRBerg/prb-test/issues"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.4.3",
-    "@commitlint/config-conventional": "^17.4.3",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.1.2",
-    "pinst": "^3.0.0",
     "prettier": "^2.8.4",
     "rimraf": "^4.1.2",
     "solhint": "^3.3.8"
@@ -48,9 +41,6 @@
     "clean": "rimraf cache out",
     "lint": "yarn lint:sol && yarn prettier:check",
     "lint:sol": "forge fmt --check && yarn solhint \"{script,src,test}/**/*.sol\"",
-    "postinstall": "husky install",
-    "postpublish": "pinst --enable",
-    "prepublishOnly": "pinst --disable",
     "prettier:check": "prettier --check \"**/*.{json,md,yml}\"",
     "prettier:write": "prettier --write \"**/*.{json,md,yml}\""
   }
