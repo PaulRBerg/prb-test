@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <0.9.0;
 
-import "./Helpers.sol";
+import "./Helpers.sol" as Helpers;
 import { Vm } from "./Vm.sol";
 
 /*//////////////////////////////////////////////////////////////////////////
@@ -219,7 +219,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertEq(bool[] memory a, bool[] memory b) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [bool[]]");
             emit LogNamedArray("  Expected", b);
             emit LogNamedArray("    Actual", a);
@@ -230,7 +230,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertEq(bool[] memory a, bool[] memory b, string memory err) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertEq(a, b);
         }
@@ -239,7 +239,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertEq(bytes memory a, bytes memory b) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [bytes]");
             emit LogNamedBytes("  Expected", b);
             emit LogNamedBytes("    Actual", a);
@@ -250,7 +250,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertEq(bytes memory a, bytes memory b, string memory err) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertEq(a, b);
         }
@@ -277,7 +277,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertEq(bytes32[] memory a, bytes32[] memory b) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [bytes32[]]");
             emit LogNamedArray("  Expected", b);
             emit LogNamedArray("    Actual", a);
@@ -288,7 +288,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertEq(bytes32[] memory a, bytes32[] memory b, string memory err) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertEq(a, b);
         }
@@ -315,7 +315,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertEq(int256[] memory a, int256[] memory b) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [int256[]]");
             emit LogNamedArray("  Expected", b);
             emit LogNamedArray("    Actual", a);
@@ -326,7 +326,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertEq(int256[] memory a, int256[] memory b, string memory err) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertEq(a, b);
         }
@@ -335,7 +335,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails.
     /// Works by comparing the `keccak256` hashes of the strings, which is faster than iterating over the elements.
     function assertEq(string memory a, string memory b) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [string]");
             emit LogNamedString("  Expected", b);
             emit LogNamedString("    Actual", a);
@@ -346,7 +346,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the strings, which is faster than iterating over the elements.
     function assertEq(string memory a, string memory b, string memory err) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertEq(a, b);
         }
@@ -355,7 +355,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertEq(string[] memory a, string[] memory b) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [string[]]");
             emit LogNamedArray("  Expected", b);
             emit LogNamedArray("    Actual", a);
@@ -366,7 +366,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertEq(string[] memory a, string[] memory b, string memory err) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertEq(a, b);
         }
@@ -393,7 +393,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertEq(uint256[] memory a, uint256[] memory b) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [uint256[]]");
             emit LogNamedArray("  Expected", b);
             emit LogNamedArray("    Actual", a);
@@ -404,7 +404,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertEq(uint256[] memory a, uint256[] memory b, string memory err) internal virtual {
-        if (!eq(a, b)) {
+        if (!Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertEq(a, b);
         }
@@ -435,7 +435,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(address[] memory a, address[] memory b) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [address[]]");
             emit LogNamedArray("  Expected", b);
             emit LogNamedArray("    Actual", a);
@@ -446,7 +446,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(address[] memory a, address[] memory b, string memory err) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertNotEq(a, b);
         }
@@ -473,7 +473,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(bool[] memory a, bool[] memory b) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [bool[]]");
             emit LogNamedArray("  Expected", b);
             emit LogNamedArray("    Actual", a);
@@ -484,7 +484,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(bool[] memory a, bool[] memory b, string memory err) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertNotEq(a, b);
         }
@@ -493,7 +493,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(bytes memory a, bytes memory b) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [bytes]");
             emit LogNamedBytes("  Expected", b);
             emit LogNamedBytes("    Actual", a);
@@ -504,7 +504,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are equal. If they are not, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(bytes memory a, bytes memory b, string memory err) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertNotEq(a, b);
         }
@@ -512,7 +512,7 @@ contract PRBTest {
 
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails.
     function assertNotEq(bytes32 a, bytes32 b) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [bytes32]");
             emit LogNamedBytes32("  Expected", b);
             emit LogNamedBytes32("    Actual", a);
@@ -522,7 +522,7 @@ contract PRBTest {
 
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails with the error message `err`.
     function assertNotEq(bytes32 a, bytes32 b, string memory err) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertNotEq(a, b);
         }
@@ -531,7 +531,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(bytes32[] memory a, bytes32[] memory b) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [bytes32[]]");
             emit LogNamedArray("  Expected", b);
             emit LogNamedArray("    Actual", a);
@@ -542,7 +542,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(bytes32[] memory a, bytes32[] memory b, string memory err) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertNotEq(a, b);
         }
@@ -569,7 +569,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(int256[] memory a, int256[] memory b) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [int256[]]");
             emit LogNamedArray("  Expected", b);
             emit LogNamedArray("    Actual", a);
@@ -580,7 +580,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(int256[] memory a, int256[] memory b, string memory err) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertNotEq(a, b);
         }
@@ -589,7 +589,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails.
     /// Works by comparing the `keccak256` hashes of the strings, which is faster than iterating over the elements.
     function assertNotEq(string memory a, string memory b) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [string]");
             emit LogNamedString("  Expected", b);
             emit LogNamedString("    Actual", a);
@@ -600,7 +600,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the strings, which is faster than iterating over the elements.
     function assertNotEq(string memory a, string memory b, string memory err) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertNotEq(a, b);
         }
@@ -609,7 +609,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(string[] memory a, string[] memory b) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [string[]]");
             emit LogNamedArray("  Expected", b);
             emit LogNamedArray("    Actual", a);
@@ -620,7 +620,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(string[] memory a, string[] memory b, string memory err) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertNotEq(a, b);
         }
@@ -647,7 +647,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(uint256[] memory a, uint256[] memory b) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [uint256[]]");
             emit LogNamedArray("  Expected", b);
             emit LogNamedArray("    Actual", a);
@@ -658,7 +658,7 @@ contract PRBTest {
     /// @dev Tests that `a` and `b` are not equal. If they are, the test fails with the error message `err`.
     /// Works by comparing the `keccak256` hashes of the arrays, which is faster than iterating over the elements.
     function assertNotEq(uint256[] memory a, uint256[] memory b, string memory err) internal virtual {
-        if (eq(a, b)) {
+        if (Helpers.eq(a, b)) {
             emit LogNamedString("Error", err);
             assertNotEq(a, b);
         }
@@ -671,7 +671,7 @@ contract PRBTest {
     /// @dev Tests that the absolute difference between `a and `b` is less than or equal to `maxDelta`.
     /// If it is not, the test fails.
     function assertAlmostEq(int256 a, int256 b, uint256 maxDelta) internal virtual {
-        uint256 actualDelta = delta(a, b);
+        uint256 actualDelta = Helpers.delta(a, b);
         if (actualDelta > maxDelta) {
             emit Log("Error: a ~= b not satisfied [int256]");
             emit LogNamedInt256("      Expected", b);
@@ -685,7 +685,7 @@ contract PRBTest {
     /// @dev Tests that the absolute difference between `a and `b` is less than or equal to `maxDelta`.
     /// If it is not, the test fails with the error message `err`.
     function assertAlmostEq(int256 a, int256 b, uint256 maxDelta, string memory err) internal virtual {
-        if (delta(a, b) > maxDelta) {
+        if (Helpers.delta(a, b) > maxDelta) {
             emit LogNamedString("Error", err);
             assertAlmostEq(a, b, maxDelta);
         }
@@ -694,7 +694,7 @@ contract PRBTest {
     /// @dev Tests that the absolute difference between `a and `b` is less than or equal to `maxDelta`.
     /// If it is not, the test fails.
     function assertAlmostEq(uint256 a, uint256 b, uint256 maxDelta) internal virtual {
-        uint256 actualDelta = delta(a, b);
+        uint256 actualDelta = Helpers.delta(a, b);
         if (actualDelta > maxDelta) {
             emit Log("Error: a ~= b not satisfied [uint256]");
             emit LogNamedUint256("      Expected", b);
@@ -705,10 +705,10 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that the absolute difference between `a and `b` is less than or equal to `delta`.
+    /// @dev Tests that the absolute difference between `a and `b` is less than or equal to `Helpers.delta`.
     /// If it is not, the test fails with the error message `err`.
     function assertAlmostEq(uint256 a, uint256 b, uint256 maxDelta, string memory err) internal virtual {
-        if (delta(a, b) > maxDelta) {
+        if (Helpers.delta(a, b) > maxDelta) {
             emit LogNamedString("Error", err);
             assertAlmostEq(a, b, maxDelta);
         }
@@ -866,9 +866,9 @@ contract PRBTest {
                                 CONTAINMENT ASSERTIONS
     //////////////////////////////////////////////////////////////////////////*/
 
-    /// @dev Tests that `a` contains `b`. If it does not, the test fails.
+    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails.
     function assertContains(address[] memory a, address b) internal virtual {
-        if (!contains(a, b)) {
+        if (!Helpers.contains(a, b)) {
             emit Log("Error: a does not contain b [address[]]");
             emit LogNamedArray("  Array a", a);
             emit LogNamedAddress("   Item b", b);
@@ -876,17 +876,17 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` contains `b`. If it does not, the test fails with the error message `err`.
+    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails with the error message `err`.
     function assertContains(address[] memory a, address b, string memory err) internal virtual {
-        if (!contains(a, b)) {
+        if (!Helpers.contains(a, b)) {
             emit LogNamedString("Error", err);
             assertContains(a, b);
         }
     }
 
-    /// @dev Tests that `a` contains `b`. If it does not, the test fails.
+    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails.
     function assertContains(bytes32[] memory a, bytes32 b) internal virtual {
-        if (!contains(a, b)) {
+        if (!Helpers.contains(a, b)) {
             emit Log("Error: a does not contain b [bytes32[]]");
             emit LogNamedArray("  Array a", a);
             emit LogNamedBytes32("   Item b", b);
@@ -894,17 +894,17 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` contains `b`. If it does not, the test fails with the error message `err`.
+    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails with the error message `err`.
     function assertContains(bytes32[] memory a, bytes32 b, string memory err) internal virtual {
-        if (!contains(a, b)) {
+        if (!Helpers.contains(a, b)) {
             emit LogNamedString("Error", err);
             assertContains(a, b);
         }
     }
 
-    /// @dev Tests that `a` contains `b`. If it does not, the test fails.
+    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails.
     function assertContains(int256[] memory a, int256 b) internal virtual {
-        if (!contains(a, b)) {
+        if (!Helpers.contains(a, b)) {
             emit Log("Error: a does not contain b [int256[]]");
             emit LogNamedArray("  Array a", a);
             emit LogNamedInt256("   Item b", b);
@@ -912,17 +912,17 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` contains `b`. If it does not, the test fails with the error message `err`.
+    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails with the error message `err`.
     function assertContains(int256[] memory a, int256 b, string memory err) internal virtual {
-        if (!contains(a, b)) {
+        if (!Helpers.contains(a, b)) {
             emit LogNamedString("Error", err);
             assertContains(a, b);
         }
     }
 
-    /// @dev Tests that `a` contains `b`. If it does not, the test fails.
+    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails.
     function assertContains(string[] memory a, string memory b) internal virtual {
-        if (!contains(a, b)) {
+        if (!Helpers.contains(a, b)) {
             emit Log("Error: a does not contain b [string[]]");
             emit LogNamedArray("  Array a", a);
             emit LogNamedString("   Item b", b);
@@ -930,17 +930,17 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` contains `b`. If it does not, the test fails with the error message `err`.
+    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails with the error message `err`.
     function assertContains(string[] memory a, string memory b, string memory err) internal virtual {
-        if (!contains(a, b)) {
+        if (!Helpers.contains(a, b)) {
             emit LogNamedString("Error", err);
             assertContains(a, b);
         }
     }
 
-    /// @dev Tests that `a` contains `b`. If it does not, the test fails.
+    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails.
     function assertContains(uint256[] memory a, uint256 b) internal virtual {
-        if (!contains(a, b)) {
+        if (!Helpers.contains(a, b)) {
             emit Log("Error: a does not contain b [uint256[]]");
             emit LogNamedArray("  Array a", a);
             emit LogNamedUint256("   Item b", b);
@@ -948,9 +948,9 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` contains `b`. If it does not, the test fails with the error message `err`.
+    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails with the error message `err`.
     function assertContains(uint256[] memory a, uint256 b, string memory err) internal virtual {
-        if (!contains(a, b)) {
+        if (!Helpers.contains(a, b)) {
             emit LogNamedString("Error", err);
             assertContains(a, b);
         }

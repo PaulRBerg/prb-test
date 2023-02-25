@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.19 <0.9.0;
 
-import "../../src/Helpers.sol";
+import "../../src/Helpers.sol" as Helpers;
 
 import { PRBTest_Test } from "../PRBTest.t.sol";
 
@@ -65,7 +65,7 @@ contract AssertEq_Test is PRBTest_Test {
     }
 
     function test_AssertEq_Bytes_Fail(bytes memory a, bytes memory b) external {
-        vm.assume(!eq(a, b));
+        vm.assume(!Helpers.eq(a, b));
 
         expectEmit();
         emit Log("Error: a == b not satisfied [bytes]");
@@ -73,7 +73,7 @@ contract AssertEq_Test is PRBTest_Test {
     }
 
     function test_AssertEq_Bytes_Err_Fail(bytes memory a, bytes memory b) external {
-        vm.assume(!eq(a, b));
+        vm.assume(!Helpers.eq(a, b));
 
         expectEmit();
         emit LogNamedString("Error", ERR);
@@ -137,7 +137,7 @@ contract AssertEq_Test is PRBTest_Test {
     }
 
     function test_AssertEq_String_Fail(string memory a, string memory b) external {
-        vm.assume(!eq(a, b));
+        vm.assume(!Helpers.eq(a, b));
 
         expectEmit();
         emit Log("Error: a == b not satisfied [string]");
@@ -145,7 +145,7 @@ contract AssertEq_Test is PRBTest_Test {
     }
 
     function test_AssertEq_String_Err_Fail(string memory a, string memory b) external {
-        vm.assume(!eq(a, b));
+        vm.assume(!Helpers.eq(a, b));
 
         expectEmit();
         emit LogNamedString("Error", ERR);
@@ -389,7 +389,7 @@ contract AssertEq_Test is PRBTest_Test {
         prbTest._assertEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function test_AssertEq_Bytes32Array_Err_Faillengths(uint256 lenA, uint256 lenB) external {
+    function test_AssertEq_Bytes32Array_Err_FailLengths(uint256 lenA, uint256 lenB) external {
         vm.assume(lenA != lenB);
         vm.assume(lenA <= 10_000);
         vm.assume(lenB <= 10_000);
@@ -509,7 +509,7 @@ contract AssertEq_Test is PRBTest_Test {
     }
 
     function test_AssertEq_StringArray_FailElements(string memory e1) external {
-        vm.assume(!eq(e1, ""));
+        vm.assume(!Helpers.eq(e1, ""));
 
         string[] memory a = new string[](3);
         string[] memory b = new string[](3);
@@ -533,7 +533,7 @@ contract AssertEq_Test is PRBTest_Test {
     }
 
     function test_AssertEq_StringArray_Err_FailElements(string memory e1) external {
-        vm.assume(!eq(e1, ""));
+        vm.assume(!Helpers.eq(e1, ""));
 
         string[] memory a = new string[](3);
         string[] memory b = new string[](3);

@@ -7,13 +7,11 @@
     "contract-name-camelcase": "off",
     "const-name-snakecase": "off",
     "constructor-syntax": "error",
-    "event-name-camelcase": "off",
     "func-name-mixedcase": "off",
     "func-visibility": ["error", { "ignoreConstructors": true }],
     "max-line-length": ["error", 120],
     "named-parameters-mapping": "warn",
     "no-console": "off",
-    "no-inline-assembly": "off",
-    "not-rely-on-time": "off"
+    "no-global-import": "off"
   }
 }

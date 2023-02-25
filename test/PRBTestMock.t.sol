@@ -8,7 +8,7 @@ contract PRBTestMock is PRBTest {
                                 FAILURE SYSTEM
     //////////////////////////////////////////////////////////////////////////*/
 
-    /// The HEVM will think that the test failed if it sees "failed" set to "0x01" at the end of the test.
+    /// @dev The HEVM will think that the test failed if it sees "failed" set to "0x01" at the end of the test.
     /// But because we're testing test assertions, "failed" being set to "0x01" might mean that our test passed.
     /// We need to set it back to "0x00".
     ///
