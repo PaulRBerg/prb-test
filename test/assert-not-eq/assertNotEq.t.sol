@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.19 <0.9.0;
 
+import "../../src/Helpers.sol" as Helpers;
+
 import { PRBTest_Test } from "../PRBTest.t.sol";
 
 contract AssertNotEq_Test is PRBTest_Test {
@@ -195,6 +197,26 @@ contract AssertNotEq_Test is PRBTest_Test {
 
     function test_AssertNotEq_Int256_Pass(int256 a, int256 b) external {
         vm.assume(a != b);
+        prbTest._assertNotEq(a, b, EXPECT_PASS);
+    }
+
+    function test_AssertNotEq_String_Fail(string memory a) external {
+        expectEmit();
+        emit Log("Error: a != b not satisfied [string]");
+        prbTest._assertNotEq(a, a, EXPECT_FAIL);
+    }
+
+    function test_AssertNotEq_String_Err_Fail(string memory a) external {
+        prbTest._assertNotEq(a, a, ERR, EXPECT_FAIL);
+    }
+
+    function test_AssertNotEq_String_Err_Pass(string memory a, string memory b) external {
+        vm.assume(!Helpers.eq(a, b));
+        prbTest._assertNotEq(a, b, ERR, EXPECT_PASS);
+    }
+
+    function test_AssertNotEq_String_Pass(string memory a, string memory b) external {
+        vm.assume(!Helpers.eq(a, b));
         prbTest._assertNotEq(a, b, EXPECT_PASS);
     }
 
@@ -432,6 +454,82 @@ contract AssertNotEq_Test is PRBTest_Test {
         vm.assume(e1 != 0);
         int256[] memory a = new int256[](3);
         int256[] memory b = new int256[](3);
+        b[1] = e1;
+        prbTest._assertNotEq(a, b, EXPECT_PASS);
+    }
+
+    function test_AssertNotEq_StringArray_FailElements(string memory e0, string memory e1, string memory e2) external {
+        string[] memory a = new string[](3);
+        a[0] = e0;
+        a[1] = e1;
+        a[2] = e2;
+
+        string[] memory b = new string[](3);
+        b[0] = e0;
+        b[1] = e1;
+        b[2] = e2;
+
+        expectEmit();
+        emit Log("Error: a != b not satisfied [string[]]");
+        prbTest._assertNotEq(a, b, EXPECT_FAIL);
+    }
+
+    function test_AssertNotEq_StringArray_FailLengths(uint256 len) external {
+        vm.assume(len <= 10_000);
+
+        string[] memory a = new string[](len);
+        string[] memory b = new string[](len);
+
+        expectEmit();
+        emit Log("Error: a != b not satisfied [string[]]");
+        prbTest._assertNotEq(a, b, EXPECT_FAIL);
+    }
+
+    function test_AssertNotEq_StringArray_Err_FailElements(
+        string memory e0,
+        string memory e1,
+        string memory e2
+    )
+        external
+    {
+        string[] memory a = new string[](3);
+        a[0] = e0;
+        a[1] = e1;
+        a[2] = e2;
+
+        string[] memory b = new string[](3);
+        b[0] = e0;
+        b[1] = e1;
+        b[2] = e2;
+
+        expectEmit();
+        emit LogNamedString("Error", ERR);
+        prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
+    }
+
+    function test_AssertNotEq_StringArray_Err_FailLengths(uint256 len) external {
+        vm.assume(len <= 10_000);
+
+        string[] memory a = new string[](len);
+        string[] memory b = new string[](len);
+
+        expectEmit();
+        emit LogNamedString("Error", ERR);
+        prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
+    }
+
+    function test_AssertNotEq_StringArray_Err_Pass(string memory e1) external {
+        vm.assume(!Helpers.eq(e1, ""));
+        string[] memory a = new string[](3);
+        string[] memory b = new string[](3);
+        b[1] = e1;
+        prbTest._assertNotEq(a, b, ERR, EXPECT_PASS);
+    }
+
+    function test_AssertNotEq_StringArray_Pass(string memory e1) external {
+        vm.assume(!Helpers.eq(e1, ""));
+        string[] memory a = new string[](3);
+        string[] memory b = new string[](3);
         b[1] = e1;
         prbTest._assertNotEq(a, b, EXPECT_PASS);
     }
