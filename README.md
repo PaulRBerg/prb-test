@@ -1,7 +1,9 @@
-# PRBTest [![Github Actions][gha-badge]][gha] [![Foundry][foundry-badge]][foundry] [![License: MIT][license-badge]][license]
+# PRBTest [![Github Actions][gha-badge]][gha] [![Coverage][codecov-badge]][codecov] [![Foundry][foundry-badge]][foundry] [![License: MIT][license-badge]][license]
 
 [gha]: https://github.com/PaulRBerg/prb-test/actions
 [gha-badge]: https://github.com/PaulRBerg/prb-test/actions/workflows/ci.yml/badge.svg
+[codecov]: https://codecov.io/gh/PaulRBerg/prb-test
+[codecov-badge]: https://codecov.io/gh/PaulRBerg/prb-test/branch/main/graph/badge.svg?token=T46OSU33QB
 [foundry]: https://getfoundry.sh/
 [foundry-badge]: https://img.shields.io/badge/Built%20with-Foundry-FFDB1C.svg
 [license]: https://opensource.org/licenses/MIT
