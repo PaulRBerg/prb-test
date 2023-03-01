@@ -164,8 +164,8 @@ contract PRBTest {
     function assertEq(address a, address b) internal virtual {
         if (a != b) {
             emit Log("Error: a == b not satisfied [address]");
-            emit LogNamedAddress("  Expected", b);
-            emit LogNamedAddress("    Actual", a);
+            emit LogNamedAddress("   Left", a);
+            emit LogNamedAddress("  Right", b);
             fail();
         }
     }
@@ -183,8 +183,8 @@ contract PRBTest {
     function assertEq(address[] memory a, address[] memory b) internal virtual {
         if (keccak256(abi.encode(a)) != keccak256(abi.encode(b))) {
             emit Log("Error: a == b not satisfied [address[]]");
-            emit LogNamedArray("  Expected", b);
-            emit LogNamedArray("    Actual", a);
+            emit LogNamedArray("   Left", a);
+            emit LogNamedArray("  Right", b);
             fail();
         }
     }
@@ -202,8 +202,8 @@ contract PRBTest {
     function assertEq(bool a, bool b) internal virtual {
         if (a != b) {
             emit Log("Error: a == b not satisfied [bool]");
-            emit LogNamedString("  Expected", b ? "true" : "false");
-            emit LogNamedString("    Actual", a ? "true" : "false");
+            emit LogNamedString("   Left", a ? "true" : "false");
+            emit LogNamedString("  Right", b ? "true" : "false");
             fail();
         }
     }
@@ -221,8 +221,8 @@ contract PRBTest {
     function assertEq(bool[] memory a, bool[] memory b) internal virtual {
         if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [bool[]]");
-            emit LogNamedArray("  Expected", b);
-            emit LogNamedArray("    Actual", a);
+            emit LogNamedArray("   Left", a);
+            emit LogNamedArray("  Right", b);
             fail();
         }
     }
@@ -241,8 +241,8 @@ contract PRBTest {
     function assertEq(bytes memory a, bytes memory b) internal virtual {
         if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [bytes]");
-            emit LogNamedBytes("  Expected", b);
-            emit LogNamedBytes("    Actual", a);
+            emit LogNamedBytes("   Left", a);
+            emit LogNamedBytes("  Right", b);
             fail();
         }
     }
@@ -260,8 +260,8 @@ contract PRBTest {
     function assertEq(bytes32 a, bytes32 b) internal virtual {
         if (a != b) {
             emit Log("Error: a == b not satisfied [bytes32]");
-            emit LogNamedBytes32("  Expected", b);
-            emit LogNamedBytes32("    Actual", a);
+            emit LogNamedBytes32("   Left", a);
+            emit LogNamedBytes32("  Right", b);
             fail();
         }
     }
@@ -279,8 +279,8 @@ contract PRBTest {
     function assertEq(bytes32[] memory a, bytes32[] memory b) internal virtual {
         if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [bytes32[]]");
-            emit LogNamedArray("  Expected", b);
-            emit LogNamedArray("    Actual", a);
+            emit LogNamedArray("   Left", a);
+            emit LogNamedArray("  Right", b);
             fail();
         }
     }
@@ -298,8 +298,8 @@ contract PRBTest {
     function assertEq(int256 a, int256 b) internal virtual {
         if (a != b) {
             emit Log("Error: a == b not satisfied [int256]");
-            emit LogNamedInt256("  Expected", b);
-            emit LogNamedInt256("    Actual", a);
+            emit LogNamedInt256("   Left", a);
+            emit LogNamedInt256("  Right", b);
             fail();
         }
     }
@@ -317,8 +317,8 @@ contract PRBTest {
     function assertEq(int256[] memory a, int256[] memory b) internal virtual {
         if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [int256[]]");
-            emit LogNamedArray("  Expected", b);
-            emit LogNamedArray("    Actual", a);
+            emit LogNamedArray("   Left", a);
+            emit LogNamedArray("  Right", b);
             fail();
         }
     }
@@ -337,8 +337,8 @@ contract PRBTest {
     function assertEq(string memory a, string memory b) internal virtual {
         if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [string]");
-            emit LogNamedString("  Expected", b);
-            emit LogNamedString("    Actual", a);
+            emit LogNamedString("   Left", a);
+            emit LogNamedString("  Right", b);
             fail();
         }
     }
@@ -357,8 +357,8 @@ contract PRBTest {
     function assertEq(string[] memory a, string[] memory b) internal virtual {
         if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [string[]]");
-            emit LogNamedArray("  Expected", b);
-            emit LogNamedArray("    Actual", a);
+            emit LogNamedArray("   Left", a);
+            emit LogNamedArray("  Right", b);
             fail();
         }
     }
@@ -376,8 +376,8 @@ contract PRBTest {
     function assertEq(uint256 a, uint256 b) internal virtual {
         if (a != b) {
             emit Log("Error: a == b not satisfied [uint256]");
-            emit LogNamedUint256("  Expected", b);
-            emit LogNamedUint256("    Actual", a);
+            emit LogNamedUint256("   Left", a);
+            emit LogNamedUint256("  Right", b);
             fail();
         }
     }
@@ -395,8 +395,8 @@ contract PRBTest {
     function assertEq(uint256[] memory a, uint256[] memory b) internal virtual {
         if (!Helpers.eq(a, b)) {
             emit Log("Error: a == b not satisfied [uint256[]]");
-            emit LogNamedArray("  Expected", b);
-            emit LogNamedArray("    Actual", a);
+            emit LogNamedArray("   Left", a);
+            emit LogNamedArray("  Right", b);
             fail();
         }
     }
@@ -418,8 +418,8 @@ contract PRBTest {
     function assertNotEq(address a, address b) internal virtual {
         if (a == b) {
             emit Log("Error: a != b not satisfied [address]");
-            emit LogNamedAddress("  Expected", b);
-            emit LogNamedAddress("    Actual", a);
+            emit LogNamedAddress("   Left", a);
+            emit LogNamedAddress("  Right", b);
             fail();
         }
     }
@@ -437,8 +437,8 @@ contract PRBTest {
     function assertNotEq(address[] memory a, address[] memory b) internal virtual {
         if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [address[]]");
-            emit LogNamedArray("  Expected", b);
-            emit LogNamedArray("    Actual", a);
+            emit LogNamedArray("   Left", a);
+            emit LogNamedArray("  Right", b);
             fail();
         }
     }
@@ -456,8 +456,8 @@ contract PRBTest {
     function assertNotEq(bool a, bool b) internal virtual {
         if (a == b) {
             emit Log("Error: a != b not satisfied [bool]");
-            emit LogNamedString("  Expected", b ? "true" : "false");
-            emit LogNamedString("    Actual", a ? "true" : "false");
+            emit LogNamedString("   Left", a ? "true" : "false");
+            emit LogNamedString("  Right", b ? "true" : "false");
             fail();
         }
     }
@@ -475,8 +475,8 @@ contract PRBTest {
     function assertNotEq(bool[] memory a, bool[] memory b) internal virtual {
         if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [bool[]]");
-            emit LogNamedArray("  Expected", b);
-            emit LogNamedArray("    Actual", a);
+            emit LogNamedArray("   Left", a);
+            emit LogNamedArray("  Right", b);
             fail();
         }
     }
@@ -495,8 +495,8 @@ contract PRBTest {
     function assertNotEq(bytes memory a, bytes memory b) internal virtual {
         if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [bytes]");
-            emit LogNamedBytes("  Expected", b);
-            emit LogNamedBytes("    Actual", a);
+            emit LogNamedBytes("   Left", a);
+            emit LogNamedBytes("  Right", b);
             fail();
         }
     }
@@ -514,8 +514,8 @@ contract PRBTest {
     function assertNotEq(bytes32 a, bytes32 b) internal virtual {
         if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [bytes32]");
-            emit LogNamedBytes32("  Expected", b);
-            emit LogNamedBytes32("    Actual", a);
+            emit LogNamedBytes32("   Left", a);
+            emit LogNamedBytes32("  Right", b);
             fail();
         }
     }
@@ -533,8 +533,8 @@ contract PRBTest {
     function assertNotEq(bytes32[] memory a, bytes32[] memory b) internal virtual {
         if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [bytes32[]]");
-            emit LogNamedArray("  Expected", b);
-            emit LogNamedArray("    Actual", a);
+            emit LogNamedArray("   Left", a);
+            emit LogNamedArray("  Right", b);
             fail();
         }
     }
@@ -552,8 +552,8 @@ contract PRBTest {
     function assertNotEq(int256 a, int256 b) internal virtual {
         if (a == b) {
             emit Log("Error: a != b not satisfied [int256]");
-            emit LogNamedInt256("  Expected", b);
-            emit LogNamedInt256("    Actual", a);
+            emit LogNamedInt256("   Left", a);
+            emit LogNamedInt256("  Right", b);
             fail();
         }
     }
@@ -571,8 +571,8 @@ contract PRBTest {
     function assertNotEq(int256[] memory a, int256[] memory b) internal virtual {
         if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [int256[]]");
-            emit LogNamedArray("  Expected", b);
-            emit LogNamedArray("    Actual", a);
+            emit LogNamedArray("   Left", a);
+            emit LogNamedArray("  Right", b);
             fail();
         }
     }
@@ -591,8 +591,8 @@ contract PRBTest {
     function assertNotEq(string memory a, string memory b) internal virtual {
         if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [string]");
-            emit LogNamedString("  Expected", b);
-            emit LogNamedString("    Actual", a);
+            emit LogNamedString("   Left", a);
+            emit LogNamedString("  Right", b);
             fail();
         }
     }
@@ -611,8 +611,8 @@ contract PRBTest {
     function assertNotEq(string[] memory a, string[] memory b) internal virtual {
         if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [string[]]");
-            emit LogNamedArray("  Expected", b);
-            emit LogNamedArray("    Actual", a);
+            emit LogNamedArray("   Left", a);
+            emit LogNamedArray("  Right", b);
             fail();
         }
     }
@@ -630,8 +630,8 @@ contract PRBTest {
     function assertNotEq(uint256 a, uint256 b) internal virtual {
         if (a == b) {
             emit Log("Error: a != b not satisfied [uint256]");
-            emit LogNamedUint256("  Expected", b);
-            emit LogNamedUint256("    Actual", a);
+            emit LogNamedUint256("   Left", a);
+            emit LogNamedUint256("  Right", b);
             fail();
         }
     }
@@ -649,8 +649,8 @@ contract PRBTest {
     function assertNotEq(uint256[] memory a, uint256[] memory b) internal virtual {
         if (Helpers.eq(a, b)) {
             emit Log("Error: a != b not satisfied [uint256[]]");
-            emit LogNamedArray("  Expected", b);
-            emit LogNamedArray("    Actual", a);
+            emit LogNamedArray("   Left", a);
+            emit LogNamedArray("  Right", b);
             fail();
         }
     }
@@ -675,7 +675,7 @@ contract PRBTest {
         if (actualDelta > maxDelta) {
             emit Log("Error: a ~= b not satisfied [int256]");
             emit LogNamedInt256("      Expected", b);
-            emit LogNamedInt256("        Actual", a);
+            emit LogNamedInt256("      Right", a);
             emit LogNamedUint256("     Max Delta", maxDelta);
             emit LogNamedUint256("  Actual Delta", actualDelta);
             fail();
@@ -698,7 +698,7 @@ contract PRBTest {
         if (actualDelta > maxDelta) {
             emit Log("Error: a ~= b not satisfied [uint256]");
             emit LogNamedUint256("      Expected", b);
-            emit LogNamedUint256("        Actual", a);
+            emit LogNamedUint256("      Right", a);
             emit LogNamedUint256("     Max Delta", maxDelta);
             emit LogNamedUint256("  Actual Delta", actualDelta);
             fail();
