@@ -211,7 +211,7 @@ Now you can start making changes.
 
 You will need the following VSCode extensions:
 
-- [vscode-solidity](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
+- [hardhat-solidity](https://marketplace.visualstudio.com/items?itemName=NomicFoundation.hardhat-solidity)
 
 ## Acknowledgements
 
