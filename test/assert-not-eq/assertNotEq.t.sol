@@ -3,7 +3,7 @@ pragma solidity >=0.8.19 <0.9.0;
 
 import "../../src/Helpers.sol" as Helpers;
 
-import { PRBTest_Test } from "../PRBTest.t.sol";
+import {PRBTest_Test} from "../PRBTest.t.sol";
 
 contract AssertNotEq_Test is PRBTest_Test {
     /*//////////////////////////////////////////////////////////////////////////
@@ -11,13 +11,13 @@ contract AssertNotEq_Test is PRBTest_Test {
     //////////////////////////////////////////////////////////////////////////*/
 
     function test_AssertNotEq_Address_Fail(address a) external {
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [address]");
         prbTest._assertNotEq(a, a, EXPECT_FAIL);
     }
 
     function test_AssertNotEq_Address_Err_Fail(address a) external {
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, a, ERR, EXPECT_FAIL);
     }
@@ -33,33 +33,33 @@ contract AssertNotEq_Test is PRBTest_Test {
     }
 
     function test_AssertNotEq_Bool_Fail() external {
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [bool]");
-        prbTest._assertNotEq({ a: false, b: false, expectFail: EXPECT_FAIL });
+        prbTest._assertNotEq({a: false, b: false, expectFail: EXPECT_FAIL});
 
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [bool]");
-        prbTest._assertNotEq({ a: true, b: true, expectFail: EXPECT_FAIL });
+        prbTest._assertNotEq({a: true, b: true, expectFail: EXPECT_FAIL});
     }
 
     function test_AssertNotEq_Bool_Err_Pass() external {
-        prbTest._assertNotEq({ a: false, b: true, err: ERR, expectFail: EXPECT_PASS });
-        prbTest._assertNotEq({ a: true, b: false, err: ERR, expectFail: EXPECT_PASS });
+        prbTest._assertNotEq({a: false, b: true, err: ERR, expectFail: EXPECT_PASS});
+        prbTest._assertNotEq({a: true, b: false, err: ERR, expectFail: EXPECT_PASS});
     }
 
     function test_AssertNotEq_Bool_Err_Fail() external {
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
-        prbTest._assertNotEq({ a: false, b: false, err: ERR, expectFail: EXPECT_FAIL });
+        prbTest._assertNotEq({a: false, b: false, err: ERR, expectFail: EXPECT_FAIL});
 
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
-        prbTest._assertNotEq({ a: true, b: true, err: ERR, expectFail: EXPECT_FAIL });
+        prbTest._assertNotEq({a: true, b: true, err: ERR, expectFail: EXPECT_FAIL});
     }
 
     function test_AssertNotEq_Bool_Pass() external {
-        prbTest._assertNotEq({ a: false, b: true, expectFail: EXPECT_PASS });
-        prbTest._assertNotEq({ a: true, b: false, expectFail: EXPECT_PASS });
+        prbTest._assertNotEq({a: false, b: true, expectFail: EXPECT_PASS});
+        prbTest._assertNotEq({a: true, b: false, expectFail: EXPECT_PASS});
     }
 
     function test_AssertNotEq_BoolArray_Pass() external {
@@ -94,7 +94,7 @@ contract AssertNotEq_Test is PRBTest_Test {
 
         a[0] = false;
         b[0] = false;
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [bool[]]");
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
 
@@ -109,13 +109,13 @@ contract AssertNotEq_Test is PRBTest_Test {
 
         a[0] = false;
         b[0] = false;
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
 
         a[0] = true;
         b[0] = true;
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -125,7 +125,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         bytes memory a = abi.encode(e0);
         bytes memory b = abi.encode(e1);
 
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [bytes]");
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
@@ -135,7 +135,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         bytes memory a = abi.encode(e0);
         bytes memory b = abi.encode(e1);
 
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -155,13 +155,13 @@ contract AssertNotEq_Test is PRBTest_Test {
     }
 
     function test_AssertNotEq_Bytes32_Fail(bytes32 a) external {
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [bytes32]");
         prbTest._assertNotEq(a, a, EXPECT_FAIL);
     }
 
     function test_AssertNotEq_Bytes32_Err_Fail(bytes32 a) external {
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, a, ERR, EXPECT_FAIL);
     }
@@ -179,13 +179,13 @@ contract AssertNotEq_Test is PRBTest_Test {
     }
 
     function test_AssertNotEq_Int256_Fail(int256 a) external {
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [int256]");
         prbTest._assertNotEq(a, a, EXPECT_FAIL);
     }
 
     function test_AssertNotEq_Int256_Err_Fail(int256 a) external {
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, a, ERR, EXPECT_FAIL);
     }
@@ -201,7 +201,7 @@ contract AssertNotEq_Test is PRBTest_Test {
     }
 
     function test_AssertNotEq_String_Fail(string memory a) external {
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [string]");
         prbTest._assertNotEq(a, a, EXPECT_FAIL);
     }
@@ -221,13 +221,13 @@ contract AssertNotEq_Test is PRBTest_Test {
     }
 
     function test_AssertNotEq_Uint256_Fail(uint256 a) external {
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [uint256]");
         prbTest._assertNotEq(a, a, EXPECT_FAIL);
     }
 
     function test_AssertNotEq_Uint256_Err_Fail(uint256 a) external {
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, a, ERR, EXPECT_FAIL);
     }
@@ -257,7 +257,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         b[1] = e1;
         b[2] = e2;
 
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [address[]]");
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
@@ -268,7 +268,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         address[] memory a = new address[](len);
         address[] memory b = new address[](len);
 
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [address[]]");
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
@@ -284,7 +284,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         b[1] = e1;
         b[2] = e2;
 
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -295,7 +295,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         address[] memory a = new address[](len);
         address[] memory b = new address[](len);
 
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -327,7 +327,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         b[1] = e1;
         b[2] = e2;
 
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [bytes32[]]");
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
@@ -338,7 +338,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         bytes32[] memory a = new bytes32[](len);
         bytes32[] memory b = new bytes32[](len);
 
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [bytes32[]]");
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
@@ -354,7 +354,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         b[1] = e1;
         b[2] = e2;
 
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -365,7 +365,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         bytes32[] memory a = new bytes32[](len);
         bytes32[] memory b = new bytes32[](len);
 
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -399,7 +399,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         b[1] = e1;
         b[2] = e2;
 
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [int256[]]");
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
@@ -410,7 +410,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         int256[] memory a = new int256[](len);
         int256[] memory b = new int256[](len);
 
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [int256[]]");
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
@@ -426,7 +426,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         b[1] = e1;
         b[2] = e2;
 
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -437,7 +437,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         int256[] memory a = new int256[](len);
         int256[] memory b = new int256[](len);
 
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -469,7 +469,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         b[1] = e1;
         b[2] = e2;
 
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [string[]]");
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
@@ -480,16 +480,12 @@ contract AssertNotEq_Test is PRBTest_Test {
         string[] memory a = new string[](len);
         string[] memory b = new string[](len);
 
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [string[]]");
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
 
-    function test_AssertNotEq_StringArray_Err_FailElements(
-        string memory e0,
-        string memory e1,
-        string memory e2
-    )
+    function test_AssertNotEq_StringArray_Err_FailElements(string memory e0, string memory e1, string memory e2)
         external
     {
         string[] memory a = new string[](3);
@@ -502,7 +498,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         b[1] = e1;
         b[2] = e2;
 
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -513,7 +509,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         string[] memory a = new string[](len);
         string[] memory b = new string[](len);
 
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -545,7 +541,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         b[1] = e1;
         b[2] = e2;
 
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [uint256[]]");
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
@@ -556,7 +552,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         uint256[] memory a = new uint256[](len);
         uint256[] memory b = new uint256[](len);
 
-        expectEmit();
+        vm.expectEmit();
         emit Log("Error: a != b not satisfied [uint256[]]");
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
@@ -572,7 +568,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         b[1] = e1;
         b[2] = e2;
 
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
@@ -583,7 +579,7 @@ contract AssertNotEq_Test is PRBTest_Test {
         uint256[] memory a = new uint256[](len);
         uint256[] memory b = new uint256[](len);
 
-        expectEmit();
+        vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
