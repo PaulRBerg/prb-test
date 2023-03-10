@@ -516,11 +516,18 @@ interface Vm is VmSafe {
     /// @dev Expects a call to an address with the specified msg.value and calldata, and a *minimum* amount of gas.
     function expectCallMinGas(address callee, uint256 msgValue, uint64 minGas, bytes calldata data) external;
 
-    /// @dev Prepare an expected log with (bool checkTopic1, bool checkTopic2, bool checkTopic3, bool checkData).
-    /// Call this function, then emit an event, then call a function. Internally after the call, we check if logs
-    /// were emitted in the expected order with the expected topics and data (as specified by the booleans).
-    function expectEmit(bool checkTopic1, bool checkTopic2, bool checkTopic3, bool checkData) external;
+    /// @dev Prepare an expected log with all four checks enabled.
+    /// Call this function, then emit an event, then call a function. Internally after the call, we check if
+    /// logs were emitted in the expected order with the expected topics and data.
+    /// Second form also checks supplied address against emitting contract.
+    function expectEmit() external;
+    function expectEmit(address) external;
 
+    /// @dev Prepare an expected log.
+    /// Call this function, then emit an event, then call a function. Internally after the call, we check if
+    /// logs were emitted in the expected order with the expected topics and data (as specified by the booleans).
+    /// Second form also checks supplied address against emitting contract.
+    function expectEmit(bool checkTopic1, bool checkTopic2, bool checkTopic3, bool checkData) external;
     function expectEmit(
         bool checkTopic1,
         bool checkTopic2,
