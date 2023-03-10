@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Common Changelog](https://common-changelog.org/).
 
+[0.5.1]: https://github.com/paulrberg/prb-math/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/paulrberg/prb-math/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/paulrberg/prb-math/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/paulrberg/prb-math/compare/v0.3.0...v0.3.1
@@ -14,6 +15,12 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [0.1.2]: https://github.com/paulrberg/prb-math/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/paulrberg/prb-math/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/PaulRBerg/prb-test/releases/tag/v0.1.0
+
+## [0.5.1] - 2023-03-10
+
+### Added
+
+- Add simple `expectEmit` variants ([#22](https://github.com/PaulRBerg/prb-test/pull/22)) (@PaulRBerg)
 
 ## [0.5.0] - 2023-03-01
 
