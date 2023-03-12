@@ -3,7 +3,7 @@ pragma solidity >=0.8.19 <0.9.0;
 
 import "../../src/Helpers.sol" as Helpers;
 
-import {PRBTest_Test} from "../PRBTest.t.sol";
+import { PRBTest_Test } from "../PRBTest.t.sol";
 
 contract AssertNotEq_Test is PRBTest_Test {
     /*//////////////////////////////////////////////////////////////////////////
@@ -35,31 +35,31 @@ contract AssertNotEq_Test is PRBTest_Test {
     function test_AssertNotEq_Bool_Fail() external {
         vm.expectEmit();
         emit Log("Error: a != b not satisfied [bool]");
-        prbTest._assertNotEq({a: false, b: false, expectFail: EXPECT_FAIL});
+        prbTest._assertNotEq({ a: false, b: false, expectFail: EXPECT_FAIL });
 
         vm.expectEmit();
         emit Log("Error: a != b not satisfied [bool]");
-        prbTest._assertNotEq({a: true, b: true, expectFail: EXPECT_FAIL});
+        prbTest._assertNotEq({ a: true, b: true, expectFail: EXPECT_FAIL });
     }
 
     function test_AssertNotEq_Bool_Err_Pass() external {
-        prbTest._assertNotEq({a: false, b: true, err: ERR, expectFail: EXPECT_PASS});
-        prbTest._assertNotEq({a: true, b: false, err: ERR, expectFail: EXPECT_PASS});
+        prbTest._assertNotEq({ a: false, b: true, err: ERR, expectFail: EXPECT_PASS });
+        prbTest._assertNotEq({ a: true, b: false, err: ERR, expectFail: EXPECT_PASS });
     }
 
     function test_AssertNotEq_Bool_Err_Fail() external {
         vm.expectEmit();
         emit LogNamedString("Error", ERR);
-        prbTest._assertNotEq({a: false, b: false, err: ERR, expectFail: EXPECT_FAIL});
+        prbTest._assertNotEq({ a: false, b: false, err: ERR, expectFail: EXPECT_FAIL });
 
         vm.expectEmit();
         emit LogNamedString("Error", ERR);
-        prbTest._assertNotEq({a: true, b: true, err: ERR, expectFail: EXPECT_FAIL});
+        prbTest._assertNotEq({ a: true, b: true, err: ERR, expectFail: EXPECT_FAIL });
     }
 
     function test_AssertNotEq_Bool_Pass() external {
-        prbTest._assertNotEq({a: false, b: true, expectFail: EXPECT_PASS});
-        prbTest._assertNotEq({a: true, b: false, expectFail: EXPECT_PASS});
+        prbTest._assertNotEq({ a: false, b: true, expectFail: EXPECT_PASS });
+        prbTest._assertNotEq({ a: true, b: false, expectFail: EXPECT_PASS });
     }
 
     function test_AssertNotEq_BoolArray_Pass() external {
@@ -485,7 +485,11 @@ contract AssertNotEq_Test is PRBTest_Test {
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
 
-    function test_AssertNotEq_StringArray_Err_FailElements(string memory e0, string memory e1, string memory e2)
+    function test_AssertNotEq_StringArray_Err_FailElements(
+        string memory e0,
+        string memory e1,
+        string memory e2
+    )
         external
     {
         string[] memory a = new string[](3);

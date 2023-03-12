@@ -3,7 +3,7 @@ pragma solidity >=0.8.19 <0.9.0;
 
 import "../../src/Helpers.sol" as Helpers;
 
-import {PRBTest_Test} from "../PRBTest.t.sol";
+import { PRBTest_Test } from "../PRBTest.t.sol";
 
 contract AssertAlmostEq_Test is PRBTest_Test {
     function test_AssertAlmostEq_Int256_Fail(int256 a, int256 b, uint256 maxDelta) external {

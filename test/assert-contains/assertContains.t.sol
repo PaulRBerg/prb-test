@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.19 <0.9.0;
 
-import {PRBTest_Test} from "../PRBTest.t.sol";
+import { PRBTest_Test } from "../PRBTest.t.sol";
 
 contract AssertContains_Test is PRBTest_Test {
     function test_AssertContains_Address_Fail(address e0, address e1) external {

@@ -3,7 +3,7 @@ pragma solidity >=0.8.19 <0.9.0;
 
 import "../../src/Helpers.sol" as Helpers;
 
-import {PRBTest_Test} from "../PRBTest.t.sol";
+import { PRBTest_Test } from "../PRBTest.t.sol";
 
 contract AssertEq_Test is PRBTest_Test {
     /*//////////////////////////////////////////////////////////////////////////
@@ -37,31 +37,31 @@ contract AssertEq_Test is PRBTest_Test {
     function test_AssertEq_Bool_Fail() external {
         vm.expectEmit();
         emit Log("Error: a == b not satisfied [bool]");
-        prbTest._assertEq({a: false, b: true, expectFail: EXPECT_FAIL});
+        prbTest._assertEq({ a: false, b: true, expectFail: EXPECT_FAIL });
 
         vm.expectEmit();
         emit Log("Error: a == b not satisfied [bool]");
-        prbTest._assertEq({a: true, b: false, expectFail: EXPECT_FAIL});
+        prbTest._assertEq({ a: true, b: false, expectFail: EXPECT_FAIL });
     }
 
     function test_AssertEq_Bool_Err_Fail() external {
         vm.expectEmit();
         emit LogNamedString("Error", ERR);
-        prbTest._assertEq({a: false, b: true, err: ERR, expectFail: EXPECT_FAIL});
+        prbTest._assertEq({ a: false, b: true, err: ERR, expectFail: EXPECT_FAIL });
 
         vm.expectEmit();
         emit LogNamedString("Error", ERR);
-        prbTest._assertEq({a: true, b: false, err: ERR, expectFail: EXPECT_FAIL});
+        prbTest._assertEq({ a: true, b: false, err: ERR, expectFail: EXPECT_FAIL });
     }
 
     function test_AssertEq_Bool_Err_Pass() external {
-        prbTest._assertEq({a: false, b: false, err: ERR, expectFail: EXPECT_PASS});
-        prbTest._assertEq({a: true, b: true, err: ERR, expectFail: EXPECT_PASS});
+        prbTest._assertEq({ a: false, b: false, err: ERR, expectFail: EXPECT_PASS });
+        prbTest._assertEq({ a: true, b: true, err: ERR, expectFail: EXPECT_PASS });
     }
 
     function test_AssertEq_Bool_Pass() external {
-        prbTest._assertEq({a: false, b: false, expectFail: EXPECT_PASS});
-        prbTest._assertEq({a: true, b: true, expectFail: EXPECT_PASS});
+        prbTest._assertEq({ a: false, b: false, expectFail: EXPECT_PASS });
+        prbTest._assertEq({ a: true, b: true, expectFail: EXPECT_PASS });
     }
 
     function test_AssertEq_Bytes_Fail(bytes memory a, bytes memory b) external {
