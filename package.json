@@ -29,7 +29,6 @@
     "testing"
   ],
   "license": "MIT",
-  "packageManager": "yarn@3.4.1",
   "publishConfig": {
     "access": "public"
   },
@@ -39,8 +38,8 @@
   },
   "scripts": {
     "clean": "rimraf cache out",
-    "lint": "yarn lint:sol && yarn prettier:check",
-    "lint:sol": "forge fmt --check && yarn solhint \"{script,src,test}/**/*.sol\"",
+    "lint": "pnpm lint:sol && pnpm prettier:check",
+    "lint:sol": "forge fmt --check && pnpm solhint \"{script,src,test}/**/*.sol\"",
     "prettier:check": "prettier --check \"**/*.{json,md,yml}\"",
     "prettier:write": "prettier --write \"**/*.{json,md,yml}\""
   }
