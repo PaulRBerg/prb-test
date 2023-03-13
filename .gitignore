@@ -1,7 +1,7 @@
 # directories
-**/cache
-**/node_modules
-**/out
+cache
+node_modules
+out
 
 # files
 *.env
@@ -10,8 +10,3 @@
 .pnp.*
 lcov.info
 yarn.lock
-
-# broadcasts
-!/broadcast
-/broadcast/*
-/broadcast/*/31337/
