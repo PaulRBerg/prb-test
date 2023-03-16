@@ -222,7 +222,7 @@ These contracts were inspired by or directly modified from the following sources
 
 ## License
 
-[MIT](./LICENSE.md) © Paul Razvan Berg
+This project is licensed under MIT.
 
 <!-- Links -->
 
