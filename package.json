@@ -1,7 +1,7 @@
 {
   "name": "@prb/test",
   "description": "Modern collection of testing assertions and logging utilities for Solidity",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "author": {
     "name": "Paul Razvan Berg",
     "url": "https://github.com/PaulRBerg"
