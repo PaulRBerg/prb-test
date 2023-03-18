@@ -84,7 +84,7 @@ contract PRBTest {
     bool private _failed;
 
     /// @dev Checks whether any test has failed so far. In addition to the local failure flag, we look for the global
-    /// flag in the HEVM contract at storage slot "faled", because it is possible to run assertions between different
+    /// flag in the HEVM contract at storage slot "failed", because it is possible to run assertions between different
     /// instances of PRBTest.
     /// See https://github.com/dapphub/dapptools/issues/768.
     function failed() public returns (bool) {
@@ -106,7 +106,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Fails the test by setting the private variable `_failed` to "true" and storing "0x01" at the "failed"
+    /// @dev Fails the test by setting the private variable `_failed` to `true` and storing "0x01" at the "failed"
     /// storage slot on the HEVM contract. Doing this instead of reverting makes it possible to test multiple
     /// assertions in one test function while also preserving emitted events.
     function fail() internal {
@@ -126,7 +126,7 @@ contract PRBTest {
         // Dummy statement to silence the compiler warning.
         status;
 
-        // Set this instance's failed flag to "true".
+        // Set this instance's failed flag to `true`.
         _failed = true;
     }
 
@@ -140,7 +140,7 @@ contract PRBTest {
                                 BOOLEAN ASSERTIONS
     //////////////////////////////////////////////////////////////////////////*/
 
-    /// @dev Tests that `condition` evaluates to "true". If it does not, the test fails.
+    /// @dev Tests that `condition` evaluates to `true`. If it does not, the test fails.
     function assertTrue(bool condition) internal virtual {
         if (!condition) {
             emit Log("Error: Assertion Failed");
@@ -148,7 +148,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `condition` evaluates to "true". If it does not, the test fails with the error message `err`.
+    /// @dev Tests that `condition` evaluates to `true`. If it does not, the test fails with the error message `err`.
     function assertTrue(bool condition, string memory err) internal virtual {
         if (!condition) {
             emit LogNamedString("Error", err);
@@ -715,7 +715,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that the absolute difference between `a and `b` is less than or equal to `Helpers.delta`.
+    /// @dev Tests that the absolute difference between `a and `b` is less than or equal to `maxDelta`.
     /// If it is not, the test fails with the error message `err`.
     function assertAlmostEq(uint256 a, uint256 b, uint256 maxDelta, string memory err) internal virtual {
         if (Helpers.delta(a, b) > maxDelta) {
@@ -876,7 +876,7 @@ contract PRBTest {
                                 CONTAINMENT ASSERTIONS
     //////////////////////////////////////////////////////////////////////////*/
 
-    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails.
+    /// @dev Tests that `a` contains `b`. If it does not, the test fails.
     function assertContains(address[] memory a, address b) internal virtual {
         if (!Helpers.contains(a, b)) {
             emit Log("Error: a does not contain b [address[]]");
@@ -886,7 +886,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails with the error message `err`.
+    /// @dev Tests that `a` contains `b`. If it does not, the test fails with the error message `err`.
     function assertContains(address[] memory a, address b, string memory err) internal virtual {
         if (!Helpers.contains(a, b)) {
             emit LogNamedString("Error", err);
@@ -894,7 +894,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails.
+    /// @dev Tests that `a` contains `b`. If it does not, the test fails.
     function assertContains(bytes32[] memory a, bytes32 b) internal virtual {
         if (!Helpers.contains(a, b)) {
             emit Log("Error: a does not contain b [bytes32[]]");
@@ -904,7 +904,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails with the error message `err`.
+    /// @dev Tests that `a` contains `b`. If it does not, the test fails with the error message `err`.
     function assertContains(bytes32[] memory a, bytes32 b, string memory err) internal virtual {
         if (!Helpers.contains(a, b)) {
             emit LogNamedString("Error", err);
@@ -912,7 +912,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails.
+    /// @dev Tests that `a` contains `b`. If it does not, the test fails.
     function assertContains(int256[] memory a, int256 b) internal virtual {
         if (!Helpers.contains(a, b)) {
             emit Log("Error: a does not contain b [int256[]]");
@@ -922,7 +922,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails with the error message `err`.
+    /// @dev Tests that `a` contains `b`. If it does not, the test fails with the error message `err`.
     function assertContains(int256[] memory a, int256 b, string memory err) internal virtual {
         if (!Helpers.contains(a, b)) {
             emit LogNamedString("Error", err);
@@ -930,7 +930,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails.
+    /// @dev Tests that `a` contains `b`. If it does not, the test fails.
     function assertContains(string[] memory a, string memory b) internal virtual {
         if (!Helpers.contains(a, b)) {
             emit Log("Error: a does not contain b [string[]]");
@@ -940,7 +940,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails with the error message `err`.
+    /// @dev Tests that `a` contains `b`. If it does not, the test fails with the error message `err`.
     function assertContains(string[] memory a, string memory b, string memory err) internal virtual {
         if (!Helpers.contains(a, b)) {
             emit LogNamedString("Error", err);
@@ -948,7 +948,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails.
+    /// @dev Tests that `a` contains `b`. If it does not, the test fails.
     function assertContains(uint256[] memory a, uint256 b) internal virtual {
         if (!Helpers.contains(a, b)) {
             emit Log("Error: a does not contain b [uint256[]]");
@@ -958,7 +958,7 @@ contract PRBTest {
         }
     }
 
-    /// @dev Tests that `a` Helpers.contains `b`. If it does not, the test fails with the error message `err`.
+    /// @dev Tests that `a` contains `b`. If it does not, the test fails with the error message `err`.
     function assertContains(uint256[] memory a, uint256 b, string memory err) internal virtual {
         if (!Helpers.contains(a, b)) {
             emit LogNamedString("Error", err);
