@@ -2,8 +2,8 @@ lockfileVersion: 5.4
 
 specifiers:
   prettier: ^2.8.4
-  rimraf: ^4.1.2
-  solhint: ^3.4.0
+  rimraf: ^4.4.0
+  solhint: ^3.4.1
 
 devDependencies:
   prettier: 2.8.4
@@ -156,8 +156,8 @@ packages:
     engines: {node: '>=14'}
     dev: true
 
-  /cosmiconfig/8.1.0:
-    resolution: {integrity: sha512-0tLZ9URlPGU7JsKq0DQOQ3FoRsYX8xDZ7xMiATQfaiGMz7EHowNkbU9u1coAOmnh9p/1ySpm0RB3JNWRXM5GCg==}
+  /cosmiconfig/8.1.2:
+    resolution: {integrity: sha512-rmpUFKMZiawLfug8sP4NbpBSOpWftZB6UACOLEiNbnRAYM1TzgQuTWlMYFRuPgmoTCkcOxSMwQJQpJmiXv/eHw==}
     engines: {node: '>=14'}
     dependencies:
       import-fresh: 3.3.0
@@ -208,8 +208,8 @@ packages:
       once: 1.4.0
     dev: true
 
-  /glob/9.2.1:
-    resolution: {integrity: sha512-Pxxgq3W0HyA3XUvSXcFhRSs+43Jsx0ddxcFrbjxNGkL2Ak5BAUBxLqI5G6ADDeCHLfzzXFhe0b1yYcctGmytMA==}
+  /glob/9.3.0:
+    resolution: {integrity: sha512-EAZejC7JvnQINayvB/7BJbpZpNOJ8Lrw2OZNEvQxe0vaLn1SuwMcfV7/MNaX8L/T0wmptBFI4YMtDvSBxYDc7w==}
     engines: {node: '>=16 || 14 >=14.17'}
     dependencies:
       fs.realpath: 1.0.0
@@ -387,7 +387,7 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
-      glob: 9.2.1
+      glob: 9.3.0
     dev: true
 
   /semver/6.3.0:
@@ -414,7 +414,7 @@ packages:
       ast-parents: 0.0.1
       chalk: 4.1.2
       commander: 10.0.0
-      cosmiconfig: 8.1.0
+      cosmiconfig: 8.1.2
       fast-diff: 1.2.0
       glob: 8.1.0
       ignore: 5.2.4

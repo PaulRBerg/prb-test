@@ -4,18 +4,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Common Changelog](https://common-changelog.org/).
 
-[0.5.2]: https://github.com/paulrberg/prb-math/compare/v0.5.1...v0.5.2
-[0.5.1]: https://github.com/paulrberg/prb-math/compare/v0.5.0...v0.5.1
-[0.5.0]: https://github.com/paulrberg/prb-math/compare/v0.4.0...v0.5.0
-[0.4.0]: https://github.com/paulrberg/prb-math/compare/v0.3.1...v0.4.0
-[0.3.1]: https://github.com/paulrberg/prb-math/compare/v0.3.0...v0.3.1
-[0.3.0]: https://github.com/paulrberg/prb-math/compare/v0.2.1...v0.3.0
-[0.2.1]: https://github.com/paulrberg/prb-math/compare/v0.2.0...v0.2.1
-[0.2.0]: https://github.com/paulrberg/prb-math/compare/v0.1.3...v0.2.0
-[0.1.3]: https://github.com/paulrberg/prb-math/compare/v0.1.2...v0.1.3
-[0.1.2]: https://github.com/paulrberg/prb-math/compare/v0.1.1...v0.1.2
-[0.1.1]: https://github.com/paulrberg/prb-math/compare/v0.1.0...v0.1.1
+[0.5.3]: https://github.com/PaulRBerg/prb-math/compare/v0.5.2...v0.5.3
+[0.5.2]: https://github.com/PaulRBerg/prb-math/compare/v0.5.1...v0.5.2
+[0.5.1]: https://github.com/PaulRBerg/prb-math/compare/v0.5.0...v0.5.1
+[0.5.0]: https://github.com/PaulRBerg/prb-math/compare/v0.4.0...v0.5.0
+[0.4.0]: https://github.com/PaulRBerg/prb-math/compare/v0.3.1...v0.4.0
+[0.3.1]: https://github.com/PaulRBerg/prb-math/compare/v0.3.0...v0.3.1
+[0.3.0]: https://github.com/PaulRBerg/prb-math/compare/v0.2.1...v0.3.0
+[0.2.1]: https://github.com/PaulRBerg/prb-math/compare/v0.2.0...v0.2.1
+[0.2.0]: https://github.com/PaulRBerg/prb-math/compare/v0.1.3...v0.2.0
+[0.1.3]: https://github.com/PaulRBerg/prb-math/compare/v0.1.2...v0.1.3
+[0.1.2]: https://github.com/PaulRBerg/prb-math/compare/v0.1.1...v0.1.2
+[0.1.1]: https://github.com/PaulRBerg/prb-math/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/PaulRBerg/prb-test/releases/tag/v0.1.0
+
+## [0.5.3] - 2023-03-18
+
+### Added
+
+- Add `MIN_INT256` constant (@PaulRBerg)
+- Name `emitter` argument in `expectEmit` variant (@PaulRBerg)
+
+### Fixed
+
+- Fix typos in NatSpec comments (@PaulRBerg)
 
 ## [0.5.2] - 2023-03-17
 

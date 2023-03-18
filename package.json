@@ -1,7 +1,7 @@
 {
   "name": "@prb/test",
   "description": "Modern collection of testing assertions and logging utilities for Solidity",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "author": {
     "name": "Paul Razvan Berg",
     "url": "https://github.com/PaulRBerg"
@@ -11,8 +11,8 @@
   },
   "devDependencies": {
     "prettier": "^2.8.4",
-    "rimraf": "^4.1.2",
-    "solhint": "^3.4.0"
+    "rimraf": "^4.4.0",
+    "solhint": "^3.4.1"
   },
   "files": [
     "/src",
