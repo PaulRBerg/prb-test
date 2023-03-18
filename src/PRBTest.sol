@@ -63,6 +63,9 @@ contract PRBTest {
     /// @dev The maximum value available in the uint256 type.
     uint256 internal constant MAX_UINT256 = type(uint256).max;
 
+    /// @dev The minimum value available in the int256 type.
+    int256 internal constant MIN_INT256 = type(int256).min;
+
     /*//////////////////////////////////////////////////////////////////////////
                                     CHEATCODES
     //////////////////////////////////////////////////////////////////////////*/
