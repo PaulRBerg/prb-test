@@ -544,6 +544,14 @@ interface Vm is VmSafe {
 
     function expectRevert() external;
 
+    /// @dev Only allows memory writes to offsets [0x00, 0x60) ∪ [min, max) in the current subcontext. If any other
+    /// memory is written to, the test will fail. Can be called multiple times to add more ranges to the set.
+    function expectSafeMemory(uint64 min, uint64 max) external;
+    /// @dev Only allows memory writes to offsets [0x00, 0x60) ∪ [min, max) in the next created subcontext.
+    /// If any other memory is written to, the test will fail. Can be called multiple times to add more ranges
+    /// to the set.
+    function expectSafeMemoryCall(uint64 min, uint64 max) external;
+
     /// @dev Sets block.basefee.
     function fee(uint256 newBasefee) external;
 
@@ -568,6 +576,18 @@ interface Vm is VmSafe {
     /// @dev Mocks a call to an address with a specific msg.value, returning specified data.
     /// Calldata match takes precedence over msg.value in case of ambiguity.
     function mockCall(address callee, uint256 msgValue, bytes calldata data, bytes calldata returnData) external;
+
+    /// @dev Reverts a call to an address with specified revert data.
+    function mockCallRevert(address callee, bytes calldata data, bytes calldata revertData) external;
+
+    /// @dev Reverts a call to an address with a specific msg.value, with specified revert data.
+    function mockCallRevert(
+        address callee,
+        uint256 msgValue,
+        bytes calldata data,
+        bytes calldata revertData
+    )
+        external;
 
     /// @dev Sets the *next* call's msg.sender to be the input address.
     function prank(address msgSender) external;
@@ -640,6 +660,9 @@ interface Vm is VmSafe {
 
     /// @dev Fetches the given transaction from the given fork and executes it on the current state
     function transact(uint256 forkId, bytes32 txHash) external;
+
+    /// @dev Sets tx.gasprice.
+    function txGasPrice(uint256 newGasPrice) external;
 
     /// @dev Sets block.timestamp.
     function warp(uint256 timestamp) external;
