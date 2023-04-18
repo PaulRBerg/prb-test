@@ -262,6 +262,9 @@ interface VmSafe {
 
     function parseUint(string calldata value) external pure returns (uint256 parsedValue);
 
+    /// @dev Pauses gas metering (i.e. gas usage is not counted). No-op if already paused.
+    function pauseGasMetering() external;
+
     /// @dev Get the path of the current project root
     function projectRoot() external view returns (string memory path);
 
@@ -282,6 +285,9 @@ interface VmSafe {
 
     /// @dev Adds a private key to the local Forge wallet and returns the address.
     function rememberKey(uint256 privateKey) external returns (address keyAddr);
+
+    /// @dev Resumes gas metering (i.e. gas usage is counted again). No-op if already on.
+    function resumeGasMetering() external;
 
     //// @dev Returns the RPC url for the given alias.
     function rpcUrl(string calldata rpcAlias) external view returns (string memory json);
