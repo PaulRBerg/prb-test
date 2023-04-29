@@ -513,14 +513,34 @@ interface Vm is VmSafe {
     /// Calldata can be either a strict or a partial match.
     function expectCall(address callee, bytes calldata data) external;
 
+    /// @dev Expects given number of calls to an address with the specified calldata.
+    function expectCall(address callee, bytes calldata data, uint64 count) external;
+
     /// @dev Expects a call to an address with the specified msg.value and calldata.
     function expectCall(address callee, uint256 msgValue, bytes calldata data) external;
+
+    /// @dev Expects given number of calls to an address with the specified msg.value and calldata
+    function expectCall(address callee, uint256 msgValue, bytes calldata data, uint64 count) external;
 
     /// @dev Expects a call to an address with the specified msg.value, gas, and calldata.
     function expectCall(address callee, uint256 msgValue, uint64 gas, bytes calldata data) external;
 
+    /// @dev Expects given number of calls to an address with the specified msg.value, gas, and calldata.
+    function expectCall(address callee, uint256 msgValue, uint64 gas, bytes calldata data, uint64 count) external;
+
     /// @dev Expects a call to an address with the specified msg.value and calldata, and a *minimum* amount of gas.
     function expectCallMinGas(address callee, uint256 msgValue, uint64 minGas, bytes calldata data) external;
+
+    /// @dev Expect given number of calls to an address with the specified msg.value and calldata, and a *minimum*
+    /// amount of gas.
+    function expectCallMinGas(
+        address callee,
+        uint256 msgValue,
+        uint64 minGas,
+        bytes calldata data,
+        uint64 count
+    )
+        external;
 
     /// @dev Prepare an expected log with all four checks enabled.
     /// Call this function, then emit an event, then call a function. Internally after the call, we check if
