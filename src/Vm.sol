@@ -43,6 +43,12 @@ interface VmSafe {
     /// @dev If the condition is false, discard this run's fuzz inputs and generate new ones.
     function assume(bool condition) external pure;
 
+    /// @dev Writes a breakpoint to jump to in the debugger.
+    function breakpoint(string calldata char) external;
+
+    /// @dev Writes a conditional breakpoint to jump to in the debugger.
+    function breakpoint(string calldata char, bool value) external;
+
     /// @dev Using the address that calls the test contract, has the next call (at this call depth only) create a
     /// transaction that can later be signed and sent onchain.
     function broadcast() external;
