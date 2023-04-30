@@ -13,6 +13,14 @@ pragma solidity >=0.8.0 <0.9.0;
 /// @dev This interface can be safely used in scripts running on a live network, so for example you don't accidentally
 /// change the block timestamp and use a fake timestamp as a value somewhere.
 interface VmSafe {
+    struct DirEntry {
+        string errorMessage;
+        string path;
+        uint64 depth;
+        bool isDir;
+        bool isSymlink;
+    }
+
     struct FsMetadata {
         bool isDir;
         bool isSymlink;
@@ -61,8 +69,15 @@ interface VmSafe {
     /// the sender that can later be signed and sent onchain
     function broadcast(uint256 privateKey) external;
 
-    // Closes file for reading, resetting the offset and allowing to read it from beginning with readLine.
+    /// @dev Closes file for reading, resetting the offset and allowing to read it from beginning with readLine.
     function closeFile(string calldata path) external;
+
+    /// @dev Creates a new, empty directory at the provided path, which is relative ot the project root.
+    /// This cheatcode will revert in the following situations, but is not limited to just these cases:
+    ///   - User lacks permissions to modify `path`.
+    ///   - A parent of the given path doesn't exist and `recursive` is false.
+    ///   - `path` already exists and `recursive` is false.
+    function createDir(string calldata path, bool recursive) external;
 
     /// @dev Derive a private key from a provided mnenomic string (or mnenomic file path) at the derivation
     /// path m/44'/60'/0'/0/{index}
@@ -183,7 +198,7 @@ interface VmSafe {
     /// @dev Performs a foreign function call via the terminal.
     function ffi(string[] calldata commandInput) external returns (bytes memory result);
 
-    /// @dev Get the metadata for a file/directory.
+    /// @dev Given a path, query the file system to get information about a file, directory, etc.
     function fsMetadata(string calldata fileOrDir) external returns (FsMetadata memory metadata);
 
     /// @dev Gets the code from an artifact file. Takes in the relative path to the json file.
@@ -274,14 +289,39 @@ interface VmSafe {
     /// @dev Get the path of the current project root
     function projectRoot() external view returns (string memory path);
 
-    /// @dev Reads the entire content of file to string.
+    /// @dev Removes a directory at the provided path, which is relative to the project root.
+    /// This cheatcode will revert in the following situations, but is not limited to just these cases:
+    ///   - `path` doesn't exist.
+    ///   - `path` isn't a directory.
+    ///   - User lacks permissions to modify `path`.
+    ///   - The directory is not empty and `recursive` is false.
+    function removeDir(string calldata path, bool recursive) external;
+
+    ///  @dev Reads the directory at the given path recursively, up to `max_depth`.
+    /// `max_depth` defaults to 1, meaning only the direct children of the given directory will be returned.
+    /// Follows symbolic links if `follow_links` is true.
+    function readDir(string calldata path) external view returns (DirEntry[] memory entries);
+    function readDir(string calldata path, uint64 maxDepth) external view returns (DirEntry[] memory entries);
+    function readDir(
+        string calldata path,
+        uint64 maxDepth,
+        bool followLinks
+    )
+        external
+        view
+        returns (DirEntry[] memory entries);
+
+    /// @dev Reads the entire content of file to string. `path` is relative to the project root.
     function readFile(string calldata path) external view returns (string memory data);
 
-    /// @dev Reads the entire content of file as binary. Path is relative to the project root.
+    /// @dev Reads the entire content of file as binary. `path` is relative to the project root.
     function readFileBinary(string calldata path) external view returns (bytes memory data);
 
-    /// @dev Reads next line of file to string.
-    function readLine(string calldata path) external view returns (string memory line);
+    /// @dev Reads a symbolic link, returning the path that the link points to.
+    /// This cheatcode will revert in the following situations, but is not limited to just these cases:
+    ///   - `path` is not a symbolic link.
+    ///   - `path` does not exist.
+    function readLink(string calldata linkPath) external view returns (string memory targetPath);
 
     /// @dev Records all storage reads and writes.
     function record() external;
@@ -453,13 +493,14 @@ interface VmSafe {
     function toString(uint256 value) external pure returns (string memory stringifiedValue);
 
     /// @dev Writes data to file, creating a file if it does not exist, and entirely replacing its contents if it does.
+    /// `path` is relative to the project root
     function writeFile(string calldata path, string calldata data) external;
 
     /// @dev Writes binary data to a file, creating a file if it does not exist, and entirely replacing its contents if
-    /// it does. Path is relative to the project root.
+    /// it does. `path` is relative to the project root.
     function writeFileBinary(string calldata path, bytes calldata data) external;
 
-    /// @dev Writes line to file, creating a file if it does not exist.
+    /// @dev Writes line to file, creating a file if it does not exist. `path` is relative to the project root.
     function writeLine(string calldata path, string calldata data) external;
 
     /// @dev Write a serialized JSON object to a file. If the file exists, it will be overwritten.
@@ -627,11 +668,12 @@ interface Vm is VmSafe {
     /// @dev Sets the *next* call's msg.sender to be the input address, and the tx.origin to be the second input.
     function prank(address msgSender, address txOrigin) external;
 
-    /// @dev Removes file. This cheatcode will revert in the following situations, but is not limited to just
-    /// these cases:
-    ///   - Path points to a directory.
+    /// @dev Removes a file from the filesystem.
+    /// This cheatcode will revert in the following situations, but is not limited to just these cases:
+    ///   - `path` points to a directory.
     ///   - The file doesn't exist.
     ///   - The user lacks permissions to remove the file.
+    /// `path` is relative to the project root.
     function removeFile(string calldata path) external;
 
     /// @dev Revert the state of the evm to a previous snapshot.
