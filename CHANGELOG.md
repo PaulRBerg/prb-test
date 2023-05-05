@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Common Changelog](https://common-changelog.org/).
 
+[0.5.7]: https://github.com/PaulRBerg/prb-math/compare/v0.5.6...v0.5.7
 [0.5.6]: https://github.com/PaulRBerg/prb-math/compare/v0.5.5...v0.5.6
 [0.5.5]: https://github.com/PaulRBerg/prb-math/compare/v0.5.4...v0.5.5
 [0.5.4]: https://github.com/PaulRBerg/prb-math/compare/v0.5.3...v0.5.4
@@ -20,6 +21,13 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [0.1.2]: https://github.com/PaulRBerg/prb-math/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/PaulRBerg/prb-math/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/PaulRBerg/prb-test/releases/tag/v0.1.0
+
+## [0.5.7] - 2023-05-05
+
+### Added
+
+- Add breakpoint cheatcodes ([#27](https://github.com/PaulRBerg/prb-test/pull/27)) (@PaulRBerg)
+- Add and sync filesystem cheatcodes ([#28](https://github.com/PaulRBerg/prb-test/pull/28)) (@PaulRBerg)
 
 ## [0.5.6] - 2023-04-29
 
