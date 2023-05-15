@@ -70,11 +70,11 @@ contract PRBTest {
                                     CHEATCODES
     //////////////////////////////////////////////////////////////////////////*/
 
-    /// @dev The address of the HEVM contract.
-    address internal constant HEVM_ADDRESS = address(uint160(uint256(keccak256("hevm cheat code"))));
+    /// @dev The virtual address of the Foundry VM.
+    address internal constant VM_ADDRESS = address(uint160(uint256(keccak256("hevm cheat code"))));
 
-    /// @dev An instance of the HEVM.
-    Vm internal constant vm = Vm(HEVM_ADDRESS);
+    /// @dev An instance of the Foundry VM, which contains cheatcodes for testing.
+    Vm internal constant vm = Vm(VM_ADDRESS);
 
     /*//////////////////////////////////////////////////////////////////////////
                                 FAILURE SYSTEM
@@ -93,11 +93,9 @@ contract PRBTest {
         }
 
         // If there is HEVM context, load the global variable "failed".
-        if (HEVM_ADDRESS.code.length > 0) {
-            (, bytes memory returndata) = HEVM_ADDRESS.call(
-                abi.encodePacked(
-                    bytes4(keccak256("load(address,bytes32)")), abi.encode(HEVM_ADDRESS, bytes32("failed"))
-                )
+        if (VM_ADDRESS.code.length > 0) {
+            (, bytes memory returndata) = VM_ADDRESS.call(
+                abi.encodePacked(bytes4(keccak256("load(address,bytes32)")), abi.encode(VM_ADDRESS, bytes32("failed")))
             );
             bool globalFailed = abi.decode(returndata, (bool));
             return globalFailed;
@@ -111,15 +109,15 @@ contract PRBTest {
     /// assertions in one test function while also preserving emitted events.
     function fail() internal {
         // If there is no HEVM context, stop here.
-        if (HEVM_ADDRESS.code.length == 0) {
+        if (VM_ADDRESS.code.length == 0) {
             return;
         }
 
         // Store "0x01" at the "failed" storage slot on the HEVM contract.
-        (bool status,) = HEVM_ADDRESS.call(
+        (bool status,) = VM_ADDRESS.call(
             abi.encodePacked(
                 bytes4(keccak256("store(address,bytes32,bytes32)")),
-                abi.encode(HEVM_ADDRESS, bytes32("failed"), bytes32(uint256(0x01)))
+                abi.encode(VM_ADDRESS, bytes32("failed"), bytes32(uint256(0x01)))
             )
         );
 

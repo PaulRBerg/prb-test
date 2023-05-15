@@ -15,7 +15,7 @@ contract PRBTestMock is PRBTest {
     /// See https://github.com/dapphub/ds-test/pull/30.
     modifier expectFailure(bool expectFail) {
         // Load the previous state of the "failed" slot.
-        bool preFailed = vm.load(HEVM_ADDRESS, bytes32("failed")) == bytes32(uint256(0x01));
+        bool preFailed = vm.load(VM_ADDRESS, bytes32("failed")) == bytes32(uint256(0x01));
 
         // The body of the function using this modifier is inserted here.
         _;
@@ -26,14 +26,14 @@ contract PRBTestMock is PRBTest {
         }
 
         // Load the current state of the "failed" slot.
-        bool postFailed = vm.load(HEVM_ADDRESS, bytes32("failed")) == bytes32(uint256(0x01));
+        bool postFailed = vm.load(VM_ADDRESS, bytes32("failed")) == bytes32(uint256(0x01));
 
         // If the test expected the assertion to fail, then check if it did.
         if (expectFail) {
             require(postFailed, "expected failure not triggered");
 
             // Unwind the expected failure so that the test passes.
-            vm.store(HEVM_ADDRESS, bytes32("failed"), bytes32(0x00));
+            vm.store(VM_ADDRESS, bytes32("failed"), bytes32(0x00));
         } else {
             require(!postFailed, "unexpected failure was triggered");
         }
