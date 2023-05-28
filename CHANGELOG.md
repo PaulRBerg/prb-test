@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Common Changelog](https://common-changelog.org/).
 
+[0.6.0]: https://github.com/PaulRBerg/prb-test/compare/v0.5.7...v0.6.0
 [0.5.7]: https://github.com/PaulRBerg/prb-test/compare/v0.5.6...v0.5.7
 [0.5.6]: https://github.com/PaulRBerg/prb-test/compare/v0.5.5...v0.5.6
 [0.5.5]: https://github.com/PaulRBerg/prb-test/compare/v0.5.4...v0.5.5
@@ -21,6 +22,16 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [0.1.2]: https://github.com/PaulRBerg/prb-test/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/PaulRBerg/prb-test/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/PaulRBerg/prb-test/releases/tag/v0.1.0
+
+## [0.6.0] - 2023-05-28
+
+### Changed
+
+- Rename `HEVM_ADDRESS` to `VM_ADDRESS` (@PaulRBerg)
+
+### Added
+
+- Sync `Vm` with forge-std (@PaulRBerg)
 
 ## [0.5.7] - 2023-05-05
 
