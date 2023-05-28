@@ -207,6 +207,9 @@ interface VmSafe {
     /// @dev Gets the _deployed_ bytecode from an artifact file. Takes in the relative path to the json file.
     function getDeployedCode(string calldata artifactPath) external view returns (bytes memory runtimeBytecode);
 
+    /// @dev Gets the label for the specified address.
+    function getLabel(address account) external returns (string memory label);
+
     /// @dev Gets the nonce of an account.
     function getNonce(address account) external view returns (uint64 nonce);
 
@@ -551,6 +554,8 @@ interface Vm is VmSafe {
     function deal(address account, uint256 newBalance) external;
 
     /// @dev Sets block.difficulty
+    /// Not available on EVM versions from Paris onwards. Use `prevrandao` instead.
+    /// If used on unsupported EVM versions, it will revert.
     function difficulty(uint256 newDifficulty) external;
 
     /// @dev Sets an address' code.
@@ -668,6 +673,11 @@ interface Vm is VmSafe {
     /// @dev Sets the *next* call's msg.sender to be the input address, and the tx.origin to be the second input.
     function prank(address msgSender, address txOrigin) external;
 
+    /// @dev Sets block.prevrandao
+    /// Not available on EVM versions before Paris. Use `difficulty` instead.
+    /// If used on unsupported EVM versions, it will revert.
+    function prevrandao(bytes32 newPrevrandao) external;
+
     /// @dev Removes a file from the filesystem.
     /// This cheatcode will revert in the following situations, but is not limited to just these cases:
     ///   - `path` points to a directory.
@@ -675,6 +685,9 @@ interface Vm is VmSafe {
     ///   - The user lacks permissions to remove the file.
     /// `path` is relative to the project root.
     function removeFile(string calldata path) external;
+
+    /// @dev Resets the nonce of an account to 0 for EOAs and 1 for contract accounts.
+    function resetNonce(address account) external;
 
     /// @dev Revert the state of the evm to a previous snapshot.
     /// Takes the snapshot id to revert to.
@@ -710,6 +723,9 @@ interface Vm is VmSafe {
 
     /// @dev Sets the nonce of an account; must be higher than the current nonce of the account.
     function setNonce(address account, uint64 newNonce) external;
+
+    /// @dev Sets the nonce of an account to an arbitrary value.
+    function setNonceUnsafe(address account, uint64 newNonce) external;
 
     /// @dev Snapshot the current state of the EVM.
     /// Returns the id of the snapshot that was created.
