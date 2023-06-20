@@ -72,7 +72,7 @@ interface VmSafe {
     /// @dev Closes file for reading, resetting the offset and allowing to read it from beginning with readLine.
     function closeFile(string calldata path) external;
 
-    /// @dev Creates a new, empty directory at the provided path, which is relative ot the project root.
+    /// @dev Creates a new, empty directory at the provided path, which is relative to the project root.
     /// This cheatcode will revert in the following situations, but is not limited to just these cases:
     ///   - User lacks permissions to modify `path`.
     ///   - A parent of the given path doesn't exist and `recursive` is false.
