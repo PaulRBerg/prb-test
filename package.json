@@ -31,10 +31,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/PaulRBerg/prb-test"
-  },
+  "repository": "github:PaulRBerg/prb-test",
   "scripts": {
     "clean": "rm -rf cache out",
     "lint": "pnpm lint:sol && pnpm prettier:check",
