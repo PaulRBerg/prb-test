@@ -13,6 +13,14 @@ pragma solidity >=0.8.0 <0.9.0;
 /// @dev This interface can be safely used in scripts running on a live network, so for example you don't accidentally
 /// change the block timestamp and use a fake timestamp as a value somewhere.
 interface VmSafe {
+    enum CallerMode {
+        None,
+        Broadcast,
+        RecurrentBroadcast,
+        Prank,
+        RecurrentPrank
+    }
+
     struct DirEntry {
         string errorMessage;
         string path;
@@ -29,14 +37,6 @@ interface VmSafe {
         uint256 modified;
         uint256 accessed;
         uint256 created;
-    }
-
-    enum CallerMode {
-        None,
-        Broadcast,
-        RecurrentBroadcast,
-        Prank,
-        RecurrentPrank
     }
 
     struct Log {
@@ -569,9 +569,6 @@ interface Vm is VmSafe {
     /// @dev Sets an address' code.
     function etch(address target, bytes calldata newRuntimeBytecode) external;
 
-    // Marks a test as skipped. Must be called at the top of the test.
-    function skip(bool skipTest) external;
-
     /// @dev Expects a call to an address with the specified calldata.
     /// Calldata can be either a strict or a partial match.
     function expectCall(address callee, bytes calldata data) external;
@@ -689,6 +686,10 @@ interface Vm is VmSafe {
     /// If used on unsupported EVM versions, it will revert.
     function prevrandao(bytes32 newPrevrandao) external;
 
+    /// @dev Reads the current `msg.sender` and `tx.origin` from state and reports if there is any active caller
+    /// modification.
+    function readCallers() external returns (CallerMode callerMode, address msgSender, address txOrigin);
+
     /// @dev Removes a file from the filesystem.
     /// This cheatcode will revert in the following situations, but is not limited to just these cases:
     ///   - `path` points to a directory.
@@ -738,6 +739,9 @@ interface Vm is VmSafe {
     /// @dev Sets the nonce of an account to an arbitrary value.
     function setNonceUnsafe(address account, uint64 newNonce) external;
 
+    /// @dev Marks a test as skipped. Must be called at the top of the test.
+    function skip(bool skipTest) external;
+
     /// @dev Snapshot the current state of the EVM.
     /// Returns the id of the snapshot that was created.
     /// To revert a snapshot use `revertTo`.
@@ -752,9 +756,6 @@ interface Vm is VmSafe {
 
     /// @dev Resets subsequent calls' msg.sender to be `address(this)`.
     function stopPrank() external;
-
-    // Reads the current `msg.sender` and `tx.origin` from state and reports if there is any active caller modification
-    function readCallers() external returns (CallerMode callerMode, address msgSender, address txOrigin);
 
     /// @dev Stores a value to an address' storage slot.
     function store(address target, bytes32 slot, bytes32 value) external;
