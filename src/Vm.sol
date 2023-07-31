@@ -31,6 +31,14 @@ interface VmSafe {
         uint256 created;
     }
 
+    enum CallerMode {
+        None,
+        Broadcast,
+        RecurrentBroadcast,
+        Prank,
+        RecurrentPrank
+    }
+
     struct Log {
         bytes32[] topics;
         bytes data;
@@ -93,7 +101,7 @@ interface VmSafe {
         pure
         returns (uint256 privateKey);
 
-    /// @dev Reads environment variables
+    /// @dev Reads environment variables, (name) => (value)
     function envAddress(string calldata name) external view returns (address value);
 
     function envBool(string calldata name) external view returns (bool value);
@@ -561,6 +569,9 @@ interface Vm is VmSafe {
     /// @dev Sets an address' code.
     function etch(address target, bytes calldata newRuntimeBytecode) external;
 
+    // Marks a test as skipped. Must be called at the top of the test.
+    function skip(bool skipTest) external;
+
     /// @dev Expects a call to an address with the specified calldata.
     /// Calldata can be either a strict or a partial match.
     function expectCall(address callee, bytes calldata data) external;
@@ -741,6 +752,9 @@ interface Vm is VmSafe {
 
     /// @dev Resets subsequent calls' msg.sender to be `address(this)`.
     function stopPrank() external;
+
+    // Reads the current `msg.sender` and `tx.origin` from state and reports if there is any active caller modification
+    function readCallers() external returns (CallerMode callerMode, address msgSender, address txOrigin);
 
     /// @dev Stores a value to an address' storage slot.
     function store(address target, bytes32 slot, bytes32 value) external;
