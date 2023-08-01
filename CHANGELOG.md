@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Common Changelog](https://common-changelog.org/).
 
+[0.6.1]: https://github.com/PaulRBerg/prb-test/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/PaulRBerg/prb-test/compare/v0.5.7...v0.6.0
 [0.5.7]: https://github.com/PaulRBerg/prb-test/compare/v0.5.6...v0.5.7
 [0.5.6]: https://github.com/PaulRBerg/prb-test/compare/v0.5.5...v0.5.6
@@ -22,6 +23,14 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [0.1.2]: https://github.com/PaulRBerg/prb-test/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/PaulRBerg/prb-test/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/PaulRBerg/prb-test/releases/tag/v0.1.0
+
+## [0.6.1] - 2023-08-01
+
+### Added
+
+- Add `CallerMode` enum ([#31](https://github.com/PaulRBerg/prb-test/pull/31)) (@SensationalShubham)
+- Add `readCallers` cheat ([#31](https://github.com/PaulRBerg/prb-test/pull/31)) (@SensationalShubham)
+- Add `skip` cheat ([#31](https://github.com/PaulRBerg/prb-test/pull/31)) (@SensationalShubham)
 
 ## [0.6.0] - 2023-05-28
 
