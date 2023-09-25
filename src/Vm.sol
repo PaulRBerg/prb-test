@@ -29,6 +29,13 @@ interface VmSafe {
         bool isSymlink;
     }
 
+    struct FfiResult {
+        // solhint-disable-next-line var-name-mixedcase
+        int32 exit_code;
+        bytes stdout;
+        bytes stderr;
+    }
+
     struct FsMetadata {
         bool isDir;
         bool isSymlink;
@@ -48,6 +55,13 @@ interface VmSafe {
     struct Rpc {
         string key;
         string url;
+    }
+
+    struct Wallet {
+        address addr;
+        uint256 publicKeyX;
+        uint256 publicKeyY;
+        uint256 privateKey;
     }
 
     /// @dev Gets all accessed reads and write slot from a recording session, for a given address.
@@ -80,12 +94,28 @@ interface VmSafe {
     /// @dev Closes file for reading, resetting the offset and allowing to read it from beginning with readLine.
     function closeFile(string calldata path) external;
 
+    /// @dev Copies the contents of one file to another. This function will **overwrite** the contents of `to`.
+    /// On success, the total number of bytes copied is returned and it is equal to the length of the `to` file as
+    /// reported by `metadata`.
+    /// Both `from` and `to` are relative to the project root.
+    function copyFile(string calldata from, string calldata to) external returns (uint64 copied);
+
     /// @dev Creates a new, empty directory at the provided path, which is relative to the project root.
     /// This cheatcode will revert in the following situations, but is not limited to just these cases:
     ///   - User lacks permissions to modify `path`.
     ///   - A parent of the given path doesn't exist and `recursive` is false.
     ///   - `path` already exists and `recursive` is false.
     function createDir(string calldata path, bool recursive) external;
+
+    /// @dev Derives a private key from the name, labels the account with that name, and returns the wallet.
+
+    function createWallet(string calldata walletLabel) external returns (Wallet memory wallet);
+    /// @dev Generates a wallet from the private key and returns the wallet.
+
+    function createWallet(uint256 privateKey) external returns (Wallet memory wallet);
+
+    /// @dev Generates a wallet from the private key, labels the account with that name, and returns the wallet.
+    function createWallet(uint256 privateKey, string calldata walletLabel) external returns (Wallet memory wallet);
 
     /// @dev Derive a private key from a provided mnenomic string (or mnenomic file path) at the derivation
     /// path m/44'/60'/0'/0/{index}
@@ -203,6 +233,9 @@ interface VmSafe {
         external
         returns (bytes[] memory value);
 
+    /// @dev Returns true if the given path points to an existing entity, else returns false.
+    function exists(string calldata path) external returns (bool result);
+
     /// @dev Performs a foreign function call via the terminal.
     function ffi(string[] calldata commandInput) external returns (bytes memory result);
 
@@ -218,11 +251,38 @@ interface VmSafe {
     /// @dev Gets the label for the specified address.
     function getLabel(address account) external returns (string memory label);
 
+    /// @dev Gets the map key and parent of a mapping at a given slot, for a given address.
+    function getMappingKeyAndParentOf(
+        address target,
+        bytes32 elementSlot
+    )
+        external
+        returns (bool found, bytes32 key, bytes32 parent);
+
+    /// @dev Gets the number of elements in the mapping at the given slot, for a given address.
+    function getMappingLength(address target, bytes32 mappingSlot) external returns (uint256 length);
+
+    /// @dev Gets the elements at index idx of the mapping at the given slot, for a given address. The
+    /// index must be less than the length of the mapping (i.e. the number of keys in the mapping).
+    function getMappingSlotAt(address target, bytes32 mappingSlot, uint256 idx) external returns (bytes32 value);
+
     /// @dev Gets the nonce of an account.
     function getNonce(address account) external view returns (uint64 nonce);
 
+    /// @dev Get nonce for a Wallet.
+    function getNonce(Wallet calldata wallet) external returns (uint64 nonce);
+
     /// @dev Gets all the recorded logs.
     function getRecordedLogs() external returns (Log[] memory logs);
+
+    /// @dev Returns true if the path exists on disk and is pointing at a directory, else returns false.
+    function isDir(string calldata path) external returns (bool result);
+
+    /// @dev Returns true if the path exists on disk and is pointing at a regular file, else returns false.
+    function isFile(string calldata path) external returns (bool result);
+
+    /// @dev Checks if a key exists in a JSON or TOML object.
+    function keyExists(string calldata json, string calldata key) external view returns (bool);
 
     /// @dev Labels an address in call traces.
     function label(address account, string calldata newLabel) external;
@@ -241,7 +301,7 @@ interface VmSafe {
 
     function parseInt(string calldata stringifiedValue) external pure returns (int256 parsedValue);
 
-    /// In case the returned value is a JSON object, it's encoded as a ABI-encoded tuple. As JSON objects
+    /// @dev In case the returned value is a JSON object, it's encoded as a ABI-encoded tuple. As JSON objects
     /// don't have the notion of ordered, but tuples do, they JSON object is encoded with it's fields ordered in
     /// ALPHABETICAL order. That means that in order to successfully decode the tuple, we need to define a tuple that
     /// encodes the fields in the same order, which is alphabetical. In the case of Solidity structs, they are encoded
@@ -259,38 +319,53 @@ interface VmSafe {
 
     function parseJson(string calldata json, string calldata key) external pure returns (bytes memory abiEncodedData);
 
-    /// The following parseJson cheatcodes will do type coercion, for the type that they indicate.
+    /// @dev The following parseJson cheatcodes will do type coercion, for the type that they indicate.
     /// For example, parseJsonUint will coerce all values to a uint256. That includes stringified numbers "12"
     /// and hex numbers "0xEF".
     /// Type coercion works ONLY for discrete values or arrays. That means that the key must return a value or array,
     /// not a JSON object.
-    function parseJsonAddress(string calldata, string calldata) external returns (address);
+    function parseJsonAddress(string calldata json, string calldata key) external pure returns (address);
 
-    function parseJsonAddressArray(string calldata, string calldata) external returns (address[] memory);
+    function parseJsonAddressArray(
+        string calldata json,
+        string calldata key
+    )
+        external
+        pure
+        returns (address[] memory);
 
-    function parseJsonBytes(string calldata, string calldata) external returns (bytes memory);
+    function parseJsonBool(string calldata json, string calldata key) external pure returns (bool);
 
-    function parseJsonBytesArray(string calldata, string calldata) external returns (bytes[] memory);
+    function parseJsonBoolArray(string calldata json, string calldata key) external pure returns (bool[] memory);
 
-    function parseJsonBytes32(string calldata, string calldata) external returns (bytes32);
+    function parseJsonBytes(string calldata json, string calldata key) external pure returns (bytes memory);
 
-    function parseJsonBytes32Array(string calldata, string calldata) external returns (bytes32[] memory);
+    function parseJsonBytesArray(string calldata json, string calldata key) external pure returns (bytes[] memory);
 
-    function parseJsonInt(string calldata, string calldata) external returns (int256);
+    function parseJsonBytes32(string calldata json, string calldata key) external pure returns (bytes32);
 
-    function parseJsonIntArray(string calldata, string calldata) external returns (int256[] memory);
+    function parseJsonBytes32Array(
+        string calldata json,
+        string calldata key
+    )
+        external
+        pure
+        returns (bytes32[] memory);
 
-    function parseJsonBool(string calldata, string calldata) external returns (bool);
+    /// @dev Returns array of keys for a JSON object
+    function parseJsonKeys(string calldata json, string calldata key) external pure returns (string[] memory keys);
 
-    function parseJsonBoolArray(string calldata, string calldata) external returns (bool[] memory);
+    function parseJsonInt(string calldata json, string calldata key) external pure returns (int256);
 
-    function parseJsonString(string calldata, string calldata) external returns (string memory);
+    function parseJsonIntArray(string calldata json, string calldata key) external pure returns (int256[] memory);
 
-    function parseJsonStringArray(string calldata, string calldata) external returns (string[] memory);
+    function parseJsonString(string calldata json, string calldata key) external pure returns (string memory);
 
-    function parseJsonUint(string calldata, string calldata) external returns (uint256);
+    function parseJsonStringArray(string calldata json, string calldata key) external pure returns (string[] memory);
 
-    function parseJsonUintArray(string calldata, string calldata) external returns (uint256[] memory);
+    function parseJsonUint(string calldata json, string calldata key) external pure returns (uint256);
+
+    function parseJsonUintArray(string calldata json, string calldata key) external pure returns (uint256[] memory);
 
     function parseUint(string calldata value) external pure returns (uint256 parsedValue);
 
@@ -475,6 +550,12 @@ interface VmSafe {
     /// @dev Signs data.
     function sign(uint256 privateKey, bytes32 digest) external pure returns (uint8 v, bytes32 r, bytes32 s);
 
+    /// @dev Signs data, (Wallet, digest) => (v, r, s)
+    function sign(Wallet calldata wallet, bytes32 digest) external returns (uint8 v, bytes32 r, bytes32 s);
+
+    /// @dev Suspends execution of the main thread for `duration` milliseconds.
+    function sleep(uint256 duration) external;
+
     /// @dev Using the address that calls the test contract, has all subsequent calls (at this call depth only)
     /// create transactions that can later be signed and sent onchain.
     function startBroadcast() external;
@@ -490,6 +571,12 @@ interface VmSafe {
     /// @dev Stops collecting onchain transactions.
     function stopBroadcast() external;
 
+    /// @dev Starts recording all map SSTOREs for later retrieval.
+    function startMappingRecording() external;
+
+    /// @dev Stops recording all map SSTOREs for later retrieval and clears the recorded data.
+    function stopMappingRecording() external;
+
     /// Convert values to a string.
     function toString(address value) external pure returns (string memory stringifiedValue);
 
@@ -502,6 +589,9 @@ interface VmSafe {
     function toString(int256 value) external pure returns (string memory stringifiedValue);
 
     function toString(uint256 value) external pure returns (string memory stringifiedValue);
+
+    /// @dev Performs a foreign function call via terminal and returns the exit code, stdout, and stderr
+    function tryFfi(string[] calldata commandInput) external returns (FfiResult memory result);
 
     /// @dev Writes data to file, creating a file if it does not exist, and entirely replacing its contents if it does.
     /// `path` is relative to the project root
