@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Common Changelog](https://common-changelog.org/).
 
+[0.6.2]: https://github.com/PaulRBerg/prb-test/compare/v0.6.1...v0.6.2
 [0.6.1]: https://github.com/PaulRBerg/prb-test/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/PaulRBerg/prb-test/compare/v0.5.7...v0.6.0
 [0.5.7]: https://github.com/PaulRBerg/prb-test/compare/v0.5.6...v0.5.7
@@ -23,6 +24,12 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [0.1.2]: https://github.com/PaulRBerg/prb-test/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/PaulRBerg/prb-test/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/PaulRBerg/prb-test/releases/tag/v0.1.0
+
+## [0.6.2] - 2023-09-25
+
+### Added
+
+- Sync `Vm` with forge-std v1.6.1 (@PaulRBerg) ([#33](https://github.com/PaulRBerg/prb-test/pull/33))
 
 ## [0.6.1] - 2023-08-01
 
