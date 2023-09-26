@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Common Changelog](https://common-changelog.org/).
 
+[0.6.4]: https://github.com/PaulRBerg/prb-test/compare/v0.6.3...v0.6.4
 [0.6.3]: https://github.com/PaulRBerg/prb-test/compare/v0.6.2...v0.6.3
 [0.6.2]: https://github.com/PaulRBerg/prb-test/compare/v0.6.1...v0.6.2
 [0.6.1]: https://github.com/PaulRBerg/prb-test/compare/v0.6.0...v0.6.1
@@ -25,6 +26,12 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [0.1.2]: https://github.com/PaulRBerg/prb-test/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/PaulRBerg/prb-test/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/PaulRBerg/prb-test/releases/tag/v0.1.0
+
+## [0.6.4] - 2023-09-26
+
+### Added
+
+- Mark `activeFork` as `view` ([#35](https://github.com/PaulRBerg/prb-test/pull/35))
 
 ## [0.6.3] - 2023-09-26
 
