@@ -620,7 +620,7 @@ interface VmSafe {
 /// @dev This interface contains cheatcodes that are potentially unsafe on a live network.
 interface Vm is VmSafe {
     //// @dev Returns the identifier of the currently active fork. Reverts if no fork is currently active.
-    function activeFork() external returns (uint256 forkId);
+    function activeFork() external view returns (uint256 forkId);
 
     /// @dev In forking mode, explicitly grant the given address cheatcode access
     function allowCheatcodes(address account) external;
