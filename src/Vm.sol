@@ -430,84 +430,10 @@ interface VmSafe {
     /// @dev Returns all rpc urls and their aliases as structs.
     function rpcUrlStructs() external view returns (Rpc[] memory urls);
 
-    /// @dev Serializes a key and value to a JSON object stored in-memory that can be later written to a file.
-    /// It returns the stringified version of the specific JSON file up to that moment.
-    function serializeBool(
-        string calldata objectKey,
-        string calldata valueKey,
-        bool value
-    )
-        external
-        returns (string memory json);
-
-    function serializeUint(
-        string calldata objectKey,
-        string calldata valueKey,
-        uint256 value
-    )
-        external
-        returns (string memory json);
-
-    function serializeInt(
-        string calldata objectKey,
-        string calldata valueKey,
-        int256 value
-    )
-        external
-        returns (string memory json);
-
     function serializeAddress(
         string calldata objectKey,
         string calldata valueKey,
         address value
-    )
-        external
-        returns (string memory json);
-
-    function serializeBytes32(
-        string calldata objectKey,
-        string calldata valueKey,
-        bytes32 value
-    )
-        external
-        returns (string memory json);
-
-    function serializeString(
-        string calldata objectKey,
-        string calldata valueKey,
-        string calldata value
-    )
-        external
-        returns (string memory json);
-
-    function serializeBytes(
-        string calldata objectKey,
-        string calldata valueKey,
-        bytes calldata value
-    )
-        external
-        returns (string memory json);
-
-    function serializeBool(
-        string calldata objectKey,
-        string calldata valueKey,
-        bool[] calldata values
-    )
-        external
-        returns (string memory json);
-
-    function serializeUint(
-        string calldata objectKey,
-        string calldata valueKey,
-        uint256[] calldata values
-    )
-        external
-        returns (string memory json);
-
-    function serializeInt(
-        string calldata objectKey,
-        string calldata valueKey,
-        int256[] calldata values
     )
         external
         returns (string memory json);
@@ -520,10 +446,80 @@ interface VmSafe {
         external
         returns (string memory json);
 
+    /// @dev Serializes a key and value to a JSON object stored in-memory that can be later written to a file.
+    /// It returns the stringified version of the specific JSON file up to that moment.
+    function serializeBool(
+        string calldata objectKey,
+        string calldata valueKey,
+        bool value
+    )
+        external
+        returns (string memory json);
+
+    function serializeBool(
+        string calldata objectKey,
+        string calldata valueKey,
+        bool[] calldata values
+    )
+        external
+        returns (string memory json);
+
+    function serializeBytes(
+        string calldata objectKey,
+        string calldata valueKey,
+        bytes calldata value
+    )
+        external
+        returns (string memory json);
+
+    function serializeBytes(
+        string calldata objectKey,
+        string calldata valueKey,
+        bytes[] calldata values
+    )
+        external
+        returns (string memory json);
+
+    function serializeBytes32(
+        string calldata objectKey,
+        string calldata valueKey,
+        bytes32 value
+    )
+        external
+        returns (string memory json);
+
     function serializeBytes32(
         string calldata objectKey,
         string calldata valueKey,
         bytes32[] calldata values
+    )
+        external
+        returns (string memory json);
+
+    /// @dev Serialize a key and value to a JSON object stored in-memory that can be later written to a file
+    /// It returns the stringified version of the specific JSON file up to that moment.
+    function serializeJson(string calldata objectKey, string calldata value) external returns (string memory json);
+
+    function serializeInt(
+        string calldata objectKey,
+        string calldata valueKey,
+        int256 value
+    )
+        external
+        returns (string memory json);
+
+    function serializeInt(
+        string calldata objectKey,
+        string calldata valueKey,
+        int256[] calldata values
+    )
+        external
+        returns (string memory json);
+
+    function serializeString(
+        string calldata objectKey,
+        string calldata valueKey,
+        string calldata value
     )
         external
         returns (string memory json);
@@ -536,10 +532,18 @@ interface VmSafe {
         external
         returns (string memory json);
 
-    function serializeBytes(
+    function serializeUint(
         string calldata objectKey,
         string calldata valueKey,
-        bytes[] calldata values
+        uint256 value
+    )
+        external
+        returns (string memory json);
+
+    function serializeUint(
+        string calldata objectKey,
+        string calldata valueKey,
+        uint256[] calldata values
     )
         external
         returns (string memory json);
