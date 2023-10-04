@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Common Changelog](https://common-changelog.org/).
 
+[0.6.5]: https://github.com/PaulRBerg/prb-test/compare/v0.6.4...v0.6.5
 [0.6.4]: https://github.com/PaulRBerg/prb-test/compare/v0.6.3...v0.6.4
 [0.6.3]: https://github.com/PaulRBerg/prb-test/compare/v0.6.2...v0.6.3
 [0.6.2]: https://github.com/PaulRBerg/prb-test/compare/v0.6.1...v0.6.2
@@ -26,6 +27,12 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [0.1.2]: https://github.com/PaulRBerg/prb-test/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/PaulRBerg/prb-test/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/PaulRBerg/prb-test/releases/tag/v0.1.0
+
+## [0.6.5] - 2023-10-04
+
+### Changed
+
+- Rename `exit_code` to `exitCode` ([#37](https://github.com/PaulRBerg/prb-test/pull/37))
 
 ## [0.6.4] - 2023-09-26
 
