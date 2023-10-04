@@ -30,8 +30,7 @@ interface VmSafe {
     }
 
     struct FfiResult {
-        // solhint-disable-next-line var-name-mixedcase
-        int32 exit_code;
+        int32 exitCode;
         bytes stdout;
         bytes stderr;
     }
