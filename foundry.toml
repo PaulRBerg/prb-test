@@ -3,7 +3,6 @@
 [profile.default]
   auto_detect_solc = false
   evm_version = "paris"
-  libs = ["lib"]
   gas_reports = ["*"]
   optimizer = false
   out = "out"
