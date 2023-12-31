@@ -22,11 +22,34 @@ replacement for DSTest.
 
 ## Install
 
-### Foundry
+### Template
 
-First, run the install step:
+If you're starting a project from scratch, the easiest way to install PRBTest is to use my [Foundry
+template][my-foundry-template], since it comes pre-configured with PRBTest.
 
-```sh
+### Node.js
+
+This is the recommended approach.
+
+Install PRBTest using your favorite package manager, e.g., with Bun:
+
+```shell
+bun add @prb/test
+```
+
+Then, if you are using Foundry, you need to add this to your `remappings.txt` file:
+
+```text
+@prb/test/=node_modules/@prb/test/
+```
+
+### Git Submodules
+
+This installation method is not recommended, but it is available for those who prefer it.
+
+First, install the submodule using Forge:
+
+```shell
 forge install --no-commit PaulRBerg/prb-test@release-v0
 ```
 
@@ -42,21 +65,8 @@ Your `.gitmodules` file should now contain the following entry:
 Finally, add this to your `remappings.txt` file:
 
 ```text
-@prb/test/=lib/prb-test/src/
+@prb/test/=lib/prb-test/
 ```
-
-### Node.js
-
-```sh
-pnpm add @prb/test
-# or
-npm install @prb/test
-```
-
-### Template
-
-If you're starting a project from scratch, the easiest way to install PRBTest is to use my [Foundry
-template][my-foundry-template], since it comes pre-configured with PRBTest.
 
 ## Usage
 
