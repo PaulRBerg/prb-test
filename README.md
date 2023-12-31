@@ -187,8 +187,8 @@ For more details about this, see this discussion [here](https://github.com/dapph
 
 ## Contributing
 
-Feel free to dive in! [Open](https://github.com/paulrberb/prb-test/issues/new) an issue,
-[start](https://github.com/paulrberb/prb-test/discussions/new) a discussion or submit a PR.
+Feel free to dive in! [Open](https://github.com/PaulRBerg/prb-test/issues/new) an issue,
+[start](https://github.com/PaulRBerg/prb-test/discussions/new) a discussion or submit a PR.
 
 ### Pre Requisites
 
@@ -197,7 +197,7 @@ You will need the following software on your machine:
 - [Git](https://git-scm.com/downloads)
 - [Foundry](https://github.com/foundry-rs/foundry)
 - [Node.Js](https://nodejs.org/en/download/)
-- [Pnpm](https://pnpm.io)
+- [Bun](https://bun.sh)
 
 In addition, familiarity with [Solidity](https://soliditylang.org/) is requisite.
 
@@ -212,7 +212,7 @@ $ git clone --recurse-submodules -j8 git@github.com:PaulRBerg/prb-test.git
 Then, inside the project's directory, run this to install the Node.js dependencies:
 
 ```sh
-$ pnpm install
+$ bun install
 ```
 
 Now you can start making changes.
