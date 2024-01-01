@@ -248,7 +248,7 @@ interface VmSafe {
     function getDeployedCode(string calldata artifactPath) external view returns (bytes memory runtimeBytecode);
 
     /// @dev Gets the label for the specified address.
-    function getLabel(address account) external returns (string memory label);
+    function getLabel(address account) external returns (string memory label_);
 
     /// @dev Gets the map key and parent of a mapping at a given slot, for a given address.
     function getMappingKeyAndParentOf(
