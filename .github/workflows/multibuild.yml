@@ -17,3 +17,4 @@ jobs:
         with:
           min: "0.8.0"
           max: "0.8.23"
+          skip-test: "false"
