@@ -6,12 +6,12 @@
     "compiler-version": ["error", ">=0.8.0"],
     "contract-name-camelcase": "off",
     "const-name-snakecase": "off",
-    "constructor-syntax": "error",
+    "custom-errors": "off",
     "func-name-mixedcase": "off",
     "func-visibility": ["error", { "ignoreConstructors": true }],
     "max-line-length": ["error", 120],
     "named-parameters-mapping": "warn",
     "no-console": "off",
-    "no-global-import": "off"
+    "one-contract-per-file": "off"
   }
 }
