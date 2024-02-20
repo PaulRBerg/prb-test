@@ -40,7 +40,7 @@ bun add @prb/test
 Then, if you are using Foundry, you need to add this to your `remappings.txt` file:
 
 ```text
-@prb/test/=node_modules/@prb/test/
+@prb/test/=node_modules/@prb/test/src/
 ```
 
 ### Git Submodules
