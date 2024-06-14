@@ -120,37 +120,35 @@ contract AssertNotEq_Test is PRBTest_Test {
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function test_AssertNotEq_Bytes_Fail(uint256 e0, uint256 e1) external {
-        vm.assume(e0 == e1);
+    function test_AssertNotEq_Bytes_Fail(uint256 e0) external {
         bytes memory a = abi.encode(e0);
-        bytes memory b = abi.encode(e1);
+        bytes memory b = abi.encode(e0);
 
         vm.expectEmit();
         emit Log("Error: a != b not satisfied [bytes]");
         prbTest._assertNotEq(a, b, EXPECT_FAIL);
     }
 
-    function test_AssertNotEq_Bytes_Err_Fail(uint256 e0, uint256 e1) external {
-        vm.assume(e0 == e1);
+    function test_AssertNotEq_Bytes_Err_Fail(uint256 e0) external {
         bytes memory a = abi.encode(e0);
-        bytes memory b = abi.encode(e1);
+        bytes memory b = abi.encode(e0);
 
         vm.expectEmit();
         emit LogNamedString("Error", ERR);
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function test_AssertNotEq_Bytes_Err_Pass(uint256 e1) external {
-        vm.assume(e1 != 0);
+    function test_AssertNotEq_Bytes_Err_Pass(uint256 e0) external {
+        vm.assume(e0 != 0);
         bytes memory a = new bytes(32);
-        bytes memory b = abi.encode(e1);
+        bytes memory b = abi.encode(e0);
         prbTest._assertNotEq(a, b, ERR, EXPECT_PASS);
     }
 
-    function test_AssertNotEq_Bytes_Pass(uint256 e1) external {
-        vm.assume(e1 != 0);
+    function test_AssertNotEq_Bytes_Pass(uint256 e0) external {
+        vm.assume(e0 != 0);
         bytes memory a = new bytes(32);
-        bytes memory b = abi.encode(e1);
+        bytes memory b = abi.encode(e0);
         prbTest._assertNotEq(a, b, EXPECT_PASS);
     }
 
@@ -588,19 +586,19 @@ contract AssertNotEq_Test is PRBTest_Test {
         prbTest._assertNotEq(a, b, ERR, EXPECT_FAIL);
     }
 
-    function test_AssertNotEq_Uint256Array_Err_Pass(uint256 e1) external {
-        vm.assume(e1 != 0);
+    function test_AssertNotEq_Uint256Array_Err_Pass(uint256 e0) external {
+        vm.assume(e0 != 0);
         uint256[] memory a = new uint256[](3);
         uint256[] memory b = new uint256[](3);
-        b[1] = e1;
+        b[1] = e0;
         prbTest._assertNotEq(a, b, ERR, EXPECT_PASS);
     }
 
-    function test_AssertNotEq_Uint256Array_Pass(uint256 e1) external {
-        vm.assume(e1 != 0);
+    function test_AssertNotEq_Uint256Array_Pass(uint256 e0) external {
+        vm.assume(e0 != 0);
         uint256[] memory a = new uint256[](3);
         uint256[] memory b = new uint256[](3);
-        b[1] = e1;
+        b[1] = e0;
         prbTest._assertNotEq(a, b, EXPECT_PASS);
     }
 }

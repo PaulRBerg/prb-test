@@ -12,7 +12,7 @@
   verbosity = 2
 
 [profile.default.fuzz]
-  max_test_rejects = 150_000 # Number of times `vm.assume` can fail
+  max_test_rejects = 100_000 # Number of times `vm.assume` can fail
   runs = 100
 
 [profile.lite.fuzz]

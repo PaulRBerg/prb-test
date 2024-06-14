@@ -583,12 +583,12 @@ contract AssertEq_Test is PRBTest_Test {
         prbTest._assertEq(a, b, EXPECT_PASS);
     }
 
-    function test_AssertEq_Uint256Array_FailElements(uint256 e1) external {
-        vm.assume(e1 != 0);
+    function test_AssertEq_Uint256Array_FailElements(uint256 e0) external {
+        vm.assume(e0 != 0);
 
         uint256[] memory a = new uint256[](3);
         uint256[] memory b = new uint256[](3);
-        b[1] = e1;
+        b[1] = e0;
 
         vm.expectEmit();
         emit Log("Error: a == b not satisfied [uint256[]]");
@@ -608,12 +608,12 @@ contract AssertEq_Test is PRBTest_Test {
         prbTest._assertEq(a, b, EXPECT_FAIL);
     }
 
-    function test_AssertEq_Uint256Array_Err_FailElements(uint256 e1) external {
-        vm.assume(e1 != 0);
+    function test_AssertEq_Uint256Array_Err_FailElements(uint256 e0) external {
+        vm.assume(e0 != 0);
 
         uint256[] memory a = new uint256[](3);
         uint256[] memory b = new uint256[](3);
-        b[1] = e1;
+        b[1] = e0;
 
         vm.expectEmit();
         emit LogNamedString("Error", ERR);
