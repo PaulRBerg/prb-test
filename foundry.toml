@@ -2,7 +2,7 @@
 
 [profile.default]
   auto_detect_solc = false
-  evm_version = "paris"
+  evm_version = "shanghai"
   gas_reports = ["*"]
   optimizer = false
   out = "out"
