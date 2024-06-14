@@ -16,5 +16,5 @@ jobs:
         uses: "PaulRBerg/foundry-multibuild@v1"
         with:
           min: "0.8.0"
-          max: "0.8.23"
+          max: "0.8.26"
           skip-test: "false"

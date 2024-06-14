@@ -6,7 +6,7 @@
   gas_reports = ["*"]
   optimizer = false
   out = "out"
-  solc = "0.8.23"
+  solc = "0.8.26"
   src = "src"
   test = "test"
   verbosity = 2
