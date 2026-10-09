@@ -325,13 +325,7 @@ interface VmSafe {
     /// not a JSON object.
     function parseJsonAddress(string calldata json, string calldata key) external pure returns (address);
 
-    function parseJsonAddressArray(
-        string calldata json,
-        string calldata key
-    )
-        external
-        pure
-        returns (address[] memory);
+    function parseJsonAddressArray(string calldata json, string calldata key) external pure returns (address[] memory);
 
     function parseJsonBool(string calldata json, string calldata key) external pure returns (bool);
 
@@ -343,13 +337,7 @@ interface VmSafe {
 
     function parseJsonBytes32(string calldata json, string calldata key) external pure returns (bytes32);
 
-    function parseJsonBytes32Array(
-        string calldata json,
-        string calldata key
-    )
-        external
-        pure
-        returns (bytes32[] memory);
+    function parseJsonBytes32Array(string calldata json, string calldata key) external pure returns (bytes32[] memory);
 
     /// @dev Returns array of keys for a JSON object
     function parseJsonKeys(string calldata json, string calldata key) external pure returns (string[] memory keys);
@@ -707,14 +695,7 @@ interface Vm is VmSafe {
     /// logs were emitted in the expected order with the expected topics and data (as specified by the booleans).
     /// Second form also checks supplied address against emitting contract.
     function expectEmit(bool checkTopic1, bool checkTopic2, bool checkTopic3, bool checkData) external;
-    function expectEmit(
-        bool checkTopic1,
-        bool checkTopic2,
-        bool checkTopic3,
-        bool checkData,
-        address emitter
-    )
-        external;
+    function expectEmit(bool checkTopic1, bool checkTopic2, bool checkTopic3, bool checkData, address emitter) external;
 
     /// @dev Expects an error on next call.
     function expectRevert(bytes calldata revertData) external;
@@ -760,13 +741,7 @@ interface Vm is VmSafe {
     function mockCallRevert(address callee, bytes calldata data, bytes calldata revertData) external;
 
     /// @dev Reverts a call to an address with a specific msg.value, with specified revert data.
-    function mockCallRevert(
-        address callee,
-        uint256 msgValue,
-        bytes calldata data,
-        bytes calldata revertData
-    )
-        external;
+    function mockCallRevert(address callee, uint256 msgValue, bytes calldata data, bytes calldata revertData) external;
 
     /// @dev Sets the *next* call's msg.sender to be the input address.
     function prank(address msgSender) external;

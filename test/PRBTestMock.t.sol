@@ -247,15 +247,7 @@ contract PRBTestMock is PRBTest {
         assertNotEq(a, b);
     }
 
-    function _assertNotEq(
-        address a,
-        address b,
-        string memory err,
-        bool expectFail
-    )
-        external
-        expectFailure(expectFail)
-    {
+    function _assertNotEq(address a, address b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b, err);
     }
 
@@ -319,15 +311,7 @@ contract PRBTestMock is PRBTest {
         assertNotEq(a, b);
     }
 
-    function _assertNotEq(
-        bytes32 a,
-        bytes32 b,
-        string memory err,
-        bool expectFail
-    )
-        external
-        expectFailure(expectFail)
-    {
+    function _assertNotEq(bytes32 a, bytes32 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b, err);
     }
 
@@ -407,15 +391,7 @@ contract PRBTestMock is PRBTest {
         assertNotEq(a, b);
     }
 
-    function _assertNotEq(
-        uint256 a,
-        uint256 b,
-        string memory err,
-        bool expectFail
-    )
-        external
-        expectFailure(expectFail)
-    {
+    function _assertNotEq(uint256 a, uint256 b, string memory err, bool expectFail) external expectFailure(expectFail) {
         assertNotEq(a, b, err);
     }
 
@@ -439,15 +415,7 @@ contract PRBTestMock is PRBTest {
                                 APPROXIMATE ASSERTIONS
     //////////////////////////////////////////////////////////////////////////*/
 
-    function _assertAlmostEq(
-        int256 a,
-        int256 b,
-        uint256 maxDelta,
-        bool expectFail
-    )
-        external
-        expectFailure(expectFail)
-    {
+    function _assertAlmostEq(int256 a, int256 b, uint256 maxDelta, bool expectFail) external expectFailure(expectFail) {
         assertAlmostEq(a, b, maxDelta);
     }
 
